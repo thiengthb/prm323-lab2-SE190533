@@ -1,4 +1,6 @@
-# Mục tiêu sản phẩm và phạm vi (nháp, chờ thien duyệt)
+# Mục tiêu sản phẩm và phạm vi
+
+> Mục tiêu một câu đã được thien duyệt ngày 17/10/2026 (cổng GĐ 0).
 
 ## Mục tiêu một câu
 
