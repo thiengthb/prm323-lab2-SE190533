@@ -17,8 +17,8 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Mục tiêu sản phẩm, phạm vi, giả định | [research/00-brief.md](research/00-brief.md) | Mục tiêu đã duyệt 17/10 |
 | Phiếu phỏng vấn sinh viên | [research/01-phieu-phong-van-sv.md](research/01-phieu-phong-van-sv.md) | Sẵn sàng dùng |
 | Ma trận bằng chứng | [research/02-evidence-matrix.md](research/02-evidence-matrix.md) | Đang làm |
-| Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | Chưa bắt đầu |
-| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | Chưa bắt đầu |
+| Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | Nháp v0.1 (P-01, P-02) |
+| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | Nháp v0.1 |
 | Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | Chưa bắt đầu |
 | Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | Chưa bắt đầu |
 | Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | Chưa bắt đầu |
