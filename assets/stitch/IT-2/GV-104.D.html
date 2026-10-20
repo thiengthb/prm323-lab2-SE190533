@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#FAFAFA",
+        surface: "#FFFFFF",
+        border: "#E4E4E7",
+        primary: "#18181B",
+        "primary-foreground": "#FAFAFA",
+        "muted-foreground": "#71717A",
+        "card-foreground": "#09090B",
+        "secondary-foreground": "#52525B",
+        "status-amber": "#B45309",
+        "status-amber-bg": "#FFFBEB",
+        "status-red": "#B91C1C",
+        "status-red-bg": "#FEF2F2"
+      },
+      borderRadius: {
+        'card': '16px',
+        'btn': '12px'
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      }
+    }
+  }
+};</script><style>
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    color: #09090B;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    overscroll-behavior-y: none;
+    min-height: max(884px, 100dvh);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+</style></head><body class="bg-[#FAFAFA] flex flex-col min-h-screen text-[#09090B]"><!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E4E4E7]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><button aria-label="Quay lại" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-full text-[#18181B] hover:bg-[#F4F4F5] active:bg-[#E4E4E7] transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-[18px] font-semibold text-[#09090B]">Cần chú ý</h1></div></div></header><main class="flex-1 flex flex-col relative w-full px-4 pt-16 pb-safe bg-[#FAFAFA]"><div class="flex flex-col w-full pt-2"><div class="flex flex-col gap-6"><section class="flex flex-col gap-3"><div class="flex items-center justify-between px-1"><div class="flex items-center gap-2"><h2 class="text-[14px] font-semibold text-[#09090B]">Đã chạm ngưỡng</h2><span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-[#FEF2F2] text-[#B91C1C] text-[14px] font-medium border border-[#FECACA]">2 sinh viên</span></div></div><div class="flex flex-col gap-3"><div class="bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3.5 flex-1 min-w-0"><img class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV-FXMSbeBTODDEzoabPDGRlWPCNQgF7_i2sRkvWMdjoLVTkySVm8glJN9SWPew42rOmrbC3IQODvNjK5y-xQ7WlKFc6uNoaViGY7co8qqX5MmMGiYlovUNVph7d-ae-1YDKw1Nj35kdYtJHsAEBCRdbJmwskq6q_LqFHZtEOvV1t2mxcut-nJKHrGwHN5dZjG0WI6tIylG_XtRHubQOhbXzkEBqJGXIPq7CZGwCV-tBTdHtgSYdwr"/><div class="flex flex-col flex-1 min-w-0"><h3 class="text-[16px] font-semibold text-[#09090B] leading-snug">Trần Minh Đức</h3><span class="text-[14px] text-[#71717A] font-medium mt-0.5">PRM393 - SE1801 · SE170456</span><div class="mt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>Đã chạm ngưỡng</span></div></div></div><div class="flex items-center gap-2 shrink-0 pt-0.5"><div class="text-right"><div class="flex items-baseline justify-end gap-1"><span class="text-[32px] font-semibold text-[#B91C1C] leading-none">4/4</span></div><span class="text-[14px] text-[#71717A] font-medium block text-right mt-1">buổi vắng</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[20px] shrink-0">chevron_right</span></div></div></div><div class="bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3.5 flex-1 min-w-0"><img class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdMwAib3iWgw3IoWVPH4c7YSdE69ZDQwbzPS8tZlsQ9Am9Gf9sU9IpvcTHgKZp8UWKTM9fBvlspPFMxi8Lb2dVPZnXzjTl5fsC8F0fnd54NY3LdR4zx_MwSrEV59VOTet04CQbYQwX5O24dUyXREoWG66TmOuMvh1drCXPvh5GX-fNJJRlkfjm8x76aSZGRmDpD2YqF4Pjobk1WNI45r7TkSit0_uM2273hqOvYKpLHtdicO8OSM-"/><div class="flex flex-col flex-1 min-w-0"><h3 class="text-[16px] font-semibold text-[#09090B] leading-snug">Vũ Đức Thịnh</h3><span class="text-[14px] text-[#71717A] font-medium mt-0.5">SWP391 - SE1802 · SE161092</span><div class="mt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>Đã chạm ngưỡng</span></div></div></div><div class="flex items-center gap-2 shrink-0 pt-0.5"><div class="text-right"><div class="flex items-baseline justify-end gap-1"><span class="text-[32px] font-semibold text-[#B91C1C] leading-none">4/4</span></div><span class="text-[14px] text-[#71717A] font-medium block text-right mt-1">buổi vắng</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[20px] shrink-0">chevron_right</span></div></div></div></div></section><section class="flex flex-col gap-3"><div class="flex items-center justify-between px-1"><div class="flex items-center gap-2"><h2 class="text-[14px] font-semibold text-[#09090B]">Sắp chạm ngưỡng</h2><span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-[#FFFBEB] text-[#B45309] text-[14px] font-medium border border-[#FDE68A]">3 sinh viên</span></div></div><div class="flex flex-col gap-3"><div class="bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3.5 flex-1 min-w-0"><div class="w-10 h-10 rounded-full bg-[#F4F4F5] border border-[#E4E4E7] text-[#18181B] text-[14px] font-semibold flex items-center justify-center shrink-0">HL</div><div class="flex flex-col flex-1 min-w-0"><h3 class="text-[16px] font-semibold text-[#09090B] leading-snug">Nguyễn Hoàng Long</h3><span class="text-[14px] text-[#71717A] font-medium mt-0.5">PRM393 - SE1801 · SE170123</span><div class="mt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>Sắp chạm ngưỡng</span></div></div></div><div class="flex items-center gap-2 shrink-0 pt-0.5"><div class="text-right"><div class="flex items-baseline justify-end gap-1"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span></div><span class="text-[14px] text-[#71717A] font-medium block text-right mt-1">buổi vắng</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[20px] shrink-0">chevron_right</span></div></div></div><div class="bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3.5 flex-1 min-w-0"><img class="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-hr-hoysZDgK4fsXvqyfw7Cpb2dHurZu6s5gDBmRF5WkAVEU5_vOPct-n249jZ5-gJQ5dMU3l0g08GNDLUqbL9_cIQbaAQ2eRo-k-UvmM0z3HraNehJ7Ef-_FvGxnQoZvFtDI1HJJn9Aaj6KzmXDikPaZf8_pgJGUWh9c_hymy-TiGgCA5dMsy9NXiwaKDUyce2pZd4gO7X_P7Fdad2heU722TsL8Rsw5Sc1eF0i9muAcg9ak_Pil"/><div class="flex flex-col flex-1 min-w-0"><h3 class="text-[16px] font-semibold text-[#09090B] leading-snug">Lê Quỳnh Anh</h3><span class="text-[14px] text-[#71717A] font-medium mt-0.5">PRM393 - SE1801 · SE170889</span><div class="mt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>Sắp chạm ngưỡng</span></div></div></div><div class="flex items-center gap-2 shrink-0 pt-0.5"><div class="text-right"><div class="flex items-baseline justify-end gap-1"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span></div><span class="text-[14px] text-[#71717A] font-medium block text-right mt-1">buổi vắng</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[20px] shrink-0">chevron_right</span></div></div></div><div class="bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3.5 flex-1 min-w-0"><div class="w-10 h-10 rounded-full bg-[#F4F4F5] border border-[#E4E4E7] text-[#18181B] text-[14px] font-semibold flex items-center justify-center shrink-0">HY</div><div class="flex flex-col flex-1 min-w-0"><h3 class="text-[16px] font-semibold text-[#09090B] leading-snug">Hoàng Hải Yến</h3><span class="text-[14px] text-[#71717A] font-medium mt-0.5">PRN211 - IA1701 · IA170105</span><div class="mt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>Sắp chạm ngưỡng</span></div></div></div><div class="flex items-center gap-2 shrink-0 pt-0.5"><div class="text-right"><div class="flex items-baseline justify-end gap-1"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span></div><span class="text-[14px] text-[#71717A] font-medium block text-right mt-1">buổi vắng</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[20px] shrink-0">chevron_right</span></div></div></div></div></section></div></div><!-- Sticky Bottom Action Anchor -->
+<!-- Export Feedback Toast notification -->
+<script>
+  function filterStudents(category) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-[#18181B]', 'text-[#FAFAFA]');
+      btn.classList.add('bg-[#FFFFFF]', 'border', 'border-[#E4E4E7]', 'text-[#52525B]');
+      const badge = btn.querySelector('span:last-child');
+      if (badge) {
+        badge.classList.remove('bg-white/20');
+        badge.classList.add('bg-[#F4F4F5]', 'text-[#52525B]');
+      }
+    });
+
+    const activeBtn = document.getElementById('filter-' + category);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-[#FFFFFF]', 'border', 'border-[#E4E4E7]', 'text-[#52525B]');
+      activeBtn.classList.add('bg-[#18181B]', 'text-[#FAFAFA]');
+      const activeBadge = activeBtn.querySelector('span:last-child');
+      if (activeBadge) {
+        activeBadge.classList.remove('bg-[#F4F4F5]', 'text-[#52525B]');
+        activeBadge.classList.add('bg-white/20');
+      }
+    }
+
+    const items = document.querySelectorAll('.student-item');
+    let visibleCount = 0;
+    items.forEach(item => {
+      const itemCat = item.getAttribute('data-category');
+      if (category === 'all' || itemCat === category) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const emptyState = document.getElementById('empty-state');
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+
+  function handleExportReport() {
+    const toast = document.getElementById('export-toast');
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 2500);
+  }
+</script></main></body></html>

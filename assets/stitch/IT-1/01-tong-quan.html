@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          background: "#FAFAFA",
+          surface: "#FAFAFA",
+          card: "#FFFFFF",
+          border: "#E4E4E7",
+          "primary-btn": "#18181B",
+          "primary-text": "#18181B",
+          "secondary-text": "#52525B",
+          muted: "#71717A"
+        },
+        borderRadius: {
+          card: "16px",
+          btn: "12px"
+        },
+        fontFamily: {
+          sans: ["Inter", "sans-serif"]
+        }
+      }
+    }
+  };
+</script><style>
+  @layer base {
+    html, body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #FAFAFA;
+      color: #18181B;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      overscroll-behavior-y: none;
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .pt-safe {
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    min-height: max(884px, 100dvh);
+  }
+</style></head><body class="bg-[#FAFAFA] flex flex-col min-h-screen text-[#18181B]">
+<!-- 2. APP BAR: Only "Tổng quan" and Lucide Bell icon (#18181B), no logo, no avatar -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E4E4E7]"><div class="h-14 px-5 flex items-center justify-between"><h1 class="text-[20px] font-semibold text-[#18181B] tracking-tight">Tổng quan</h1><button aria-label="Thông báo" class="w-12 h-12 flex items-center justify-center rounded-full text-[#18181B] hover:bg-[#F4F4F5] active:bg-[#E4E4E7] transition-colors"><svg class="w-6 h-6" fill="none" stroke="#18181B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg></button></div></header><main class="flex-1 flex flex-col relative w-full px-5 pt-16 pb-24 bg-[#FAFAFA]"><div class="flex flex-col w-full pb-6 space-y-4">
+<!-- 1. Top date header -->
+<div class="flex items-center justify-between pt-2"><div><h2 class="text-[22px] leading-[28px] font-semibold text-[#18181B] tracking-tight">Thứ Ba, 24/10</h2><p class="text-[14px] text-[#52525B]">Học kỳ Fall 2024</p></div><div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E4E4E7] text-[#18181B]"><svg class="w-[18px] h-[18px] text-[#18181B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="m9 16 2 2 4-4"></path></svg><span class="text-[14px] font-medium text-[#18181B]">4 slot</span></div></div>
+<!-- 2. Warning Card: White (#FFFFFF), 2px amber border (#B45309), NO filled yellow background -->
+<div class="bg-[#FFFFFF] border-2 border-[#B45309] rounded-[16px] p-4 flex flex-col gap-3 shadow-sm" role="alert"><div class="flex items-start justify-between gap-2"><div><h3 class="text-[16px] font-semibold text-[#18181B]">Slot 1 chưa chốt</h3><p class="text-[14px] text-[#52525B] mt-0.5">07:00–09:15 • PRM393 • SE1801</p></div><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#FFFBEB] text-[#B45309]">Quá hạn</span></div><button class="w-full h-12 min-h-[48px] rounded-[12px] bg-[#FFFFFF] border border-[#E4E4E7] text-[#18181B] text-[14px] font-medium hover:bg-[#F4F4F5] active:bg-[#E4E4E7] transition-colors flex items-center justify-center gap-2" type="button"><svg class="w-5 h-5 text-[#18181B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><polyline points="18 8 10 16 6 12"></polyline></svg>
+      Chốt ngay
+    </button></div>
+<!-- 3. Live Slot Hero Card: #FFFFFF, 1px border #E4E4E7, radius 16px -->
+<div class="bg-[#FFFFFF] border border-[#E4E4E7] rounded-[16px] p-4 flex flex-col gap-4 shadow-sm"><div class="flex items-center justify-between"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F0FDF4] text-[#15803D]"><span class="w-2 h-2 rounded-full bg-[#15803D]"></span><span class="text-[14px] font-medium">Đang diễn ra</span></div><div class="flex items-center gap-1.5 text-[#52525B] text-[14px]"><svg class="w-4 h-4 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>35 sinh viên</span></div></div><div><div class="text-[32px] leading-[38px] font-semibold text-[#18181B] tracking-tight">09:30 – 11:45</div><div class="flex items-center gap-2 mt-1.5 flex-wrap"><span class="text-[16px] font-semibold text-[#18181B]">PRM393</span><span class="text-[#71717A]">•</span><span class="text-[15px] font-medium text-[#52525B]">Lớp SE1801</span><span class="px-2.5 py-0.5 rounded-md bg-[#F4F4F5] border border-[#E4E4E7] text-[14px] font-medium text-[#18181B] ml-auto">P.305</span></div></div><!-- Primary Button: #18181B background with #FAFAFA text, radius 12px --><button class="w-full h-12 min-h-[48px] rounded-[12px] bg-[#18181B] text-[#FAFAFA] hover:bg-[#27272A] active:bg-[#09090B] transition-colors text-[14px] font-medium flex items-center justify-center gap-2 shadow-sm" type="button"><svg class="w-5 h-5 text-[#FAFAFA]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+      Mở điểm danh
+    </button></div>
+<!-- 4. Section 'Cần chú ý' -->
+<div class="flex flex-col gap-2.5"><div class="flex items-center justify-between px-0.5"><h3 class="text-[18px] font-semibold text-[#18181B]">Cần chú ý</h3><a class="h-12 min-h-[48px] px-2 flex items-center text-[14px] font-medium text-[#18181B] hover:underline" href="#">
+        Xem tất cả
+      </a></div><div class="bg-[#FFFFFF] border border-[#E4E4E7] rounded-[16px] overflow-hidden shadow-sm divide-y divide-[#E4E4E7]">
+<!-- Student row 1: status chip on its own line -->
+<div class="p-4 flex flex-col gap-2 hover:bg-[#FAFAFA] transition-colors"><div class="flex flex-col"><span class="text-[16px] font-semibold text-[#18181B]">Nguyễn Hoàng Long</span><p class="text-[14px] text-[#52525B] mt-0.5">SE170123 • <span class="font-medium text-[#B45309]">3/4 buổi vắng</span></p></div><div><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#FFFBEB] text-[#B45309]">
+            Sắp chạm ngưỡng
+          </span></div></div>
+<!-- Student row 2: status chip on its own line -->
+<div class="p-4 flex flex-col gap-2 hover:bg-[#FAFAFA] transition-colors"><div class="flex flex-col"><span class="text-[16px] font-semibold text-[#18181B]">Trần Minh Đức</span><p class="text-[14px] text-[#52525B] mt-0.5">SE170456 • <span class="font-medium text-[#B91C1C]">4/4 buổi vắng</span></p></div><div><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#FEF2F2] text-[#B91C1C]">
+            Đã chạm ngưỡng
+          </span></div></div>
+<!-- Student row 3: status chip on its own line -->
+<div class="p-4 flex flex-col gap-2 hover:bg-[#FAFAFA] transition-colors"><div class="flex flex-col"><span class="text-[16px] font-semibold text-[#18181B]">Lê Quỳnh Anh</span><p class="text-[14px] text-[#52525B] mt-0.5">SE170889 • <span class="font-medium text-[#B45309]">3/4 buổi vắng</span></p></div><div><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#FFFBEB] text-[#B45309]">
+            Sắp chạm ngưỡng
+          </span></div></div></div></div>
+<!-- 5. Section 'Slot hôm nay' -->
+<div class="flex flex-col gap-2.5"><div class="flex items-center justify-between px-0.5"><h3 class="text-[18px] font-semibold text-[#18181B]">Slot hôm nay</h3><span class="text-[14px] text-[#52525B]">2 slot tiếp</span></div><div class="bg-[#FFFFFF] border border-[#E4E4E7] rounded-[16px] overflow-hidden shadow-sm divide-y divide-[#E4E4E7]">
+<!-- Upcoming Slot 1 -->
+<div class="p-4 flex items-center justify-between gap-3 hover:bg-[#FAFAFA] transition-colors"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-[12px] bg-[#F4F4F5] flex items-center justify-center shrink-0 text-[#18181B]"><svg class="w-5 h-5 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div class="min-w-0"><div class="text-[16px] font-semibold text-[#18181B]">12:30 – 14:45</div><div class="flex items-center gap-1.5 text-[14px] text-[#52525B] mt-0.5 flex-wrap"><span class="font-medium text-[#18181B]">SWP391</span><span>•</span><span>SE1802</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-[#F4F4F5] text-[#18181B] font-medium text-[14px]">P.402</span></div></div></div><span class="shrink-0 px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#F4F4F5] text-[#52525B]">
+          Chưa bắt đầu
+        </span></div>
+<!-- Upcoming Slot 2 -->
+<div class="p-4 flex items-center justify-between gap-3 hover:bg-[#FAFAFA] transition-colors"><div class="flex items-center gap-3 min-w-0"><div class="w-10 h-10 rounded-[12px] bg-[#F4F4F5] flex items-center justify-center shrink-0 text-[#18181B]"><svg class="w-5 h-5 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div class="min-w-0"><div class="text-[16px] font-semibold text-[#18181B]">15:00 – 17:15</div><div class="flex items-center gap-1.5 text-[14px] text-[#52525B] mt-0.5 flex-wrap"><span class="font-medium text-[#18181B]">PRN211</span><span>•</span><span>IA1701</span><span>•</span><span class="px-1.5 py-0.5 rounded bg-[#F4F4F5] text-[#18181B] font-medium text-[14px]">P.201</span></div></div></div><span class="shrink-0 px-2.5 py-1 rounded-full text-[14px] font-medium bg-[#F4F4F5] text-[#52525B]">
+          Chưa bắt đầu
+        </span></div></div></div></div></main>
+<!-- 5. Bottom nav tabs: Lucide icons 24px, 2px stroke, selected pill background #F4F4F5, text #18181B -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#FAFAFA]/95 backdrop-blur-md border-t border-[#E4E4E7]"><div class="h-16 flex items-center justify-around px-2">
+<!-- Selected tab: Tổng quan -->
+<a aria-current="page" class="flex-1 min-w-[48px] min-h-[48px] flex flex-col items-center justify-center" data-path="tong-quan" href="#"><div class="flex flex-col items-center justify-center px-4 py-1 rounded-full bg-[#F4F4F5]"><svg class="w-6 h-6 text-[#18181B]" fill="none" stroke="#18181B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="7" width="7" x="3" y="3"></rect><rect height="7" width="7" x="14" y="3"></rect><rect height="7" width="7" x="14" y="14"></rect><rect height="7" width="7" x="3" y="14"></rect></svg><span class="text-[14px] font-semibold text-[#18181B] mt-0.5">Tổng quan</span></div></a>
+<!-- Lịch -->
+<a class="flex-1 min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-[#52525B] hover:text-[#18181B] transition-colors" data-path="lich-day" href="#"><svg class="w-6 h-6 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span class="text-[14px] font-medium mt-0.5">Lịch</span></a>
+<!-- Lớp -->
+<a class="flex-1 min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-[#52525B] hover:text-[#18181B] transition-colors" data-path="danh-sach-lop" href="#"><svg class="w-6 h-6 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="text-[14px] font-medium mt-0.5">Lớp</span></a>
+<!-- Tài khoản -->
+<a class="flex-1 min-w-[48px] min-h-[48px] flex flex-col items-center justify-center text-[#52525B] hover:text-[#18181B] transition-colors" data-path="tai-khoan" href="#"><svg class="w-6 h-6 text-[#52525B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="text-[14px] font-medium mt-0.5">Tài khoản</span></a></div></nav></body></html>

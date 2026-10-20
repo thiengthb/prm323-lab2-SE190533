@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#FAFAFA",
+        surface: "#FFFFFF",
+        border: "#E4E4E7",
+        primary: "#18181B",
+        "primary-foreground": "#FAFAFA",
+        "on-surface": "#18181B",
+        "secondary-text": "#52525B"
+      },
+      borderRadius: {
+        "card": "16px",
+        "btn": "12px"
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#FAFAFA;color:#18181B;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}body{min-height:max(884px,100dvh);}</style>
+</head><body class="bg-[#FAFAFA] flex flex-col min-h-screen text-[#18181B]"><header class="fixed top-0 w-full z-50 pt-safe bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E4E4E7]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2 min-w-0"><button aria-label="Quay lại" class="w-10 h-10 -ml-2 flex items-center justify-center rounded-full text-[#18181B] hover:bg-[#F4F4F5] active:bg-[#E4E4E7] transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-[18px] font-semibold text-[#18181B] tracking-tight">Chi tiết slot</h1></div></div></header><main class="flex-1 flex flex-col relative w-full px-4 pt-14 pb-safe bg-[#FAFAFA]"><div class="flex flex-col w-full pb-24">
+<!-- Student Identity Card -->
+<section class="bg-surface-container-lowest rounded-xl p-5 shadow-sm mt-3">
+<div class="flex items-center gap-4">
+<div class="relative w-14 h-14 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Studio portrait photograph of an Asian male university student in his early twenties named Tran Minh Long. He wears clean modern collegiate clothing with soft natural indoor daylight against an off-white architectural background, warm and focused expression, 35mm portrait lens aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj6y0kIWLdcht-FJXLNA2Tb3CrXiBrwxBxfm8lsSIlwbNtGjzrhdczJ7Cgg4gzADYzf69SbhQDFfk900W6pfdncttYh2p40aQeiql02aGg8ypw17oKzvR7LQ-qVPl0FkUYuVEQ8SFqy7MEtFMwccWaLpyLAWKhSAEF_LmV69dn2gFWOKbpsanZlA_DKYcgVajnHQS-fRV3uJQFg2NSyjbsFttt8vLvtZDeUVqdseCacJvPFUyCOx0G"/>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight truncate">
+          Trần Minh Long
+        </h2>
+<p class="font-body-default text-body-default text-secondary tracking-tight mt-0.5">
+          SE190155 · PRM393 · SE1801
+        </p>
+</div>
+</div>
+</section>
+<!-- Absence Warning Metric Card -->
+<section class="bg-surface-container-lowest rounded-xl p-5 shadow-sm mt-4">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-2">
+<span class="font-metric-num text-metric-num text-[#B45309]">
+          3/4
+        </span>
+<span class="font-body-medium text-body-medium text-secondary">
+          buổi vắng
+        </span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFBEB] text-[#B45309]">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-label-default text-label-default">
+          Sắp chạm ngưỡng
+        </span>
+</div>
+</div>
+<!-- Micro Visual Quota Progress Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-4 flex">
+<div class="bg-[#B45309] h-full w-3/4 rounded-full transition-all duration-500"></div>
+</div>
+</section>
+<!-- Absent Sessions Section -->
+<section class="mt-6 flex flex-col">
+<div class="flex items-center justify-between px-1 mb-3">
+<h3 class="font-title-sm text-title-sm text-on-surface">
+        Buổi đã vắng
+      </h3>
+<span class="font-label-default text-label-default text-secondary">
+        3 buổi
+      </span>
+</div>
+<!-- Session List Container -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col">
+<!-- Session 1 -->
+<div class="p-4 flex items-center justify-between transition-colors active:bg-surface-container-low">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface">12/10/2024</span>
+<span class="font-body-default text-body-default text-secondary mt-0.5">Slot 2 · 09:30–11:45</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-md bg-[#FEF2F2] text-[#B91C1C] flex-shrink-0">
+<span class="font-label-default text-label-default">Không phép</span>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high mx-4"></div>
+<!-- Session 2 -->
+<div class="p-4 flex items-center justify-between transition-colors active:bg-surface-container-low">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface">19/10/2024</span>
+<span class="font-body-default text-body-default text-secondary mt-0.5">Slot 2 · 09:30–11:45</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-md bg-[#FEF2F2] text-[#B91C1C] flex-shrink-0">
+<span class="font-label-default text-label-default">Không phép</span>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high mx-4"></div>
+<!-- Session 3 -->
+<div class="p-4 flex items-center justify-between transition-colors active:bg-surface-container-low">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface">22/10/2024</span>
+<span class="font-body-default text-body-default text-secondary mt-0.5">Slot 2 · 09:30–11:45</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-md bg-surface-container text-secondary flex-shrink-0">
+<span class="font-label-default text-label-default">Có phép</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky / Fixed Bottom Action -->
+<div class="fixed bottom-0 left-0 right-0 p-4 pb-safe bg-surface/90 backdrop-blur-md shadow-lg z-40">
+<div class="max-w-md mx-auto w-full">
+<button class="w-full h-12 bg-primary text-on-primary rounded-xl font-body-medium text-body-medium flex items-center justify-center gap-2 active:bg-inverse-surface transition-all shadow-sm" id="btn-remind" onclick="triggerRemindFeedback()">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span>Nhắc sinh viên</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function triggerRemindFeedback() {
+    const btn = document.getElementById('btn-remind');
+    if (!btn) return;
+    
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = `
+      <span class="material-symbols-outlined text-[20px] text-on-primary">check_circle</span>
+      <span class="font-body-medium text-body-medium">Đã gửi nhắc nhở</span>
+    `;
+    btn.classList.add('opacity-90');
+    
+    setTimeout(() => {
+      btn.innerHTML = originalContent;
+      btn.classList.remove('opacity-90');
+    }, 2200);
+  }
+</script></main></body></html>

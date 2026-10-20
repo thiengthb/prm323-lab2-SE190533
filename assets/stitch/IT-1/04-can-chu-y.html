@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#FAFAFA",
+        surface: "#FFFFFF",
+        border: "#E4E4E7",
+        primary: "#18181B",
+        "primary-foreground": "#FAFAFA",
+        "muted-foreground": "#71717A",
+        "card-foreground": "#09090B",
+        "secondary-foreground": "#52525B",
+        "status-amber": "#B45309",
+        "status-amber-bg": "#FFFBEB",
+        "status-red": "#B91C1C",
+        "status-red-bg": "#FEF2F2"
+      },
+      borderRadius: {
+        'card': '16px',
+        'btn': '12px'
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      }
+    }
+  }
+};</script><style>
+@layer base {
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    color: #09090B;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    overscroll-behavior-y: none;
+    min-height: max(884px, 100dvh);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+</style></head><body class="bg-[#FAFAFA] flex flex-col min-h-screen text-[#09090B]"><!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E4E4E7]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><button aria-label="Quay lại" class="w-10 h-10 -ml-1 flex items-center justify-center rounded-full text-[#18181B] hover:bg-[#F4F4F5] active:bg-[#E4E4E7] transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="text-[18px] font-semibold text-[#09090B]">Cần chú ý</h1></div></div></header><main class="flex-1 flex flex-col relative w-full px-4 pt-16 pb-safe bg-[#FAFAFA]"><div class="flex flex-col w-full pb-32 pt-2"><!-- Sub-header bar with Title, Badge, and Contextual Info -->
+<div class="flex items-center justify-between py-2 mb-3"><div class="flex items-center gap-2.5"><span class="text-[20px] font-semibold text-[#09090B]">Cần chú ý</span><span class="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-[#FEF2F2] text-[#B91C1C] text-[14px] font-medium border border-[#FEE2E2]">5 sinh viên</span></div><span class="text-[14px] text-[#71717A] flex items-center gap-1 font-medium"><span class="material-symbols-outlined text-[18px] text-[#71717A]">info</span>
+      Mức trần 20%
+    </span></div><!-- Filter Pills Bar -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 mb-4 no-scrollbar"><button class="filter-btn active flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#18181B] text-[#FAFAFA] text-[14px] font-medium transition-all whitespace-nowrap" id="filter-all" onclick="filterStudents('all')"><span>Tất cả</span><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/20 text-[14px] font-semibold">5</span></button><button class="filter-btn flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FFFFFF] border border-[#E4E4E7] text-[#52525B] text-[14px] font-medium transition-all whitespace-nowrap hover:bg-[#F4F4F5]" id="filter-warning" onclick="filterStudents('warning')"><span>Sắp cấm thi</span><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#F4F4F5] text-[#52525B] text-[14px] font-semibold">3</span></button><button class="filter-btn flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FFFFFF] border border-[#E4E4E7] text-[#52525B] text-[14px] font-medium transition-all whitespace-nowrap hover:bg-[#F4F4F5]" id="filter-banned" onclick="filterStudents('banned')"><span>Đã cấm thi</span><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#F4F4F5] text-[#52525B] text-[14px] font-semibold">2</span></button></div><!-- Student Cards List -->
+<div class="flex flex-col gap-3.5" id="student-list"><!-- Student 1: Trần Minh Đức -->
+<div class="student-item bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer" data-category="banned"><div class="flex items-start gap-3.5 mb-3"><img class="w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV-FXMSbeBTODDEzoabPDGRlWPCNQgF7_i2sRkvWMdjoLVTkySVm8glJN9SWPew42rOmrbC3IQODvNjK5y-xQ7WlKFc6uNoaViGY7co8qqX5MmMGiYlovUNVph7d-ae-1YDKw1Nj35kdYtJHsAEBCRdbJmwskq6q_LqFHZtEOvV1t2mxcut-nJKHrGwHN5dZjG0WI6tIylG_XtRHubQOhbXzkEBqJGXIPq7CZGwCV-tBTdHtgSYdwr"/><div class="flex flex-col min-w-0 flex-1"><h3 class="text-[16px] font-semibold text-[#09090B] truncate">Trần Minh Đức</h3><span class="text-[14px] text-[#71717A] font-medium truncate">SE170456</span></div></div><!-- Status chip on its own line --><div class="mb-3"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+          Đã chạm ngưỡng
+        </span></div><div class="flex items-end justify-between pt-1 border-t border-[#F4F4F5]"><div class="flex items-center"><span class="px-3 py-1.5 rounded-lg bg-[#F4F4F5] text-[#18181B] text-[14px] font-medium">PRM393 - SE1801</span></div><div class="flex items-center gap-2"><div class="text-right"><div class="flex items-baseline justify-end gap-1.5"><span class="text-[32px] font-semibold text-[#B91C1C] leading-none">4/4</span><span class="text-[14px] font-medium text-[#71717A]">buổi vắng</span></div><span class="text-[14px] text-[#B91C1C] font-medium block text-right mt-0.5">100% giới hạn</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[22px] shrink-0">chevron_right</span></div></div></div><!-- Student 2: Vũ Đức Thịnh -->
+<div class="student-item bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer" data-category="banned"><div class="flex items-start gap-3.5 mb-3"><img class="w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdMwAib3iWgw3IoWVPH4c7YSdE69ZDQwbzPS8tZlsQ9Am9Gf9sU9IpvcTHgKZp8UWKTM9fBvlspPFMxi8Lb2dVPZnXzjTl5fsC8F0fnd54NY3LdR4zx_MwSrEV59VOTet04CQbYQwX5O24dUyXREoWG66TmOuMvh1drCXPvh5GX-fNJJRlkfjm8x76aSZGRmDpD2YqF4Pjobk1WNI45r7TkSit0_uM2273hqOvYKpLHtdicO8OSM-"/><div class="flex flex-col min-w-0 flex-1"><h3 class="text-[16px] font-semibold text-[#09090B] truncate">Vũ Đức Thịnh</h3><span class="text-[14px] text-[#71717A] font-medium truncate">SE161092</span></div></div><!-- Status chip on its own line --><div class="mb-3"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+          Đã chạm ngưỡng
+        </span></div><div class="flex items-end justify-between pt-1 border-t border-[#F4F4F5]"><div class="flex items-center"><span class="px-3 py-1.5 rounded-lg bg-[#F4F4F5] text-[#18181B] text-[14px] font-medium">SWP391 - SE1802</span></div><div class="flex items-center gap-2"><div class="text-right"><div class="flex items-baseline justify-end gap-1.5"><span class="text-[32px] font-semibold text-[#B91C1C] leading-none">4/4</span><span class="text-[14px] font-medium text-[#71717A]">buổi vắng</span></div><span class="text-[14px] text-[#B91C1C] font-medium block text-right mt-0.5">100% giới hạn</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[22px] shrink-0">chevron_right</span></div></div></div><!-- Student 3: Nguyễn Hoàng Long -->
+<div class="student-item bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer" data-category="warning"><div class="flex items-start gap-3.5 mb-3"><div class="w-12 h-12 rounded-full bg-[#F4F4F5] border border-[#E4E4E7] text-[#18181B] text-[16px] font-semibold flex items-center justify-center shrink-0">
+          HL
+        </div><div class="flex flex-col min-w-0 flex-1"><h3 class="text-[16px] font-semibold text-[#09090B] truncate">Nguyễn Hoàng Long</h3><span class="text-[14px] text-[#71717A] font-medium truncate">SE170123</span></div></div><!-- Status chip on its own line --><div class="mb-3"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+          Sắp chạm ngưỡng
+        </span></div><div class="flex items-end justify-between pt-1 border-t border-[#F4F4F5]"><div class="flex items-center"><span class="px-3 py-1.5 rounded-lg bg-[#F4F4F5] text-[#18181B] text-[14px] font-medium">PRM393 - SE1801</span></div><div class="flex items-center gap-2"><div class="text-right"><div class="flex items-baseline justify-end gap-1.5"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span><span class="text-[14px] font-medium text-[#71717A]">buổi vắng</span></div><span class="text-[14px] text-[#B45309] font-medium block text-right mt-0.5">Còn 1 buổi</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[22px] shrink-0">chevron_right</span></div></div></div><!-- Student 4: Lê Quỳnh Anh -->
+<div class="student-item bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer" data-category="warning"><div class="flex items-start gap-3.5 mb-3"><img class="w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-[#E4E4E7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-hr-hoysZDgK4fsXvqyfw7Cpb2dHurZu6s5gDBmRF5WkAVEU5_vOPct-n249jZ5-gJQ5dMU3l0g08GNDLUqbL9_cIQbaAQ2eRo-k-UvmM0z3HraNehJ7Ef-_FvGxnQoZvFtDI1HJJn9Aaj6KzmXDikPaZf8_pgJGUWh9c_hymy-TiGgCA5dMsy9NXiwaKDUyce2pZd4gO7X_P7Fdad2heU722TsL8Rsw5Sc1eF0i9muAcg9ak_Pil"/><div class="flex flex-col min-w-0 flex-1"><h3 class="text-[16px] font-semibold text-[#09090B] truncate">Lê Quỳnh Anh</h3><span class="text-[14px] text-[#71717A] font-medium truncate">SE170889</span></div></div><!-- Status chip on its own line --><div class="mb-3"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+          Sắp chạm ngưỡng
+        </span></div><div class="flex items-end justify-between pt-1 border-t border-[#F4F4F5]"><div class="flex items-center"><span class="px-3 py-1.5 rounded-lg bg-[#F4F4F5] text-[#18181B] text-[14px] font-medium">PRM393 - SE1801</span></div><div class="flex items-center gap-2"><div class="text-right"><div class="flex items-baseline justify-end gap-1.5"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span><span class="text-[14px] font-medium text-[#71717A]">buổi vắng</span></div><span class="text-[14px] text-[#B45309] font-medium block text-right mt-0.5">Còn 1 buổi</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[22px] shrink-0">chevron_right</span></div></div></div><!-- Student 5: Hoàng Hải Yến -->
+<div class="student-item bg-[#FFFFFF] rounded-[16px] border border-[#E4E4E7] p-4 shadow-sm hover:border-[#D4D4D8] transition-all cursor-pointer" data-category="warning"><div class="flex items-start gap-3.5 mb-3"><div class="w-12 h-12 rounded-full bg-[#F4F4F5] border border-[#E4E4E7] text-[#18181B] text-[16px] font-semibold flex items-center justify-center shrink-0">
+          HY
+        </div><div class="flex flex-col min-w-0 flex-1"><h3 class="text-[16px] font-semibold text-[#09090B] truncate">Hoàng Hải Yến</h3><span class="text-[14px] text-[#71717A] font-medium truncate">IA170105</span></div></div><!-- Status chip on its own line --><div class="mb-3"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] text-[14px] font-medium"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+          Sắp chạm ngưỡng
+        </span></div><div class="flex items-end justify-between pt-1 border-t border-[#F4F4F5]"><div class="flex items-center"><span class="px-3 py-1.5 rounded-lg bg-[#F4F4F5] text-[#18181B] text-[14px] font-medium">PRN211 - IA1701</span></div><div class="flex items-center gap-2"><div class="text-right"><div class="flex items-baseline justify-end gap-1.5"><span class="text-[32px] font-semibold text-[#B45309] leading-none">3/4</span><span class="text-[14px] font-medium text-[#71717A]">buổi vắng</span></div><span class="text-[14px] text-[#B45309] font-medium block text-right mt-0.5">Còn 1 buổi</span></div><span class="material-symbols-outlined text-[#A1A1AA] text-[22px] shrink-0">chevron_right</span></div></div></div></div><!-- Empty state fallback when filtering -->
+<div class="hidden flex-col items-center justify-center py-12 px-4 text-center" id="empty-state"><div class="w-16 h-16 rounded-full bg-[#F4F4F5] flex items-center justify-center mb-3 text-[#71717A]"><span class="material-symbols-outlined text-[32px]">checklist_rtl</span></div><p class="text-[16px] font-semibold text-[#09090B] mb-1">Không có sinh viên nào</p></div></div><!-- Sticky Bottom Action Anchor -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-[#FAFAFA]/90 backdrop-blur-md border-t border-[#E4E4E7] pb-safe z-40"><div class="max-w-md mx-auto"><button class="w-full h-12 rounded-[12px] bg-[#18181B] text-[#FAFAFA] font-medium text-[16px] flex items-center justify-center gap-2 shadow-sm hover:bg-[#27272A] active:bg-[#09090B] transition-all" onclick="handleExportReport()"><span class="material-symbols-outlined text-[20px]">download</span>
+        Xuất báo cáo
+      </button></div></div><!-- Export Feedback Toast notification -->
+<div class="fixed top-16 left-1/2 -translate-x-1/2 bg-[#18181B] text-[#FAFAFA] px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 z-50 opacity-0 pointer-events-none transition-all duration-300" id="export-toast"><span class="material-symbols-outlined text-[#10B981] text-[20px]">check_circle</span><span class="text-[14px] font-medium">Đã xuất báo cáo thành công</span></div><script>
+  function filterStudents(category) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-[#18181B]', 'text-[#FAFAFA]');
+      btn.classList.add('bg-[#FFFFFF]', 'border', 'border-[#E4E4E7]', 'text-[#52525B]');
+      const badge = btn.querySelector('span:last-child');
+      if (badge) {
+        badge.classList.remove('bg-white/20');
+        badge.classList.add('bg-[#F4F4F5]', 'text-[#52525B]');
+      }
+    });
+
+    const activeBtn = document.getElementById('filter-' + category);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-[#FFFFFF]', 'border', 'border-[#E4E4E7]', 'text-[#52525B]');
+      activeBtn.classList.add('bg-[#18181B]', 'text-[#FAFAFA]');
+      const activeBadge = activeBtn.querySelector('span:last-child');
+      if (activeBadge) {
+        activeBadge.classList.remove('bg-[#F4F4F5]', 'text-[#52525B]');
+        activeBadge.classList.add('bg-white/20');
+      }
+    }
+
+    const items = document.querySelectorAll('.student-item');
+    let visibleCount = 0;
+    items.forEach(item => {
+      const itemCat = item.getAttribute('data-category');
+      if (category === 'all' || itemCat === category) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const emptyState = document.getElementById('empty-state');
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+
+  function handleExportReport() {
+    const toast = document.getElementById('export-toast');
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 2500);
+  }
+</script></main></body></html>
