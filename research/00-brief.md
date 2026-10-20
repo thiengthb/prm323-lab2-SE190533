@@ -31,7 +31,7 @@
 
 | # | Giả định | Vì sao cần |
 |---|---|---|
-| A1 | App đọc và ghi cùng dữ liệu với FAP (lịch, lớp, danh sách sinh viên, kết quả điểm danh) | Bài lab không code; tránh câu hỏi “dữ liệu ở đâu ra” |
+| A1 | Lớp, lịch, danh sách sinh viên được nhập từ dữ liệu FAP lúc dùng lần đầu (GV-100); kết quả điểm danh ghi về cùng dữ liệu đó | thien chốt 20/10 (E-12); bài lab không code nên không mô tả cách kết nối |
 | A2 | Sinh viên điểm danh bằng cách quét mã QR giảng viên hiện trên điện thoại hoặc máy chiếu | GVHD-01 nói sinh viên quét mã trên web |
 | A3 | Ngưỡng vắng mặc định 20% số buổi của môn; mỗi môn có thể khác | Desk v1: quy chế để ngưỡng trong đề cương môn |
 | A4 | Giảng viên sửa được điểm danh trong ngày có slot | Desk v1, một nguồn |

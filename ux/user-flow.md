@@ -1,6 +1,6 @@
 # Kiến trúc thông tin và user flow
 
-> **Trạng thái:** nháp v0.1 (17/10/2026), chờ thien duyệt cùng [persona](persona.md). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
+> **Trạng thái:** v0.2 (20/10/2026). “Setup” là bước nhập lớp và lịch từ FAP lúc dùng lần đầu (thien chốt 20/10, E-12). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
 
 ## 1. Hệ mã màn hình
 
@@ -32,6 +32,7 @@ flowchart TD
         S104 --> S201["GV-201 · Hồ sơ sinh viên"]
         S103 --> S201
         N(["Thông báo nhắc"]) -.-> S102
+        S100["GV-100 · Thiết lập lần đầu: nhập từ FAP"] -->|"lần đầu"| T1
     end
     subgraph SV["Web sinh viên · 360 dp"]
         W1["SV-001 · Buổi vắng của tôi"]
@@ -43,7 +44,7 @@ flowchart TD
 
 ## 3. Danh sách màn hình
 
-10 màn khác nhau cho app giảng viên (đề yêu cầu ≥ 8), 3 màn cho web sinh viên.
+11 màn khác nhau cho app giảng viên (đề yêu cầu ≥ 8), 3 màn cho web sinh viên.
 
 | Mã | Tên | Cấp | Persona | Flow | Trạng thái | Nguồn |
 |---|---|---|---|---|---|---|
@@ -51,6 +52,7 @@ flowchart TD
 | GV-002 | Lịch | 0 | P-01, P-02 | FL-1, FL-2 | .D1 hôm nay, .D2 ngày mai, .D3 tuần, .E | E-03 |
 | GV-003 | Lớp | 0 | P-01 | FL-3 | .D, .E | E-03 |
 | GV-004 | Tài khoản | 0 | P-02 | FL-2 | .D | E-01 (cài nhắc) |
+| GV-100 | Thiết lập lần đầu: nhập lớp, lịch từ FAP | 1 | P-02 | FL-2 | .D chọn lớp, .L đang nhập, .X nhập lỗi, .S xong | E-12 |
 | GV-101 | Chi tiết slot | 1 | P-01, P-02 | FL-1, FL-2 | .D1 sắp tới, .D2 đang diễn ra, .D3 đã chốt | E-03 |
 | GV-102 | Phiên điểm danh | 1 | P-01, P-02 | FL-1, FL-2 | .D1 mã đang mở, .D2 xem ngoại lệ, .L đang chốt, .X mất mạng, .S đã chốt | E-01, E-04, E-06 |
 | GV-103 | Chi tiết lớp | 1 | P-01 | FL-3 | .D | E-03, E-05 |
@@ -92,11 +94,15 @@ flowchart TD
 
 ### FL-2 · Không để quên điểm danh (P-02, K2)
 
-Bắt đầu: cài nhắc nhở. Mục tiêu: chốt slot trong ngày dù quên lúc đầu. Kết thúc: GV-102 .S.
+Bắt đầu: dùng app lần đầu. Mục tiêu: chốt slot trong ngày dù quên lúc đầu. Kết thúc: GV-102 .S.
 
 ```mermaid
 flowchart TD
-    A(["Bắt đầu: lần đầu dùng app"]) --> B["GV-004 · Tài khoản: bật nhắc trước slot và khi slot hết"]
+    A(["Bắt đầu: lần đầu dùng app"]) --> A1["GV-100 .D · Nhập lớp và lịch từ FAP"]
+    A1 --> A2["GV-100 .L · Đang nhập"]
+    A2 -->|"lỗi"| A3["GV-100 .X · Thử lại"] --> A2
+    A2 --> A4["GV-100 .S · Đã nhập 4 lớp"]
+    A4 --> B["GV-004 · Tài khoản: bật nhắc trước slot và khi slot hết"]
     B --> C["GV-002 · Lịch .D3 tuần"]
     C --> D{"Slot hết, chưa chốt?"}
     D -->|"Có"| E["Thông báo nhắc"]
@@ -140,8 +146,8 @@ flowchart TD
 | Flow | Persona | Màn |
 |---|---|---|
 | FL-1 | P-01 | GV-001, GV-002, GV-101, GV-102, GV-OV1, GV-OV2 |
-| FL-2 | P-02 | GV-004, GV-002, GV-001, GV-101, GV-102 |
+| FL-2 | P-02 | GV-100, GV-004, GV-002, GV-001, GV-101, GV-102 |
 | FL-3 | P-01 | GV-001, GV-104, GV-003, GV-103, GV-201, GV-OV3 |
 | FL-4 | P-03, P-01 | SV-001, SV-101, SV-102, GV-105 |
 
-Mọi màn đều thuộc ít nhất một flow. FL-1 và FL-4 có nhánh lỗi, phục hồi.
+Mọi màn đều thuộc ít nhất một flow. FL-1, FL-2 và FL-4 có nhánh lỗi, phục hồi.

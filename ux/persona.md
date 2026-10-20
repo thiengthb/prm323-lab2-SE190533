@@ -1,6 +1,6 @@
 # Persona
 
-> **Trạng thái:** nháp v0.1 (17/10/2026), chờ thien duyệt. P-03 sinh viên chờ phỏng vấn SV.
+> **Trạng thái:** v0.2 (20/10/2026). thien chốt giữ P-02 là persona riêng. P-03 viết từ 2 phỏng vấn sinh viên thật (SV-01, SV-02).
 > **Nguồn:** chỉ trích từ [ma trận bằng chứng](../research/02-evidence-matrix.md) (E-xx). Phía giảng viên dựa vào phản hồi trực tiếp của GVHD-01 trong buổi review 16/10, vì không gặp lại được trước hạn. Mọi chỗ không có E-xx là **Assumed**.
 
 ## Tổng quan
@@ -9,7 +9,7 @@
 |---|---|---|---|
 | P-01 | Giảng viên dạy dày, quen mặt sinh viên | **Primary** | Điểm danh mỗi ngày nhiều lần; cần nhanh và cần nhìn ra sinh viên cần chú ý |
 | P-02 | Giảng viên lịch không đều, dễ quên điểm danh | Secondary | Cùng tác vụ nhưng rủi ro chính là **quên**, cần nhắc chủ động. Nhóm ghi thầy yêu cầu thêm persona này (NHOM-16/10) |
-| P-03 | Sinh viên đã vắng nhiều, có nguy cơ cấm thi | Secondary (web) | Chờ phỏng vấn SV |
+| P-03 | Sinh viên không theo dõi số buổi vắng của mình | Secondary (web) | Không phải người dùng app, chỉ chạm web để quét mã; nhu cầu khác hẳn giảng viên |
 
 ---
 
@@ -43,13 +43,34 @@
 | 3 | Bối cảnh | Lịch không lặp đều, có tuần không dạy; có việc khác ngoài giờ dạy | Assumed |
 | 4 | Mục tiêu | (1) Được nhắc trước slot và khi slot kết thúc mà chưa chốt. (2) Thấy lịch tuần để không nhầm ngày | E-01, E-03 |
 | 5 | Job to be done | *Khi* có slot giữa một ngày bận việc khác, *tôi muốn* được nhắc đúng lúc, *để* không quên điểm danh và không bị trừ lương | E-01 |
-| 6 | Hành vi hiện tại | Ít mở FAP; nhớ lịch bằng trí nhớ hoặc ghi chú riêng | Assumed |
-| 7 | Nỗi đau | (1) Quên điểm danh vì không có thói quen. (2) Biết mình quên khi đã muộn | E-01; (2): Assumed |
+| 6 | Hành vi hiện tại | Ít mở FAP; khi quên thì sửa qua nhóm chat của lớp (sinh viên nhắn, cô điểm danh lại) | E-11; phần còn lại Assumed |
+| 7 | Nỗi đau | (1) Quên điểm danh vì không có thói quen. (2) Biết mình quên khi đã muộn 1–2 ngày, và lớp biết mà không ai nhắc | E-01, E-09, E-10 |
 | 8 | Động lực | Không mất tiền vì một lần quên; không phải nhờ ai sửa | E-01 |
 | 9 | Ràng buộc | Ít quen app; ít quen mặt sinh viên hơn P-01 | Assumed |
 | 10 | Kịch bản | **K2.** 11:30, slot 2 vừa hết, cô chưa chốt. App nhắc; cô mở từ thông báo, vào thẳng phiên điểm danh, chốt trong ngày | Assumed |
 | 11 | Tiêu chí thành công | **TC-4:** từ thông báo nhắc tới chốt xong ≤ **3 lần chạm** | Assumed |
-| 12 | Bằng chứng, trạng thái | Archetype là Inferred. Có thể gộp vào P-01 nếu thien thấy hành vi không khác đủ | — |
+| 12 | Bằng chứng, trạng thái | Việc quên có 2 nguồn sinh viên độc lập (E-09, E-10). Archetype “lịch không đều” là Inferred; thien chốt giữ riêng ngày 20/10 | — |
+
+---
+
+## P-03 · Bạn Gia Huy, sinh viên không theo dõi số buổi vắng (Secondary, web)
+
+| # | Trường | Nội dung | Nguồn |
+|---|---|---|---|
+| 1 | Định danh, archetype | Gia Huy, khoảng 19–21 tuổi, sinh viên FPTU (tên giả). **“Lâu rồi không xem.”** | E-25 |
+| 2 | Mức ưu tiên | Secondary: chỉ chạm web để quét mã, báo sai | E-20 |
+| 3 | Bối cảnh | Trong lớp, điện thoại cá nhân, lúc giảng viên mở mã; xem lại ở nhà nếu có | E-20, E-25 |
+| 4 | Mục tiêu | (1) Được ghi có mặt mà không mất công. (2) Không bị cấm thi vì vắng mà không biết | E-20, E-22 |
+| 5 | Job to be done | *Khi* quét mã điểm danh, *tôi muốn* thấy luôn mình còn được vắng mấy buổi, *để* không phải nhớ hay tự đi tra | E-25, E-26 |
+| 6 | Hành vi hiện tại | Hiếm khi xem số buổi vắng, xem vì tò mò; ước lượng ngưỡng theo số buổi mỗi tuần | E-25, E-26 |
+| 7 | Nỗi đau | (1) Không biết chắc mình được vắng mấy buổi. (2) Không có gì nhắc trước khi chạm ngưỡng | E-26, E-21 |
+| 8 | Động lực | Đỡ phải nhớ; công bằng | Inferred |
+| 9 | Ràng buộc | Không cài app riêng; mở bằng trình duyệt điện thoại | E-20 |
+| 10 | Kịch bản | **K5.** Tuần 7, Huy quét mã slot 2. Màn kết quả báo “Đã ghi nhận” và một dòng vàng “Còn được vắng 1 buổi môn PRM393” | E-20, E-25; chi tiết Assumed |
+| 11 | Tiêu chí thành công | **TC-5:** sau khi quét, đọc đúng số buổi còn được vắng mà **không chạm thêm** | Assumed |
+| 12 | Bằng chứng, trạng thái | 2 phỏng vấn thật (SV-01, SV-02). Cả hai chưa từng suýt cấm thi (E-27): mức nghiêm trọng của nỗi đau (2) chưa được xác nhận | — |
+
+**Problem statement.** Sinh viên hiếm khi tự xem số buổi vắng và không nhớ chắc ngưỡng của môn (E-25, E-26), trong khi vắng quá 20% là bị cấm thi (E-22), nên cần thấy số buổi còn được vắng ngay lúc quét mã thay vì phải tự đi tra.
 
 ---
 
@@ -59,7 +80,7 @@
 |---|---|---|---|---|
 | P-01 | Điểm danh mỗi slot, theo dõi sinh viên | Ít thời gian, một tay | Chốt nhanh, danh sách ưu tiên ngoại lệ, sinh viên cần chú ý ở Tổng quan | E-01, E-04, E-05 |
 | P-02 | Điểm danh slot rải rác | Không có thói quen | Nhắc trước và sau slot; lịch tuần rõ | E-01, NHOM-16/10 |
-| P-03 | Quét mã, xem số buổi còn được vắng | Quên mình đã vắng bao nhiêu | Cảnh báo trước ngưỡng | E-20, E-21, E-22 |
+| P-03 | Quét mã, xem số buổi còn được vắng | Hiếm khi xem, không nhớ ngưỡng | Cảnh báo chủ động ngay màn kết quả quét | E-20, E-22, E-25, E-26 |
 | Cán bộ phòng Đào tạo | Xếp lớp, lịch | Không chạm giao diện app | Ngoài phạm vi | — |
 
 ## Persona → Nhu cầu → Ý tưởng → Cách kiểm chứng
@@ -70,3 +91,4 @@
 | P-01 | Chốt nhanh, không đếm | Danh sách đưa người chưa quét lên đầu, kèm ảnh; một nút Chốt; hoàn tác | TC-1 |
 | P-01 | Nhận ra em cần giúp | Mục “Cần chú ý” xếp theo số buổi vắng so với ngưỡng, có hành động Nhắc | TC-3 |
 | P-02 | Không quên | Thông báo trước slot và khi slot hết mà chưa chốt, mở thẳng phiên điểm danh | TC-4 |
+| P-03 | Biết mình còn được vắng mấy buổi | Dòng cảnh báo trên màn kết quả quét (SV-101 .S) | TC-5 |
