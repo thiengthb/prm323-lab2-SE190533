@@ -11,3 +11,6 @@ File: [PRM323 Lab 2 v2 · SE190533 · Điểm danh cho giảng viên](https://ww
 | 20/10 | 04 | Trang mẫu token | Màu, chữ, khoảng cách, bo góc, đổ bóng, tất cả gắn biến |
 | 20/10 | 02 | Wireframe lo-fi thang xám | 14 màn (11 app giảng viên, 3 web sinh viên) |
 | 20/10 | 01 | 4 flow, mỗi flow có đường chính, nhánh khác, lỗi và phục hồi | FL-1..FL-4, mỗi bước ghi mã màn |
+| 20/10 | 04 | Đổi bảng màu sang Đen trắng (D-01, DESIGN.md v1.1) | 5 biến `color/primary*` đổi giá trị; mọi component và màn đổi theo vì đều gắn biến |
+| 20/10 | 03 | Final UI 360 × 800, mỗi màn một Section, trạng thái đặt cạnh nhau, chú thích ngoài khung | 14 màn, 41 khung trạng thái (kể cả GV-OV1..3); Section “Kiểm tra 412 dp” với 4 khung clone. Kiểm bằng script: chữ nhỏ nhất 14, mọi điều khiển cao ≥ 48 ([design-decisions.md](design-decisions.md) mục 2) |
+| 20/10 | 06 | Prototype | 4 flow, 5 điểm bắt đầu (FL-1, FL-2, FL-3, FL-4, FL-4b), 73 điểm chạm, lớp phủ GV-OV1..3 có nền mờ chạm để đóng. Khung đặt trên cùng trang (Plugin API không cho nối tới khung nằm trong Section) |

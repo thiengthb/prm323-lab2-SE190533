@@ -1,6 +1,8 @@
 # DESIGN.md · Style guide (design brief cho Stitch)
 
-> **v1.0 · 20/10/2026.** Viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Stitch và Figma phải theo file này. Hướng màu A (Zinc + Violet) chọn theo [kế hoạch](../process/plan.md) mục 7.3; thien để Claude chọn mặc định.
+> **v1.1 · 20/10/2026.** v1.0 viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Stitch và Figma phải theo file này.
+>
+> **Thay đổi v1.0 → v1.1:** đổi màu nhấn từ Violet `#7C3AED` sang **Đen trắng** (shadcn mặc định, Zinc 900 `#18181B`). Lý do: ở Stitch IT-0 màn có tới 5 họ màu và nền ngả tím kiểu Material 3, nhìn không ra chất shadcn; thien chọn phương án Đen trắng trong 3 phương án so sánh (quyết định [D-01](design-decisions.md)). Các token khác giữ nguyên.
 
 ## 1. Tinh thần
 
@@ -37,11 +39,11 @@ Tương phản tính theo công thức WCAG 2.x.
 | `color/fg` | `#18181B` | Chữ chính | 16,97:1 trên bg |
 | `color/fg-muted` | `#52525B` | Chữ phụ: giờ, phòng, mã SV | 7,41:1 trên bg |
 | `color/fg-disabled` | `#A1A1AA` | Chữ trên điều khiển bị tắt | Miễn trừ WCAG (thành phần không hoạt động) |
-| `color/primary` | `#7C3AED` | Nút chính, tab đang chọn, viền focus, link | 5,70:1 với chữ trắng |
-| `color/primary-pressed` | `#6D28D9` | Nút chính khi nhấn | 7,10:1 với chữ trắng |
-| `color/primary-soft` | `#F5F3FF` | Nền mục đang chọn, nền chip chính | — |
-| `color/on-primary-soft` | `#5B21B6` | Chữ, icon trên primary-soft | 8,19:1 |
-| `color/on-primary` | `#FFFFFF` | Chữ trên primary | 5,70:1 |
+| `color/primary` | `#18181B` | Nút chính, tab đang chọn, viền focus, link | 16,97:1 với chữ `#FAFAFA` |
+| `color/primary-pressed` | `#3F3F46` | Nút chính khi nhấn | 10,01:1 với chữ `#FAFAFA` |
+| `color/primary-soft` | `#F4F4F5` | Nền mục đang chọn (tab, chip trung tính) | — |
+| `color/on-primary-soft` | `#18181B` | Chữ, icon trên primary-soft | 16,12:1 |
+| `color/on-primary` | `#FAFAFA` | Chữ trên primary | 16,97:1 |
 | `color/success` | `#15803D` | **Có mặt**, đã chốt | 4,79:1 trên success-soft |
 | `color/success-soft` | `#F0FDF4` | Nền chip Có mặt | — |
 | `color/warning` | `#B45309` | **Chưa điểm danh**, sắp chạm ngưỡng | 4,84:1 trên warning-soft |
@@ -49,9 +51,9 @@ Tương phản tính theo công thức WCAG 2.x.
 | `color/danger` | `#B91C1C` | **Vắng**, lỗi, đã chạm ngưỡng, nút destructive | 5,91:1 trên danger-soft; 6,47:1 với chữ trắng |
 | `color/danger-soft` | `#FEF2F2` | Nền chip Vắng, nền thẻ lỗi | — |
 
-**Kỷ luật màu:** violet chỉ cho hành động và lựa chọn; xanh lá, hổ phách, đỏ chỉ cho trạng thái; không màu nào để trang trí. Mỗi trạng thái luôn kèm icon và chữ (không truyền tin chỉ bằng màu).
+**Kỷ luật màu:** đen (primary) chỉ cho hành động và lựa chọn; xanh lá, hổ phách, đỏ chỉ cho trạng thái; không màu nào để trang trí. Mỗi trạng thái luôn kèm icon và chữ (không truyền tin chỉ bằng màu).
 
-**Vì sao violet:** tách hẳn khỏi xanh dương của FAP (thầy chê giao diện cũ, E-v1), và không trùng với ba màu trạng thái nên trạng thái giữ được nghĩa.
+**Vì sao Đen trắng:** đúng theme mặc định của shadcn/ui; màn chỉ còn trung tính nên ba màu trạng thái (xanh lá, hổ phách, đỏ) là thứ duy nhất có màu và nổi hẳn lên, khớp luật “trạng thái là chữ chính”. Tách hẳn khỏi xanh dương của FAP. Phương án đã bỏ: Indigo `#4F46E5` (gần xanh FAP), Teal (lẫn với xanh “Có mặt”), Violet v1.0 (xem D-01).
 
 ## 4. Chữ
 

@@ -18,4 +18,9 @@ Mọi lần dùng AI đều ghi ở đây, prompt nguyên văn nằm trong [prom
 |---|---|---|---|---|
 | AI-01 | 16/10 | Claude | Rà soát v1, đối chiếu góp ý thầy và nhóm, lập kế hoạch v2 | Kế hoạch [process/plan.md](../process/plan.md). thien bác đề xuất giữ tên repo cũ, chọn tạo repo mới (Modify) |
 | AI-02 | 17–20/10 | Claude | Nháp persona, IA, flow từ ma trận bằng chứng | thien giữ P-02 riêng (Accept); thien định nghĩa lại “setup” thành nhập từ FAP (Modify, thêm GV-100) |
-| AI-03 | 20/10 | Claude → Stitch | Prompt IT-0 từ DESIGN.md v1.0 | [prompts/AI-03-stitch-IT-0.md](prompts/AI-03-stitch-IT-0.md). Chờ thien chạy |
+| AI-03 | 20/10 | Claude → Stitch | Prompt IT-0 từ DESIGN.md v1.0; thien chạy, Stitch sinh 4 màn | [prompts/AI-03-stitch-IT-0.md](prompts/AI-03-stitch-IT-0.md); ảnh và HTML ở [assets/stitch/IT-0/](../assets/stitch/IT-0/). Stitch tự đổi sang bảng màu Material 3 tím (`stitch-DESIGN.md`) |
+| AI-04 | 20/10 | Claude | Phản biện IT-0 theo Nielsen, accessibility, persona | [critique/AI-04-critique-IT-0.md](critique/AI-04-critique-IT-0.md): 9 phát hiện (7 Modify, 2 Reject), giữ 5 ý tưởng. Claude đưa 3 bảng màu (Đen trắng, Indigo, Teal); thien chọn **Đen trắng** (D-01, Modify bảng màu Violet của chính Claude) |
+| AI-05 | 20/10 | Claude → Stitch | IT-1 “Đen trắng + bỏ chữ giải thích” | [prompts/AI-05-stitch-IT-1.md](prompts/AI-05-stitch-IT-1.md). Chờ thien chạy, ảnh vào `assets/stitch/IT-1/` |
+| AI-06 | 20/10 | Claude → Stitch | IT-2 “Đúng trạng thái” | [prompts/AI-06-stitch-IT-2.md](prompts/AI-06-stitch-IT-2.md). Chờ thien chạy |
+| AI-07 | 20/10 | Claude → Stitch | IT-3 “Trạng thái lỗi, rỗng + web sinh viên” | [prompts/AI-07-stitch-IT-3.md](prompts/AI-07-stitch-IT-3.md). Chờ thien chạy |
+| AI-08 | 20/10 | Claude → Figma MCP | Dựng final UI (trang 03) và prototype (trang 06) theo đặc tả, đã sửa theo AI-04 | 14 màn, 41 khung trạng thái, 4 khung kiểm 412 dp; prototype 4 flow, 73 điểm chạm. Nhật ký ở [design/figma-build.md](../design/figma-build.md) |

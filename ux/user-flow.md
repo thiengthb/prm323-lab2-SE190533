@@ -48,7 +48,7 @@ flowchart TD
 
 | Mã | Tên | Cấp | Persona | Flow | Trạng thái | Nguồn |
 |---|---|---|---|---|---|---|
-| GV-001 | Tổng quan | 0 | P-01, P-02 | FL-1, FL-3 | .D, .L, .E (hôm nay không dạy), .X | E-01, E-03, E-05 |
+| GV-001 | Tổng quan | 0 | P-01, P-02 | FL-1, FL-3 | .D, .D1 (có slot chưa chốt), .L, .E (hôm nay không dạy), .X | E-01, E-03, E-05, E-09 |
 | GV-002 | Lịch | 0 | P-01, P-02 | FL-1, FL-2 | .D1 hôm nay, .D2 ngày mai, .D3 tuần, .E | E-03 |
 | GV-003 | Lớp | 0 | P-01 | FL-3 | .D, .E | E-03 |
 | GV-004 | Tài khoản | 0 | P-02 | FL-2 | .D | E-01 (cài nhắc) |
