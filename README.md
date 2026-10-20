@@ -20,11 +20,11 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | v0.2 (P-01, P-02, P-03) |
 | Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v0.2 |
 | Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v1.0 (viết trước Stitch) |
-| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | Chưa bắt đầu |
+| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.0 (ý đồ 17 màn và lớp phủ) |
 | Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | Chưa bắt đầu |
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md) | AI-01..AI-03 |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Chưa bắt đầu |
-| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | Chưa bắt đầu |
+| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v0.1 (2 bảng ánh xạ) |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
 
 ## Công cụ AI đã dùng
