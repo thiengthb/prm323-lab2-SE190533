@@ -6,7 +6,7 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 |---|---|
 | Nhóm | Group 3: Trần Ngọc Thiên · SE190533; Vũ Anh Khôi · SE194606; Vũ Huy Phương · SE190742; Lê Thành Lộc · SE182702 |
 | Persona một dòng | Đang làm (giai đoạn 2) |
-| Figma | Đang làm (giai đoạn 6) |
+| Figma | [PRM323 Lab 2 v2 · SE190533](https://www.figma.com/design/1qIZVpL0Q7bD9UzT5TVBRy) (6 trang đúng thứ tự đề) |
 | Hạn | Thứ Ba 20/10/2026, 15:00 |
 | Bản trước (v1) | [prm323-lab2-SE190533-archieve](https://github.com/thiengthb/prm323-lab2-SE190533-archieve), trình bày 16/10/2026. Bài học: [process/retro-v1.md](process/retro-v1.md) |
 
