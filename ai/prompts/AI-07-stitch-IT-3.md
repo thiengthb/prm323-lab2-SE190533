@@ -8,8 +8,8 @@
 Keep the same black-and-white shadcn style and rules (no helper sentences, 14sp minimum, one primary button, status = icon + color + 1-2 words).
 
 LECTURER APP
-1. "Điểm danh" after tapping "Chốt điểm danh": a confirmation dialog "Chốt điểm danh?" with "34 có mặt · 1 vắng", buttons "Hủy" (outline) and "Chốt" (primary).
-2. Same screen, network failure: an error dialog with a wifi-off icon, title "Không gửi được", one line "Mất kết nối mạng", button "Thử lại". The attendance list stays visible behind the dialog.
+1. "Điểm danh" after tapping "Chốt điểm danh": a confirmation dialog "Chốt điểm danh?" with "34 có mặt · 1 vắng", buttons "Huỷ" (ghost) and "Chốt" (primary).
+2. Same screen, network failure: an error dialog, title "Chưa gửi được", one line "Mất mạng · đã lưu trên máy", buttons "Để sau" (ghost) and "Thử lại" (primary). The attendance list stays visible behind the dialog.
 3. Same screen, success: list shows the final result, snackbar at the bottom "Đã chốt" with action "Hoàn tác".
 4. "Tổng quan" loading: skeleton cards in the shape of the slot cards, no spinner.
 5. "Tổng quan" empty day: icon in a grey circle, one line "Hôm nay không có slot", outline button "Xem lịch".

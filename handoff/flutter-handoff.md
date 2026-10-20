@@ -90,7 +90,7 @@ Quy ước chung cho mọi màn:
 |---|---|
 | Bố cục | Icon tải về trong vòng tròn 48 · tiêu đề “Nhập từ FAP” · danh sách lớp kỳ này (ô chọn) · nút đáy “Nhập 4 lớp” |
 | Component | Empty-style header, `CheckboxListTile` × 4, Button primary, Error state |
-| Trạng thái | .D chọn lớp · .L “Đã nhập 2/4 lớp”, nút “Đang nhập” loading · .X Error state “FAP không phản hồi” + Thử lại · .S “Đã nhập 4 lớp” + nút “Vào Tổng quan” |
+| Trạng thái | .D chọn lớp · .L “Đã nhập 2/4 lớp”, nút loading “Đang xử lý” · .X Error state “FAP không phản hồi” + Thử lại · .S “Đã nhập 4 lớp” + nút “Vào Tổng quan” |
 | Tương tác | Bỏ chọn lớp thì số trên nút đổi theo (“Nhập 3 lớp”); 0 lớp thì nút tắt |
 | Điều hướng | Chỉ hiện lần đầu; .S → GV-001 (`pushReplacement`) |
 | Ràng buộc | Không cho tạo lớp tay (D-10) |
@@ -148,9 +148,9 @@ Quy ước chung cho mọi màn:
 ### GV-102 · Phiên điểm danh (+ GV-OV1, GV-OV2)
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar nested “PRM393 · SE1801” · thẻ QR (`QrImageView` 200) + số “32/35” display + “đã quét” · nhóm “Chưa quét (3)” · nút đáy “Chốt điểm danh” |
+| Bố cục | App bar nested “Điểm danh” · thẻ QR (`QrImageView` 200) + số “31/35” display + “đã quét”; .D2 thu thẻ QR thành một hàng “32/35 đã quét” + nút ghost “Mở lại” · nhóm “Chưa quét (3)” · nút đáy “Chốt điểm danh” |
 | Component | QR panel, Student row (Exception, Marked present, Marked absent), Dialog (Confirmation, Destructive), Snackbar, Button loading |
-| Trạng thái | .D1 mã đang mở · .D2 đã xử lý ngoại lệ · OV1 xác nhận “34 có mặt · 1 vắng” · .L nút loading · .X / OV2 “Không gửi được · Mất kết nối mạng” + Thử lại · .S kết quả + Snackbar “Đã chốt” Hoàn tác 10 giây |
+| Trạng thái | .D1 mã đang mở · .D2 đã xử lý ngoại lệ · OV1 xác nhận “34 có mặt · 1 vắng” · .L nút loading · .X / OV2 “Chưa gửi được · Mất mạng · đã lưu trên máy” + Để sau / Thử lại · .S kết quả + Snackbar “Đã chốt” Hoàn tác 10 giây |
 | Tương tác | ✓ / ✕ trên từng hàng, chạm lại để đổi; QR làm mới mỗi 15 giây (`Timer.periodic`); bộ đếm cập nhật qua stream |
 | Điều hướng | Chốt → OV1 (`showDialog`) → .L → .S hoặc OV2; .S Back → GV-001 (slot thành Closed) |
 | Ràng buộc | Không có ô nhập sĩ số (D-02); mất mạng thì giữ kết quả trong bộ nhớ máy, không xóa; người chưa quét và chưa đánh dấu tính là Vắng ở hộp xác nhận |
@@ -158,7 +158,7 @@ Quy ước chung cho mọi màn:
 ### GV-103 · Chi tiết lớp
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar nested “PRM393 · SE1801” · dòng 3 số (sĩ số, buổi đã học, cần chú ý) · nhóm “Cần chú ý” · nhóm “Buổi gần nhất” |
+| Bố cục | App bar nested “SE1801” · dòng “PRM393 · Fall 2026” · 3 thẻ số (sĩ số, buổi đã học, cần chú ý) · nhóm “Cần chú ý” · nhóm “Buổi gần nhất” |
 | Component | Stat, Attention row, List row |
 | Trạng thái | .D |
 | Tương tác | Chạm hàng |
@@ -188,7 +188,7 @@ Quy ước chung cho mọi màn:
 ### GV-201 · Hồ sơ sinh viên (+ GV-OV3)
 | Mục | Nội dung |
 |---|---|
-| Bố cục | Header avatar 56 + tên + “SE190155 · PRM393 · SE1801” · thẻ số “3/4 buổi vắng” + thanh 4 ô + chip · nhóm “Buổi vắng” · nút đáy “Nhắc sinh viên” |
+| Bố cục | App bar nested “Hồ sơ” · header avatar 56 + tên + “SE190155 · PRM393 · SE1801” · thẻ số “3/4 buổi vắng” + thanh 4 ô + chip · nhóm “Buổi vắng” · nút đáy “Nhắc sinh viên” |
 | Component | Avatar, Card, Status chip, List row, Bottom sheet, Snackbar |
 | Trạng thái | .D · OV3 sheet tin nhắn mẫu có thể sửa + “Gửi” · .S nút thành “Đã gửi nhắc” (disabled) |
 | Tương tác | Nhắc → `showModalBottomSheet`; Gửi → đóng sheet, Snackbar |

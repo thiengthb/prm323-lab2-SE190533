@@ -12,13 +12,13 @@
 | GV-003 | Lớp | Danh sách lớp đang dạy kỳ này | Hàng lớp: môn · lớp · sĩ số · số em cần chú ý | Chạm hàng lớp | FL-3 | .D · .E chưa nhập lớp |
 | GV-004 | Tài khoản | Cài nhắc nhở để không quên (P-02) | Thẻ giảng viên · nhóm Nhắc nhở (2 công tắc) · Nhập lại từ FAP · Đăng xuất | Bật công tắc nhắc | FL-2 | .D |
 | GV-101 | Chi tiết slot | Xem một slot và bắt đầu điểm danh | Giờ · môn · lớp · phòng · chip trạng thái · sĩ số lớp | **Mở điểm danh** (cố định đáy) hoặc **Chốt ngay** nếu chưa chốt | FL-1, FL-2 | .D1 sắp tới (nút tắt) · .D2 đang diễn ra · .D3 đã chốt (nút Sửa điểm danh, trong ngày) |
-| GV-102 | Phiên điểm danh | Chốt điểm danh nhanh, **không đếm** (E-04), chỉ xử lý ngoại lệ (E-06) | Thẻ QR + “32/35 đã quét” (đếm tự động) · “Chưa quét (3)” với hàng có ảnh và 2 nút ✓ ✕ | **Chốt điểm danh** (cố định đáy) | FL-1, FL-2 | .D1 mã đang mở · .D2 xem ngoại lệ · .L đang chốt · .X mất mạng (GV-OV2) · .S đã chốt + snackbar Hoàn tác |
+| GV-102 | Phiên điểm danh | Chốt điểm danh nhanh, **không đếm** (E-04), chỉ xử lý ngoại lệ (E-06) | Thẻ QR + bộ đếm tự động (.D1 “31/35 đã quét”, .D2 “32/35”) · “Chưa quét (3)” với hàng có ảnh và 2 nút ✓ ✕ | **Chốt điểm danh** (cố định đáy) | FL-1, FL-2 | .D1 mã đang mở · .D2 xem ngoại lệ · .L đang chốt · .X mất mạng (GV-OV2) · .S đã chốt + snackbar Hoàn tác |
 | GV-103 | Chi tiết lớp | Nhìn sức khỏe chuyên cần của một lớp | Dòng số liệu: sĩ số · buổi đã học · số em cần chú ý · danh sách cần chú ý · các buổi gần nhất | Chạm hàng sinh viên | FL-3 | .D |
 | GV-104 | Cần chú ý | Danh sách hành động: ai sắp hoặc đã chạm ngưỡng 20% (E-05, E-22) | Hàng: ảnh · tên · lớp · chip mức · số “3/4” | Chạm hàng → hồ sơ | FL-3 | .D · .E không ai cần chú ý |
 | GV-105 | Yêu cầu sửa | Duyệt báo sai từ sinh viên trong ngày (E-06, E-20) | Thẻ yêu cầu: sinh viên · slot · lý do · Duyệt / Từ chối | **Duyệt** | FL-4 | .D · .E không có yêu cầu |
 | GV-201 | Hồ sơ sinh viên | Biết em này vắng những buổi nào và nhắc em (E-05) | Ảnh · tên · mã · lớp · số lớn “3/4 buổi vắng” + chip · lịch sử buổi vắng | **Nhắc sinh viên** | FL-3 | .D · .S đã gửi nhắc |
 | GV-OV1 | Hộp thoại xác nhận chốt | Chặn chốt nhầm (heuristic 5) | “Chốt điểm danh?” · “34 có mặt · 1 vắng” | **Chốt** | FL-1 | Confirmation |
-| GV-OV2 | Hộp thoại lỗi mạng | Phục hồi khi gửi thất bại (heuristic 9) | “Không gửi được” · “Mất kết nối mạng” · kết quả được giữ trên máy | **Thử lại** | FL-1 | Destructive/error |
+| GV-OV2 | Hộp thoại lỗi mạng | Phục hồi khi gửi thất bại (heuristic 9) | “Chưa gửi được” · “Mất mạng · đã lưu trên máy” (kết quả giữ trên máy) | **Thử lại** (phụ: Để sau) | FL-1 | Destructive/error |
 | GV-OV3 | Sheet nhắc sinh viên | Gửi lời nhắc ngắn có sẵn | Mẫu tin nhắn ngắn · kênh gửi | **Gửi** | FL-3 | .D |
 
 ## Web sinh viên (khổ 360)
