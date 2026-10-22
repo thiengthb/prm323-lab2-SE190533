@@ -19,13 +19,13 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Ma trận bằng chứng, ghi chép phỏng vấn | [research/02-evidence-matrix.md](research/02-evidence-matrix.md), [research/03-ghi-chep/](research/03-ghi-chep/) | 20 phát hiện, 2 phỏng vấn SV |
 | Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | v0.2 (P-01, P-02, P-03) |
 | Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v0.2 |
-| Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v1.1 Đen trắng (v1.0 viết trước Stitch) |
+| Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v2.0 Xanh đại dương #0B6283 (thay Đen trắng ngày 22/10) |
 | Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.2 (14 màn, 4 lớp phủ) |
-| Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-10, checklist 10 mục đạt |
+| Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-12, checklist 10 mục đạt |
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-08; phản biện IT-0: 9 phát hiện |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
 | Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.1 (2 bảng ánh xạ, 6 mục cho 14 màn và GV-OV4) |
-| Slide thuyết trình | PPTX theo thứ tự giảng viên yêu cầu, lời nói trong ghi chú người nói | v2.2 (22/10): 13 slide; slide vòng sửa thêm IT-3, số liệu Figma mới (42 khung, 4 lớp phủ, 84 điểm chạm), ảnh đại diện thật |
+| Slide thuyết trình | PPTX theo thứ tự giảng viên yêu cầu, lời nói trong ghi chú người nói | v3.0 (22/10): 13 slide, mỗi slide một ý, bảng màu Xanh đại dương, bằng chứng chuyển vào ghi chú người nói |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
 
 ## Công cụ AI đã dùng

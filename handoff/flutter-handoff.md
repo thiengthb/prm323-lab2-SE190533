@@ -12,19 +12,19 @@ Theme: `ThemeData(useMaterial3: true, colorScheme: AppColors.scheme, textTheme: 
 
 | Token | Hex | Flutter |
 |---|---|---|
-| `color/bg` | `#FAFAFA` | `ColorScheme.surface` (nền Scaffold) |
+| `color/bg` | `#F3F6F8` | `ColorScheme.surface` (nền Scaffold) |
 | `color/surface` | `#FFFFFF` | `ColorScheme.surfaceContainerLowest` (Card, sheet, NavigationBar) |
-| `color/muted-surface` | `#F4F4F5` | `ColorScheme.surfaceContainerHighest` (SegmentedButton nền, skeleton) |
-| `color/border` | `#E4E4E7` | `ColorScheme.outlineVariant` |
-| `color/border-control` | `#71717A` | `ColorScheme.outline` |
-| `color/fg` | `#18181B` | `ColorScheme.onSurface` |
-| `color/fg-muted` | `#52525B` | `ColorScheme.onSurfaceVariant` |
-| `color/fg-disabled` | `#A1A1AA` | `onSurface.withOpacity` không dùng; hằng `AppColors.fgDisabled` |
-| `color/primary` | `#18181B` | `ColorScheme.primary` |
-| `color/primary-pressed` | `#3F3F46` | `AppColors.primaryPressed` (overlay khi nhấn) |
-| `color/primary-soft` | `#F4F4F5` | `ColorScheme.primaryContainer` |
-| `color/on-primary-soft` | `#18181B` | `ColorScheme.onPrimaryContainer` |
-| `color/on-primary` | `#FAFAFA` | `ColorScheme.onPrimary` |
+| `color/muted-surface` | `#EAF0F3` | `ColorScheme.surfaceContainerHighest` (SegmentedButton nền, skeleton) |
+| `color/border` | `#DCE4E9` | `ColorScheme.outlineVariant` |
+| `color/border-control` | `#6A7C87` | `ColorScheme.outline` |
+| `color/fg` | `#0D1B24` | `ColorScheme.onSurface` |
+| `color/fg-muted` | `#4E5F6A` | `ColorScheme.onSurfaceVariant` |
+| `color/fg-disabled` | `#A0AEB8` | `onSurface.withOpacity` không dùng; hằng `AppColors.fgDisabled` |
+| `color/primary` | `#0B6283` | `ColorScheme.primary` |
+| `color/primary-pressed` | `#084C66` | `AppColors.primaryPressed` (overlay khi nhấn) |
+| `color/primary-soft` | `#E3F1F6` | `ColorScheme.primaryContainer` |
+| `color/on-primary-soft` | `#08506B` | `ColorScheme.onPrimaryContainer` |
+| `color/on-primary` | `#FFFFFF` | `ColorScheme.onPrimary` |
 | `color/success` / `-soft` | `#15803D` / `#F0FDF4` | `AppColors.success` / `successSoft` (ThemeExtension `StatusColors`) |
 | `color/warning` / `-soft` | `#B45309` / `#FFFBEB` | `AppColors.warning` / `warningSoft` (ThemeExtension) |
 | `color/danger` / `-soft` | `#B91C1C` / `#FEF2F2` | `ColorScheme.error` / `ColorScheme.errorContainer` |
