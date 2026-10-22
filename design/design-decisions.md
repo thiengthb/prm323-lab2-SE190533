@@ -26,8 +26,8 @@ Kiểm bằng script đọc thuộc tính node trên Figma trang 03 (20/10/2026)
 | A-1 | Tương phản chữ thường | ≥ 4,5:1 | Đạt | `fg` trên `bg` 16,97; `fg-muted` trên `bg` 7,41, trên `surface` 7,73, trên `muted` 7,03; chữ trên nút primary 16,97, khi nhấn 10,01 |
 | A-2 | Tương phản chữ trạng thái | ≥ 4,5:1 | Đạt | Có mặt 4,79; cảnh báo 4,84; vắng 5,91 (trên nền soft); chữ trắng trên nút destructive 6,47 |
 | A-3 | Tương phản thành phần điều khiển | ≥ 3:1 (WCAG 1.4.11) | Đạt | Viền ô nhập `#71717A` 4,83; viền focus `#18181B` 17,72; viền thẻ chưa chốt (hổ phách) 5,02 |
-| A-4 | Cỡ chữ tối thiểu | ≥ 14 | Đạt | 748 lớp chữ trên trang 03, nhỏ nhất 14 |
-| A-5 | Vùng chạm | ≥ 48 × 48 dp | Đạt | 52 Button cao ≥ 48; Segmented 48; nút icon app bar 48 × 48 (41 app bar); Student row ≥ 64; Attention row ≥ 80; 63 hàng danh sách ≥ 64; Bottom navigation 72 |
+| A-4 | Cỡ chữ tối thiểu | ≥ 14 | Đạt | 778 lớp chữ trên trang 03, nhỏ nhất 14 (đo lại 22/10) |
+| A-5 | Vùng chạm | ≥ 48 × 48 dp | Đạt | 53 Button cao ≥ 48; Segmented 48; nút icon app bar 48 × 48 (41 app bar); Student row ≥ 64; Attention row ≥ 80; 63 hàng danh sách ≥ 64; Bottom navigation 72 |
 | A-6 | Không truyền tin chỉ bằng màu | Icon + chữ kèm màu | Đạt | Mọi Status chip có icon 16 + chữ (luật T3) |
 | A-7 | Bề rộng khác | 360 và 412 dp không vỡ | Đạt | 4 khung clone ở 412 dp (GV-001 .D, GV-102 .D2, GV-104 .D, SV-001 .D1): Auto Layout fill, không tràn, không chữ đè |
 | A-8 | Nội dung không chồng lấn | Không đè ở 360 dp | Đạt, 1 ghi chú | Chip đè ở Stitch IT-0 (F2) đã sửa bằng Slot card. GV-002 .D3 (Tuần) dài hơn 800 khoảng 25 px: cuộn tự nhiên, app bar và thanh dưới cố định |
