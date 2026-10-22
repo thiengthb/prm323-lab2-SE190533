@@ -62,6 +62,7 @@ flowchart TD
 | GV-OV1 | Hộp thoại xác nhận chốt | OV | P-01 | FL-1 | Xác nhận | E-06 |
 | GV-OV2 | Hộp thoại lỗi mạng | OV | P-01 | FL-1 | Lỗi (biến thể destructive/error) | — |
 | GV-OV3 | Sheet nhắc sinh viên | OV | P-01 | FL-3 | .D | E-05 |
+| GV-OV4 | Thông báo nhắc chốt (màn khoá) | OV | P-02 | FL-2 | .D | E-01, E-09, E-10 |
 | SV-001 | Buổi vắng của tôi | 0 | P-03 | FL-4 | .D, .D1 sắp chạm ngưỡng, .D2 đã chạm ngưỡng | E-21, E-22 |
 | SV-101 | Quét mã | 1 | P-03 | FL-4 | .D camera, .S đã ghi nhận, .X mã hết hạn | E-20 |
 | SV-102 | Gửi báo sai | 1 | P-03 | FL-4 | .D, .S đã gửi | E-20 |
@@ -105,7 +106,7 @@ flowchart TD
     A4 --> B["GV-004 · Tài khoản: bật nhắc trước slot và khi slot hết"]
     B --> C["GV-002 · Lịch .D3 tuần"]
     C --> D{"Slot hết, chưa chốt?"}
-    D -->|"Có"| E["Thông báo nhắc"]
+    D -->|"Có"| E["GV-OV4 · Thông báo nhắc chốt"]
     E --> F["GV-102 .D2 · Mở thẳng phiên"]
     F --> G(["GV-102 .S · Đã chốt"])
     D -->|"Bỏ qua thông báo"| H["GV-001 · Tổng quan: thẻ slot chưa chốt"]
@@ -146,7 +147,7 @@ flowchart TD
 | Flow | Persona | Màn |
 |---|---|---|
 | FL-1 | P-01 | GV-001, GV-002, GV-101, GV-102, GV-OV1, GV-OV2 |
-| FL-2 | P-02 | GV-100, GV-004, GV-002, GV-001, GV-101, GV-102 |
+| FL-2 | P-02 | GV-100, GV-004, GV-002, GV-OV4, GV-001, GV-101, GV-102 |
 | FL-3 | P-01 | GV-001, GV-104, GV-003, GV-103, GV-201, GV-OV3 |
 | FL-4 | P-03, P-01 | SV-001, SV-101, SV-102, GV-105 |
 

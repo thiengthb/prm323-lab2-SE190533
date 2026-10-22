@@ -186,6 +186,16 @@ Quy ước chung cho mọi màn:
 | Điều hướng | Từ chuông GV-001 hoặc thông báo đẩy |
 | Ràng buộc | Chỉ nhận yêu cầu trong ngày của slot |
 
+### GV-OV4 · Thông báo nhắc chốt
+| Mục | Nội dung |
+|---|---|
+| Bố cục | Thông báo hệ thống: icon app · “Điểm danh” · tiêu đề “PRM393 · SE1801 chưa chốt” · dòng “Slot 1 đã hết giờ” · một nút hành động “Chốt ngay” |
+| Component | Không dựng UI: gói `flutter_local_notifications` (Android `AndroidNotificationAction('chot', 'Chốt ngay', showsUserInterface: true)`) |
+| Trạng thái | .D duy nhất; slot đã chốt thì huỷ thông báo (`cancel(id)`) |
+| Tương tác | Lên lịch `zonedSchedule` đúng giờ hết slot khi bật “Slot chưa chốt” ở GV-004; chạm thông báo hoặc nút → mở app |
+| Điều hướng | Mở thẳng GV-102 .D2 của slot đó (payload là mã slot) |
+| Ràng buộc | Tối đa một thông báo mỗi slot; không gửi nếu đã chốt |
+
 ### GV-201 · Hồ sơ sinh viên (+ GV-OV3)
 | Mục | Nội dung |
 |---|---|

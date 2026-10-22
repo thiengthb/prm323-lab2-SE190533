@@ -1,6 +1,6 @@
 # Đặc tả màn hình (ý đồ thiết kế)
 
-> v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
+> v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm GV-OV4 thông báo nhắc chốt, tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
 
 ## App giảng viên
 
@@ -20,6 +20,7 @@
 | GV-OV1 | Hộp thoại xác nhận chốt | Chặn chốt nhầm (heuristic 5) | “Chốt điểm danh?” · “34 có mặt · 1 vắng” | **Chốt** | FL-1 | Confirmation |
 | GV-OV2 | Hộp thoại lỗi mạng | Phục hồi khi gửi thất bại (heuristic 9) | “Chưa gửi được” · “Mất mạng · đã lưu trên máy” (kết quả giữ trên máy) | **Thử lại** (phụ: Để sau) | FL-1 | Destructive/error |
 | GV-OV3 | Sheet nhắc sinh viên | Gửi lời nhắc ngắn có sẵn | Mẫu tin nhắn ngắn · kênh gửi | **Gửi** | FL-3 | .D |
+| GV-OV4 | Thông báo nhắc chốt | Kéo giảng viên quay lại chốt khi slot hết giờ mà chưa chốt, trước khi bị trừ lương (E-01, E-09) | Thông báo trên màn khoá: “PRM393 · SE1801 chưa chốt”, “Slot 1 đã hết giờ” | **Chốt ngay** → GV-102 .D2 | FL-2 | .D |
 
 ## Web sinh viên (khổ 360)
 
