@@ -23,7 +23,7 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.2 (14 màn, 4 lớp phủ) |
 | Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-10, checklist 10 mục đạt |
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-08; phản biện IT-0: 9 phát hiện |
-| Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0, IT-1, IT-2 có (IT-3 chờ chạy); 50 ảnh Figma có |
+| Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
 | Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.1 (2 bảng ánh xạ, 6 mục cho 14 màn và GV-OV4) |
 | Slide thuyết trình | PPTX theo thứ tự giảng viên yêu cầu, lời nói trong ghi chú người nói | v2.1 (20/10): 13 slide, thêm slide vòng sửa Stitch IT-1, IT-2 |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
@@ -33,4 +33,4 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Công cụ | Dùng vào việc gì |
 |---|---|
 | Claude (Anthropic), qua Claude Code | Đóng vai BA: rà soát v1, lập kế hoạch, soạn prompt Stitch, phản biện, dựng Figma qua Figma MCP. Mọi quyết định do nhóm chốt |
-| Google Stitch | Sinh UI đầu tiên (IT-0) và 3 vòng sửa (IT-1..IT-3), thien chạy |
+| Google Stitch | Sinh UI đầu tiên (IT-0) và 3 vòng sửa (IT-1..IT-3); thien chạy IT-0..IT-2, Claude thao tác IT-3 trên trình duyệt máy thien |
