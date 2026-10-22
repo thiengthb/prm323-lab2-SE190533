@@ -107,6 +107,7 @@ Font **Inter** (có đủ dấu tiếng Việt). Không cỡ nào dưới 14.
 | Slot card | upcoming, live, unclosed, closed | Giờ, môn, phòng, chip trạng thái; nút chính khi live hoặc unclosed |
 | Segmented control | mỗi mục được chọn | Hôm nay / Ngày mai / Tuần |
 | Snackbar | with action | “Đã chốt” + Hoàn tác |
+| Status bar, Browser bar | — | Chỉ để trình bày: giờ + sóng, wifi, pin; web SV-* thêm thanh địa chỉ để nhìn là biết web |
 
 ## 8. Không làm
 

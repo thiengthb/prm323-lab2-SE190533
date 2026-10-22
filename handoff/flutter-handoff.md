@@ -73,7 +73,8 @@ Theme: `ThemeData(useMaterial3: true, colorScheme: AppColors.scheme, textTheme: 
 | Loading / Skeleton card | — | `Container` màu `surfaceContainerHighest` (hoặc gói `shimmer`) |
 | Empty state | — | `Column(CircleAvatar(Icon), Text, OutlinedButton)` |
 | Error state | — | `Column(CircleAvatar(Icon wifi_off), Text, FilledButton('Thử lại'))` |
-| QR panel | — | `Card` + `QrImageView` (gói `qr_flutter`) + `Text` |
+| QR panel | — | `Card` + `QrImageView` (gói `qr_flutter`) + Status chip Neutral đếm lùi + `Text` |
+| Status icons, Browser bar | — | Không dựng: là thanh hệ thống và thanh địa chỉ trình duyệt, chỉ có trên Figma để khung trông như máy thật |
 | Icon (Lucide) | 29 icon | gói `lucide_icons_flutter`, `size 20/24` |
 
 ## 3. Đặc tả từng màn
@@ -90,7 +91,7 @@ Quy ước chung cho mọi màn:
 |---|---|
 | Bố cục | Icon tải về trong vòng tròn 48 · tiêu đề “Nhập từ FAP” · danh sách lớp kỳ này (ô chọn) · nút đáy “Nhập 4 lớp” |
 | Component | Empty-style header, `CheckboxListTile` × 4, Button primary, Error state |
-| Trạng thái | .D chọn lớp · .L “Đã nhập 2/4 lớp”, nút loading “Đang xử lý” · .X Error state “FAP không phản hồi” + Thử lại · .S “Đã nhập 4 lớp” + nút “Vào Tổng quan” |
+| Trạng thái | .D chọn lớp · .L “Đã nhập 2/4 lớp”, nút loading “Đang xử lý” · .X giữ icon và tiêu đề “Nhập từ FAP”, Error state “FAP không phản hồi” + Thử lại ở giữa phần còn lại · .S “Đã nhập 4 lớp” + nút “Vào Tổng quan” |
 | Tương tác | Bỏ chọn lớp thì số trên nút đổi theo (“Nhập 3 lớp”); 0 lớp thì nút tắt |
 | Điều hướng | Chỉ hiện lần đầu; .S → GV-001 (`pushReplacement`) |
 | Ràng buộc | Không cho tạo lớp tay (D-10) |
@@ -98,7 +99,7 @@ Quy ước chung cho mọi màn:
 ### GV-001 · Tổng quan
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar top-level “Tổng quan” + chuông · [thẻ Chốt ngay nếu có] · thẻ slot đang diễn ra · nhóm “Cần chú ý” 2 hàng + “Xem tất cả” · nhóm “Còn lại hôm nay” · NavigationBar tab 1 |
+| Bố cục | App bar top-level “Tổng quan” + chuông · hàng ngày + “1/3 slot đã chốt” và thanh 3 đoạn cao 6 (`Row` các `Expanded(Container)` bo 3, khe 4; màu theo trạng thái slot: success / warning / primary / border) · [thẻ Chốt ngay nếu có] · thẻ slot đang diễn ra · nhóm “Cần chú ý” 2 hàng + “Xem tất cả” · nhóm “Còn lại hôm nay” · NavigationBar tab 1 |
 | Component | App bar, Slot card (Unclosed, Live, Upcoming), Attention row, Bottom navigation, Skeleton, Empty state, Error state |
 | Trạng thái | .D · .D1 slot chưa chốt lên đầu, viền hổ phách 2 · .L 3 skeleton theo hình thẻ · .E “Hôm nay không có slot” + Xem lịch · .X mất mạng + Thử lại |
 | Tương tác | Kéo xuống để tải lại; chạm thẻ → GV-101; nút trên thẻ đi thẳng vào GV-102 |
@@ -148,7 +149,7 @@ Quy ước chung cho mọi màn:
 ### GV-102 · Phiên điểm danh (+ GV-OV1, GV-OV2)
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar nested “Điểm danh” · thẻ QR (`QrImageView` 200) + số “31/35” display + “đã quét”; .D2 thu thẻ QR thành một hàng “32/35 đã quét” + nút ghost “Mở lại” · nhóm “Chưa quét (3)” · nút đáy “Chốt điểm danh” |
+| Bố cục | App bar nested “Điểm danh” · thẻ QR (`QrImageView` 200) + chip Neutral “Đổi mã sau 12s” (đếm lùi 15 → 1) + số “31/35” display + “đã quét”; .D2 thu thẻ QR thành một hàng “32/35 đã quét” + nút ghost “Mở lại” · nhóm “Chưa quét (3)” · nút đáy “Chốt điểm danh” |
 | Component | QR panel, Student row (Exception, Marked present, Marked absent), Dialog (Confirmation, Destructive), Snackbar, Button loading |
 | Trạng thái | .D1 mã đang mở · .D2 đã xử lý ngoại lệ · OV1 xác nhận “34 có mặt · 1 vắng” · .L nút loading · .X / OV2 “Chưa gửi được · Mất mạng · đã lưu trên máy” + Để sau / Thử lại · .S kết quả + Snackbar “Đã chốt” Hoàn tác 10 giây |
 | Tương tác | ✓ / ✕ trên từng hàng, chạm lại để đổi; QR làm mới mỗi 15 giây (`Timer.periodic`); bộ đếm cập nhật qua stream |
