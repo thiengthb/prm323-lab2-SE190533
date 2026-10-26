@@ -22,6 +22,7 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v2.0 Xanh đại dương #0B6283 (thay Đen trắng ngày 22/10) |
 | Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.2 (14 màn, 4 lớp phủ) |
 | Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-12, checklist 10 mục đạt |
+| UI Simplicity Checklist | [design/ui-simplicity-check.md](design/ui-simplicity-check.md) | Claude chấm 90/100 (26/10), chờ người chấm lại; 6 việc sửa U-01..U-06 |
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-08; phản biện IT-0: 9 phát hiện |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
 | Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.1 (2 bảng ánh xạ, 6 mục cho 14 màn và GV-OV4) |
