@@ -1,55 +1,59 @@
 # Flutter handoff
 
-> v1.0 · 20/10/2026. Hai bảng ánh xạ toàn cục (mục 1, 2) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn và trạng thái, ví dụ `GV-102 · Phiên điểm danh .D2`.
+> v1.2 · 29/10/2026: mục 1 theo DESIGN.md v3.0 (cam đất, Nunito, viền 2 + gờ). v1.0 · 20/10/2026. Hai bảng ánh xạ toàn cục (mục 1, 2) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn và trạng thái, ví dụ `GV-102 · Phiên điểm danh .D2`.
 >
 > **Giả định dữ liệu (Assumed, E-12):** app đọc lịch, lớp, danh sách và ảnh sinh viên từ FAP, ghi kết quả điểm danh về cùng nguồn đó. Bài lab không làm backend.
 
 ## 1. Token → Flutter
 
-Theme: `ThemeData(useMaterial3: true, colorScheme: AppColors.scheme, textTheme: AppText.theme, fontFamily: 'Inter')`.
+Theme: `ThemeData(useMaterial3: true, colorScheme: AppColors.scheme, textTheme: AppText.theme, fontFamily: 'Nunito')` (gói `google_fonts` hoặc font nhúng trong `pubspec.yaml`). Giá trị theo [DESIGN.md](../design/DESIGN.md) v3.0, khớp biến Figma ngày 29/10.
 
 ### Màu
 
 | Token | Hex | Flutter |
 |---|---|---|
-| `color/bg` | `#F3F6F8` | `ColorScheme.surface` (nền Scaffold) |
-| `color/surface` | `#FFFFFF` | `ColorScheme.surfaceContainerLowest` (Card, sheet, NavigationBar) |
-| `color/muted-surface` | `#EAF0F3` | `ColorScheme.surfaceContainerHighest` (SegmentedButton nền, skeleton) |
-| `color/border` | `#DCE4E9` | `ColorScheme.outlineVariant` |
-| `color/border-control` | `#6A7C87` | `ColorScheme.outline` |
-| `color/fg` | `#0D1B24` | `ColorScheme.onSurface` |
-| `color/fg-muted` | `#4E5F6A` | `ColorScheme.onSurfaceVariant` |
-| `color/fg-disabled` | `#A0AEB8` | `onSurface.withOpacity` không dùng; hằng `AppColors.fgDisabled` |
-| `color/primary` | `#0B6283` | `ColorScheme.primary` |
-| `color/primary-pressed` | `#084C66` | `AppColors.primaryPressed` (overlay khi nhấn) |
-| `color/primary-soft` | `#E3F1F6` | `ColorScheme.primaryContainer` |
-| `color/on-primary-soft` | `#08506B` | `ColorScheme.onPrimaryContainer` |
+| `color/bg`, `color/surface` | `#FFFFFF` | `ColorScheme.surface`, `surfaceContainerLowest` (Scaffold, Card, sheet, NavigationBar) |
+| `color/muted-surface` | `#F4F4F4` | `ColorScheme.surfaceContainerHighest` (SegmentedButton nền, skeleton, ô ghi chú) |
+| `color/border` = `color/edge` | `#E5E5E5` | `ColorScheme.outlineVariant` (viền 2 và gờ đáy thẻ) |
+| `color/border-control` | `#8F8F8F` | `ColorScheme.outline` |
+| `color/fg-strong` | `#1F1F1F` | `AppColors.fgStrong` (số lớn, tiêu đề) |
+| `color/fg` | `#3C3C3C` | `ColorScheme.onSurface` |
+| `color/fg-muted` | `#6B6B6B` | `ColorScheme.onSurfaceVariant` |
+| `color/fg-disabled` | `#AFAFAF` | `AppColors.fgDisabled` |
+| `color/primary` | `#B9551F` | `ColorScheme.primary` |
+| `color/primary-pressed` = `color/edge-primary` | `#8A3D14` | `AppColors.primaryEdge` (gờ đáy nút chính, overlay khi nhấn) |
+| `color/primary-soft` / `-soft-edge` | `#FBEFE8` / `#F9B98F` | `ColorScheme.primaryContainer` / `AppColors.primarySoftEdge` (chip chọn) |
+| `color/on-primary-soft` | `#9A4518` | `ColorScheme.onPrimaryContainer` |
 | `color/on-primary` | `#FFFFFF` | `ColorScheme.onPrimary` |
-| `color/success` / `-soft` | `#15803D` / `#F0FDF4` | `AppColors.success` / `successSoft` (ThemeExtension `StatusColors`) |
-| `color/warning` / `-soft` | `#B45309` / `#FFFBEB` | `AppColors.warning` / `warningSoft` (ThemeExtension) |
-| `color/danger` / `-soft` | `#B91C1C` / `#FEF2F2` | `ColorScheme.error` / `ColorScheme.errorContainer` |
+| `color/brand` | `#F26F21` | `AppColors.brand` (chỉ icon ứng dụng) |
+| `color/success` / `-soft` | `#15803D` / `#ECFDF3` | `AppColors.success` / `successSoft` (ThemeExtension `StatusColors`) |
+| `color/warning` / `-soft` | `#A15C00` / `#FFF6DD` | `AppColors.warning` / `warningSoft` (ThemeExtension) |
+| `color/danger` / `-soft` | `#B42318` / `#FEF0EF` | `ColorScheme.error` / `ColorScheme.errorContainer` |
+| `color/scrim` | `#1F1F1F` 50% | `ColorScheme.scrim` |
 
-### Chữ (Inter)
+### Chữ (Nunito, 9 kiểu)
 
 | Token | Cỡ / dòng / độ đậm | Flutter `TextTheme` |
 |---|---|---|
-| `type/display` | 32 / 40 / w600 | `displaySmall` |
-| `type/title-lg` | 22 / 28 / w600 | `titleLarge` |
-| `type/title` | 18 / 24 / w600 | `titleMedium` (ghi đè cỡ 18) |
-| `type/body` | 16 / 24 / w400 | `bodyLarge` |
-| `type/body-strong` | 16 / 24 / w500 | `bodyLarge.copyWith(fontWeight: w500)` |
-| `type/label` | 14 / 20 / w500 | `labelLarge` |
-| `type/body-sm` | 14 / 20 / w400 | `bodyMedium` |
+| `type/display` | 28 / 34 / w700 | `displaySmall` (ghi đè cỡ 28) |
+| `type/title-lg` | 22 / 28 / w700 | `titleLarge` |
+| `type/title` | 17 / 24 / w700 | `titleMedium` (ghi đè cỡ 17) |
+| `type/section` | 16 / 22 / w700 | `titleSmall` (ghi đè cỡ 16) |
+| `type/body` | 15 / 22 / w500 | `bodyLarge` (ghi đè cỡ 15) |
+| `type/body-strong` | 15 / 22 / w600 | `bodyLarge.copyWith(fontWeight: w600)` |
+| `type/label` | 14 / 20 / w600 | `labelLarge` |
+| `type/body-sm` | 13 / 18 / w500 | `bodyMedium` (ghi đè cỡ 13) |
+| `type/caption` | 12 / 16 / w600 | `labelSmall` (nhãn NavigationBar) |
 
-### Khoảng cách, bo góc, đổ bóng, kích thước
+### Khoảng cách, bo góc, viền, kích thước
 
 | Token | Giá trị | Flutter |
 |---|---|---|
-| `space/4..32` | 4, 8, 12, 16, 20, 24, 32 | `AppSpace.s4 … s32` (const double) |
-| `radius/sm, md, lg, full` | 8, 12, 16, 999 | `AppRadius.sm/md/lg` → `BorderRadius.circular`, `StadiumBorder` |
-| `elevation/0` | viền 1 `outlineVariant` | `Card(elevation: 0, shape: RoundedRectangleBorder(side: …))` |
-| `elevation/1` | 0 1 2, 6% | `NavigationBar(elevation: 1)` |
-| `elevation/2` | 0 8 24, 12% | `Dialog`, `SnackBar`, `BottomSheet` elevation 6 + `shadowColor` |
+| `space/4..32` | 4, 8, 12, 16, 20, 24, 32 | `AppSpace.s4 … s32`; lề màn `EdgeInsets.symmetric(horizontal: 12)` |
+| `radius/sm, md, lg, xl, full` | 6, 8, 8, 10, 999 | `AppRadius.*` → `BorderRadius.circular`, `StadiumBorder` |
+| Viền và gờ thẻ | viền 2 `edge` + gờ đáy 2 | `Container(decoration: BoxDecoration(border: Border.all(width: 2, color: edge), borderRadius: r8, boxShadow: [BoxShadow(offset: Offset(0, 2), color: edge)]))` |
+| Gờ nút chính | đáy 2 `edge-primary` | `FilledButton` bọc `DecoratedBox` có `BoxShadow(offset: Offset(0, 2), blurRadius: 0, color: primaryEdge)`; khi nhấn dịch xuống 2 và bỏ gờ |
+| Bóng mờ | chỉ snackbar: 0 2, 35% đen | `SnackBar(elevation: 2)` |
 | `size/touch` | 48 | `MaterialTapTargetSize.padded`, `minimumSize: Size(48, 48)` |
 | `size/avatar` | 40 | `CircleAvatar(radius: 20)` |
 
@@ -209,7 +213,7 @@ Quy ước chung cho mọi màn:
 ### SV-001 · Buổi vắng của tôi (web)
 | Mục | Nội dung |
 |---|---|
-| Bố cục | Header “Buổi vắng” + “Lê Gia Huy · SE190533” · [băng cảnh báo] · danh sách môn: mã môn, lớp, “3/4 buổi” · 2 nút đáy “Báo sai” (outline) / “Quét mã” |
+| Bố cục | Header “Buổi vắng” + “Lê Gia Huy · SE190601” · [băng cảnh báo] · danh sách môn: mã môn, lớp, “3/4 buổi” · 2 nút đáy “Báo sai” (outline) / “Quét mã” |
 | Component | Banner, List row, Button |
 | Trạng thái | .D mọi môn ổn · .D1 băng hổ phách “PRM393 còn 1 buổi được vắng” · .D2 băng đỏ “đã chạm ngưỡng 4/4” |
 | Tương tác | Chạm môn mở danh sách buổi vắng (ngoài phạm vi lab) |

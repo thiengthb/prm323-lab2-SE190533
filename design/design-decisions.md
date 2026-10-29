@@ -1,6 +1,6 @@
 # Quyết định thiết kế và checklist accessibility
 
-> v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
+> v1.1 · 29/10/2026 (thêm D-13..D-15; checklist tương phản theo bảng màu v3.0 ở [DESIGN.md](DESIGN.md) mục 3). v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
 
 ## 1. Quyết định
 
@@ -18,6 +18,9 @@
 | D-10 | Lần đầu dùng: **nhập lớp và lịch từ FAP** (GV-100), không tạo lớp tay | Lớp và lịch đã có ở FAP (E-12); giảm việc nhập | Màn tạo lớp, nhập danh sách tay | GV-100, GV-003 |
 | D-11 | Bảng màu **Xanh đại dương**: primary petrol `#0B6283`, nền và chữ ngả lạnh; thẻ slot đang diễn ra nền primary, chữ trắng; thay D-01 | thien thấy bản Đen trắng chưa đẹp: cả màn chỉ có xám, không có điểm nhìn (22/10). Một màu nhấn đậm cho đúng một thẻ quan trọng nhất mỗi màn; chữ trắng trên primary 6,8:1 | Cam thương hiệu FPT (lẫn với hổ phách “Sắp chạm ngưỡng”); giữ Đen trắng, chỉ bớt chữ | Mọi màn qua biến `color/*`; Slot card .Live; [DESIGN.md](DESIGN.md) v2.0 |
 | D-12 | **Bớt chữ lần hai** (60 lớp chữ ẩn trên trang 03 và 06): hàng Cần chú ý chỉ còn tên + icon + “3/4”; bỏ mã SV trong danh sách điểm danh và yêu cầu sửa; bỏ “Tự động có mặt”, “Ngưỡng: 4 buổi vắng”, “Slot 1” ở chi tiết slot, “Vắng” dưới ngày ở hồ sơ, “buổi” ở web SV; “0/3 slot đã chốt” thành “0/3 đã chốt” | Thầy chê nhiều chữ; luật T4, T5 và “không lặp một thông tin hai chỗ”: chip “Sắp chạm ngưỡng” lặp tiêu đề nhóm, chữ “buổi vắng” lặp số | Giữ chip và nhãn đơn vị | GV-001, GV-101, GV-102, GV-103, GV-104, GV-105, GV-201, SV-001 |
+| D-13 | Hướng **C · Nổi khối, cam FPT**: viền 2 + gờ đáy 2, Nunito, primary cam đất `#B9551F`; thay D-11 | Chọn trong 3 hướng thử ngày 26/10 (trang Figma `00 Hướng`: A Đại dương mềm, B Gọn dòng thời gian, C Nổi khối). Cam đất (không phải cam FPT gốc `#F26F21`) để chữ trắng trên nút đạt 4,79:1 | A (thẻ nổi, bo 20–24, lời chào); B (trục giờ, viền mảnh); giữ Xanh đại dương | Mọi màn qua biến `color/*`, 9 kiểu `type/*`; [DESIGN.md](DESIGN.md) v3.0 |
+| D-14 | **Luật chung sau 4 vòng duyệt từng màn** (27–29/10): chữ chỉ 9 kiểu, lề màn 12, icon 20/24; ngày luôn ghi đủ thứ (“Thứ Ba, 20/10”); trạng thái trống, xong, lỗi cùng một bố cục icon trên chữ dưới; lý do từ chối là chip chung; bỏ màn thông báo và nút chuông (nhắc là thông báo đẩy của điện thoại); nhập lớp bằng file Excel/CSV có file mẫu | thien chấm từng màn trên trang duyệt (OK / Cần sửa / Chưa chắc); nhất quán (H4), ít chữ (T5) | Mỗi màn một kiểu chữ, một kiểu trạng thái riêng; màn thông báo trong app | Mọi màn; GV-100, GV-004, GV-105, GV-OV5, SV-* |
+| D-15 | Vòng 4 nhóm E: bỏ nút đèn trên camera quét mã; cảnh báo 4/4 rút còn “PRM393: vắng thêm 1 buổi là cấm thi”; **MSSV mẫu là mã giả, mỗi sinh viên một mã** (SE190601 cho Lê Gia Huy thay MSSV thật của thien) | Mã QR chiếu trên màn sáng, đèn chỉ gây lóa; một câu thay hai câu (T5); dữ liệu mẫu trùng mã (Lê Gia Huy, Đặng Minh Tú cùng một mã; Hoàng Minh Đức trùng Lê Thu Trang) làm người chấm nghi dữ liệu sai | Giữ nút đèn; giữ hai câu | SV-101, SV-001, GV-102, GV-103, 05 Components |
 
 ## 2. Checklist accessibility
 
@@ -25,9 +28,9 @@ Kiểm bằng script đọc thuộc tính node trên Figma trang 03 (20/10/2026)
 
 | # | Tiêu chí | Ngưỡng | Kết quả | Bằng chứng |
 |---|---|---|---|---|
-| A-1 | Tương phản chữ thường | ≥ 4,5:1 | Đạt | `fg` trên `bg` 16,97; `fg-muted` trên `bg` 7,41, trên `surface` 7,73, trên `muted` 7,03; chữ trên nút primary 16,97, khi nhấn 10,01 |
-| A-2 | Tương phản chữ trạng thái | ≥ 4,5:1 | Đạt | Có mặt 4,79; cảnh báo 4,84; vắng 5,91 (trên nền soft); chữ trắng trên nút destructive 6,47 |
-| A-3 | Tương phản thành phần điều khiển | ≥ 3:1 (WCAG 1.4.11) | Đạt | Viền ô nhập `#71717A` 4,83; viền focus `#18181B` 17,72; viền thẻ chưa chốt (hổ phách) 5,02 |
+| A-1 | Tương phản chữ thường | ≥ 4,5:1 | Đạt | Bảng màu v3.0 (29/10): `fg` 11,03; `fg-strong` 16,48; `fg-muted` 5,33 trên trắng, 4,85 trên `muted-surface`; chữ trắng trên nút primary 4,79, khi nhấn 7,61; `on-primary-soft` 5,75 |
+| A-2 | Tương phản chữ trạng thái | ≥ 4,5:1 | Đạt | Có mặt 4,76; cảnh báo 4,81 (5,19 trên trắng); vắng 5,92 (trên nền soft); chữ trắng trên nút destructive 6,57 |
+| A-3 | Tương phản thành phần điều khiển | ≥ 3:1 (WCAG 1.4.11) | Đạt | Viền ô nhập, radio `#8F8F8F` 3,23; nút primary `#B9551F` 4,79 trên trắng |
 | A-4 | Cỡ chữ tối thiểu | ≥ 14 | Đạt | 653 lớp chữ hiển thị trên trang 03, nhỏ nhất 14 (đo lại 22/10 sau khi bớt chữ lần hai, D-12) |
 | A-5 | Vùng chạm | ≥ 48 × 48 dp | Đạt | 53 Button cao ≥ 48; Segmented 48; nút icon app bar 48 × 48 (41 app bar); Student row ≥ 64; Attention row ≥ 80; 63 hàng danh sách ≥ 64; Bottom navigation 72 |
 | A-6 | Không truyền tin chỉ bằng màu | Icon + chữ kèm màu | Đạt | Mọi Status chip có icon 16 + chữ (luật T3) |

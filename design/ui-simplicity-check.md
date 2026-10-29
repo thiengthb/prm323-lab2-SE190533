@@ -10,7 +10,7 @@
 | A2 | Không có đoạn giải thích dài | Đạt | Không còn câu hướng dẫn; dài nhất là tin nhắc trong GV-201 sheet, đó là nội dung gửi đi | |
 | A3 | Thông tin ít dùng nằm ở chi tiết | Đạt | Danh sách 32 em đã quét gộp thành một hàng; lịch sử vắng nằm ở Hồ sơ | |
 | A4 | Không lặp nội dung giữa các thẻ | **Chưa** | U-01 | |
-| B1 | Một màu nhấn, nền trung tính | Đạt | Petrol `#0B6283` duy nhất | |
+| B1 | Một màu nhấn, nền trung tính | Đạt | Petrol `#0B6283` duy nhất (bản 26/10; từ D-13 là cam đất `#B9551F`, vẫn một màu nhấn) | |
 | B2 | Không tô màu thẻ để trang trí | Đạt | Thẻ nền màu duy nhất là slot đang diễn ra (D-11), có nghĩa | |
 | B3 | Màu trạng thái nhất quán | Đạt | Xanh lá = có mặt/đã chốt, hổ phách = chưa chốt/sắp chạm ngưỡng, đỏ = vắng/chạm ngưỡng | |
 | B4 | Màu không là kênh duy nhất | Đạt, 1 ghi chú | Chip đều có icon + chữ. Thanh 3 đoạn ở GV-001 chỉ có màu, nhưng có chữ “1/3 đã chốt” bên cạnh (U-04) | |
@@ -28,6 +28,8 @@
 | E4 | Loading, empty, success, error rõ | **Chưa** | U-02, U-03 | |
 
 ## Việc cần sửa
+
+> **29/10:** cả 6 việc đã sửa trên Figma trong các vòng duyệt 27–29/10 (AI-12): U-01 còn 2 ô số; U-02 thành SV-101 .X2 “Cần quyền camera” + nút **Cho phép camera**; U-03 nút tắt “Mở lúc 06:55”; U-04 giữ; U-05 “Hiện mã”; U-06 chip chỉ hiện khi khác “Sắp tới”.
 
 | Mã | Màn | Vấn đề | Đề xuất | Mức |
 |---|---|---|---|---|
