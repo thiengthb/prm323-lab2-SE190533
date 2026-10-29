@@ -1,11 +1,14 @@
 # Đặc tả màn hình (ý đồ thiết kế)
 
-> v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm GV-OV4 thông báo nhắc chốt, tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
+> v1.3 · 29/10/2026: thêm GV-A01..A03, SV-000, GV-001 .E2/.N, GV-003 .D2 (vòng đời, D-16..D-18). v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm GV-OV4 thông báo nhắc chốt, tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
 
 ## App giảng viên
 
 | Mã | Màn | Để làm gì | Nội dung chính (trên → dưới) | Hành động chính | Flow | Trạng thái |
 |---|---|---|---|---|---|---|
+| GV-A01 | Đăng nhập | Vào app trên máy mới | App icon + “Đăng nhập” · Email · Mật khẩu · Quên mật khẩu? | **Đăng nhập**; link Đăng ký | FL-0 | .D · .X sai mật khẩu |
+| GV-A02 | Đăng ký | Tạo tài khoản bằng email trường (D-16) | App icon + “Đăng ký” · “Dùng email @fe.edu.vn” · Họ tên · Email · Mật khẩu | **Tạo tài khoản**; link Đăng nhập | FL-0 | .D · .X email không phải @fe.edu.vn |
+| GV-A03 | Xác nhận email | Chắc email là của giảng viên | “Mã 6 số đã gửi tới …” · 6 ô · gửi lại sau 28 giây | **Xác nhận** | FL-0 | .D |
 | GV-100 | Thiết lập lần đầu | Lấy lớp và lịch từ FAP để không phải nhập tay (E-12) | Icon tải về · tiêu đề “Nhập từ FAP” · danh sách lớp kỳ này có ô chọn (.X giữ nguyên tiêu đề, lỗi nằm giữa phần còn lại) | **Nhập 4 lớp** | FL-2 | .D chọn lớp · .L đang nhập · .X nhập lỗi · .S xong |
 | GV-001 | Tổng quan | Trả lời “bây giờ tôi phải làm gì” trong 5 giây (E-01, E-05) | App bar top-level + chuông · ngày + **“1/3 slot đã chốt” và thanh 3 đoạn** (mỗi đoạn một slot: đã chốt xanh, chưa chốt hổ phách, đang diễn ra đen, sắp tới xám) · thẻ slot đang diễn ra · thẻ slot chưa chốt (nếu có) · “Cần chú ý” 2–3 hàng · các slot còn lại hôm nay | **Mở điểm danh** trên thẻ slot đang diễn ra | FL-1, FL-2, FL-3 | .D · .D1 có slot chưa chốt (thẻ **Chốt ngay** lên đầu) · .L skeleton · .E hôm nay không dạy · .X mất mạng |
 | GV-002 | Lịch | Xem hôm nay, ngày mai, tuần mà không mở FAP (E-03) | Segmented Hôm nay / Ngày mai / Tuần · nhóm theo ngày · thẻ slot | Chạm thẻ slot | FL-1, FL-2 | .D1 hôm nay · .D2 ngày mai · .D3 tuần · .E không có slot |
@@ -26,6 +29,7 @@
 
 | Mã | Màn | Để làm gì | Nội dung chính | Hành động chính | Flow | Trạng thái |
 |---|---|---|---|---|---|---|
+| SV-000 | Đăng nhập | Biết đúng sinh viên trước khi xem buổi vắng, quét mã | App icon · “Quick Attend” · một dòng phụ | **Đăng nhập tài khoản FPT** | FL-4 | .D |
 | SV-001 | Buổi vắng của tôi | Biết còn được vắng mấy buổi mà không phải tự tra (E-25, E-26) | Băng cảnh báo môn sắp chạm ngưỡng · hàng môn: mã môn · “3/4” · chip | **Quét mã** (cố định đáy) | FL-4 | .D · .D1 sắp chạm ngưỡng · .D2 đã chạm ngưỡng |
 | SV-101 | Quét mã | Điểm danh bằng camera | Khung camera · kết quả ngay trên màn | Quét | FL-4 | .D camera · .S “Đã ghi nhận 07:01” + dòng còn vắng được N buổi · .X mã hết hạn → Quét lại |
 | SV-102 | Gửi báo sai | Báo giảng viên trong ngày khi bị ghi sai | Slot đang ghi Vắng · ô lý do | **Gửi** | FL-4 | .D · .S đã gửi |

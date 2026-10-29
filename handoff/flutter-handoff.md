@@ -1,6 +1,6 @@
 # Flutter handoff
 
-> v1.2 · 29/10/2026: mục 1 theo DESIGN.md v3.0 (cam đất, Nunito, viền 2 + gờ). v1.0 · 20/10/2026. Hai bảng ánh xạ toàn cục (mục 1, 2) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn và trạng thái, ví dụ `GV-102 · Phiên điểm danh .D2`.
+> v1.3 · 29/10/2026: thêm GV-A01..A03, SV-000, GV-001 .E2/.N, GV-003 .D2 (vòng đời). v1.2: mục 1 theo DESIGN.md v3.0. v1.0 · 20/10/2026. Hai bảng ánh xạ toàn cục (mục 1, 2) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn và trạng thái, ví dụ `GV-102 · Phiên điểm danh .D2`.
 >
 > **Giả định dữ liệu (Assumed, E-12):** app đọc lịch, lớp, danh sách và ảnh sinh viên từ FAP, ghi kết quả điểm danh về cùng nguồn đó. Bài lab không làm backend.
 
@@ -90,6 +90,16 @@ Quy ước chung cho mọi màn:
 - **≥ 600 dp (tablet, xoay ngang):** thân giới hạn `ConstrainedBox(maxWidth: 560)` căn giữa; `NavigationBar` đổi thành `NavigationRail`. Không đổi bố cục khác.
 - Ảnh sinh viên: `CircleAvatar(foregroundImage: NetworkImage(url))`, lỗi tải thì hiện chữ viết tắt; cache bằng `cached_network_image`.
 
+### GV-A01 · Đăng nhập, GV-A02 · Đăng ký, GV-A03 · Xác nhận email
+| Mục | Nội dung |
+|---|---|
+| Bố cục | Không app bar, không NavigationBar · hàng tiêu đề: App icon 48 + “Đăng nhập” / “Đăng ký” / “Xác nhận email” · [dòng phụ “Dùng email @fe.edu.vn”] · các Text field · nút đáy primary + dòng “Chưa có tài khoản? **Đăng ký**” |
+| Component | App icon, Text field (Filled, Error), Button primary, `TextButton` cho link; A03: 6 ô `TextField` maxLength 1 hoặc gói `pinput` |
+| Trạng thái | A01 .D · A01 .X lỗi dưới ô mật khẩu “Sai email hoặc mật khẩu”, giữ email · A02 .D · A02 .X lỗi dưới ô email “Chỉ nhận email @fe.edu.vn” · A03 .D nút tắt tới khi đủ 6 số, “Gửi lại mã sau 28 giây” |
+| Tương tác | Bàn phím `TextInputType.emailAddress`; mật khẩu `obscureText`; kiểm đuôi email ngay khi rời ô; A03 tự chuyển ô khi gõ, dán được cả mã |
+| Điều hướng | A01 → GV-001 (`pushReplacement`); A02 → A03 → GV-001 .E2 nếu kỳ hiện tại chưa có lớp; GV-004 “Đăng xuất” → A01 (xóa stack) |
+| Ràng buộc | Chỉ email @fe.edu.vn (D-16); không lưu mật khẩu trên máy, lưu token bằng `flutter_secure_storage` |
+
 ### GV-100 · Thiết lập lần đầu
 | Mục | Nội dung |
 |---|---|
@@ -105,10 +115,10 @@ Quy ước chung cho mọi màn:
 |---|---|
 | Bố cục | App bar top-level “Tổng quan” + chuông · hàng ngày + “1/3 slot đã chốt” và thanh 3 đoạn cao 6 (`Row` các `Expanded(Container)` bo 3, khe 4; màu theo trạng thái slot: success / warning / primary / border) · [thẻ Chốt ngay nếu có] · thẻ slot đang diễn ra · nhóm “Cần chú ý” 2 hàng + “Xem tất cả” · nhóm “Còn lại hôm nay” · NavigationBar tab 1 |
 | Component | App bar, Slot card (Unclosed, Live, Upcoming), Attention row, Bottom navigation, Skeleton, Empty state, Error state |
-| Trạng thái | .D · .D1 slot chưa chốt lên đầu, viền hổ phách 2 · .L 3 skeleton theo hình thẻ · .E “Hôm nay không có slot” + Xem lịch · .X mất mạng + Thử lại |
+| Trạng thái | .D · .D1 slot chưa chốt lên đầu, viền hổ phách 2 · .L 3 skeleton theo hình thẻ · .E “Hôm nay không có slot” + Xem lịch · .E2 kỳ hiện tại chưa có lớp: chỉ Empty state “Fall 2026 chưa có lớp” + nút primary “Nhập lớp” · .N kỳ mới: băng primary-soft “Kỳ mới Spring 2027” + Empty state “Spring 2027 chưa có lớp” + “Nhập lớp” · .X mất mạng + Thử lại |
 | Tương tác | Kéo xuống để tải lại; chạm thẻ → GV-101; nút trên thẻ đi thẳng vào GV-102 |
 | Điều hướng | Chuông → GV-105; “Xem tất cả” → GV-104; hàng sinh viên → GV-201 |
-| Ràng buộc | Một nút primary trên màn: nếu có thẻ Chốt ngay thì nút “Mở điểm danh” của thẻ live đổi sang outline |
+| Ràng buộc | Một nút primary trên màn: nếu có thẻ Chốt ngay thì nút “Mở điểm danh” của thẻ live đổi sang outline. Kỳ hiện tại tính từ ngày máy: tháng 1–4 Spring, 5–8 Summer, 9–12 Fall + năm (D-18); kỳ chưa có lớp thì luôn hiện .E2 / .N |
 
 ### GV-002 · Lịch
 | Mục | Nội dung |
@@ -123,9 +133,9 @@ Quy ước chung cho mọi màn:
 ### GV-003 · Lớp
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar “Lớp” · danh sách hàng lớp: môn · lớp · sĩ số · chip số em cần chú ý |
+| Bố cục | App bar “Lớp” · hàng chip chọn kỳ (kỳ hiện tại đứng đầu) · dòng “4 lớp đang dạy” · danh sách hàng lớp: môn · lớp · sĩ số · chip số em cần chú ý |
 | Component | List row, Status chip (Warning, Over), Empty state |
-| Trạng thái | .D · .E “Chưa có lớp nào” + nút “Nhập từ FAP” |
+| Trạng thái | .D · .D2 kỳ cũ: dòng “4 lớp · đã kết thúc, chỉ xem”, mở được chi tiết nhưng không có nút điểm danh · .E “Chưa có lớp nào” + nút “Nhập lớp” |
 | Tương tác | Chạm hàng |
 | Điều hướng | → GV-103; .E → GV-100 |
 | Ràng buộc | Chip chỉ hiện khi có em cần chú ý |
@@ -210,6 +220,16 @@ Quy ước chung cho mọi màn:
 | Điều hướng | Back → GV-104 / GV-103 / GV-001 |
 | Ràng buộc | Mỗi sinh viên nhắc tối đa 1 lần mỗi ngày |
 
+### SV-000 · Đăng nhập (web)
+| Mục | Nội dung |
+|---|---|
+| Bố cục | Thanh trình duyệt · giữa màn: App icon 64, “Quick Attend”, “Xem buổi vắng, quét mã điểm danh” · nút đáy “Đăng nhập tài khoản FPT” |
+| Component | App icon, Button primary |
+| Trạng thái | .D |
+| Tương tác | Nút mở đăng nhập tài khoản FPT (@fpt.edu.vn) của trường, quay về SV-001 |
+| Điều hướng | → SV-001; mở link quét mã khi chưa đăng nhập thì qua SV-000 trước rồi về SV-101 |
+| Ràng buộc | Không có đăng ký riêng cho sinh viên (D-17) |
+
 ### SV-001 · Buổi vắng của tôi (web)
 | Mục | Nội dung |
 |---|---|
@@ -218,7 +238,7 @@ Quy ước chung cho mọi màn:
 | Trạng thái | .D mọi môn ổn · .D1 băng hổ phách “PRM393 còn 1 buổi được vắng” · .D2 băng đỏ “đã chạm ngưỡng 4/4” |
 | Tương tác | Chạm môn mở danh sách buổi vắng (ngoài phạm vi lab) |
 | Điều hướng | Quét mã → SV-101; Báo sai → SV-102 |
-| Ràng buộc | Web (Flutter web hoặc web thường), một cột, không thanh điều hướng; đăng nhập bằng tài khoản FPT (Assumed) |
+| Ràng buộc | Web (Flutter web hoặc web thường), một cột, không thanh điều hướng; đăng nhập ở SV-000. Bản laptop (.W): tiêu đề “Buổi vắng · Fall 2026”, tên và MSSV ở góc phải cạnh ảnh đại diện |
 
 ### SV-101 · Quét mã (web)
 | Mục | Nội dung |

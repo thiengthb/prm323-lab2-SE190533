@@ -18,14 +18,14 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Phiếu phỏng vấn sinh viên | [research/01-phieu-phong-van-sv.md](research/01-phieu-phong-van-sv.md) | Sẵn sàng dùng |
 | Ma trận bằng chứng, ghi chép phỏng vấn | [research/02-evidence-matrix.md](research/02-evidence-matrix.md), [research/03-ghi-chep/](research/03-ghi-chep/) | 20 phát hiện, 2 phỏng vấn SV |
 | Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | v0.2 (P-01, P-02, P-03) |
-| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v0.2 |
+| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v0.3: thêm FL-0 vòng đời (đăng ký, nhập lớp, sang kỳ mới) |
 | Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v3.0 (29/10): hướng Nổi khối, cam đất #B9551F, Nunito 9 kiểu chữ |
-| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.2 (14 màn, 4 lớp phủ) |
-| Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-15, checklist 10 mục đạt |
+| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.3 (18 màn, 5 lớp phủ; có vòng đời đăng ký → nhập lớp → sang kỳ mới) |
+| Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-19, checklist 10 mục đạt |
 | UI Simplicity Checklist | [design/ui-simplicity-check.md](design/ui-simplicity-check.md) | Claude chấm 90/100 (26/10); U-01..U-06 đã sửa trên Figma (27–29/10); thien duyệt từng màn qua 4 vòng |
-| Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-13; phản biện IT-0..IT-3; 4 vòng duyệt từng màn |
+| Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-14; phản biện IT-0..IT-3; 4 vòng duyệt từng màn |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
-| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.2 (29/10): bảng token theo DESIGN.md v3.0; 6 mục cho 14 màn và GV-OV4 |
+| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.3 (29/10): bảng token theo DESIGN.md v3.0; 6 mục cho 18 màn, có đăng nhập, đăng ký, kỳ mới |
 | Slide thuyết trình | Deck theo thứ tự thầy yêu cầu (mục tiêu → nghiên cứu → persona → giải pháp → cấu trúc → flow → style guide → AI → quyết định → màn hình → kiểm tra → bàn giao), lời nói trong ghi chú người nói | v4.0 (29/10): 13 slide, cùng bảng màu và font với app; tải về PPTX hoặc PDF từ deck |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
 

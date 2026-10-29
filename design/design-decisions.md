@@ -1,6 +1,6 @@
 # Quyết định thiết kế và checklist accessibility
 
-> v1.1 · 29/10/2026 (thêm D-13..D-15; checklist tương phản theo bảng màu v3.0 ở [DESIGN.md](DESIGN.md) mục 3). v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
+> v1.1 · 29/10/2026 (thêm D-13..D-19; checklist tương phản theo bảng màu v3.0 ở [DESIGN.md](DESIGN.md) mục 3). v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
 
 ## 1. Quyết định
 
@@ -21,6 +21,10 @@
 | D-13 | Hướng **C · Nổi khối, cam FPT**: viền 2 + gờ đáy 2, Nunito, primary cam đất `#B9551F`; thay D-11 | Chọn trong 3 hướng thử ngày 26/10 (trang Figma `00 Hướng`: A Đại dương mềm, B Gọn dòng thời gian, C Nổi khối). Cam đất (không phải cam FPT gốc `#F26F21`) để chữ trắng trên nút đạt 4,79:1 | A (thẻ nổi, bo 20–24, lời chào); B (trục giờ, viền mảnh); giữ Xanh đại dương | Mọi màn qua biến `color/*`, 9 kiểu `type/*`; [DESIGN.md](DESIGN.md) v3.0 |
 | D-14 | **Luật chung sau 4 vòng duyệt từng màn** (27–29/10): chữ chỉ 9 kiểu, lề màn 12, icon 20/24; ngày luôn ghi đủ thứ (“Thứ Ba, 20/10”); trạng thái trống, xong, lỗi cùng một bố cục icon trên chữ dưới; lý do từ chối là chip chung; bỏ màn thông báo và nút chuông (nhắc là thông báo đẩy của điện thoại); nhập lớp bằng file Excel/CSV có file mẫu | thien chấm từng màn trên trang duyệt (OK / Cần sửa / Chưa chắc); nhất quán (H4), ít chữ (T5) | Mỗi màn một kiểu chữ, một kiểu trạng thái riêng; màn thông báo trong app | Mọi màn; GV-100, GV-004, GV-105, GV-OV5, SV-* |
 | D-15 | Vòng 4 nhóm E: bỏ nút đèn trên camera quét mã; cảnh báo 4/4 rút còn “PRM393: vắng thêm 1 buổi là cấm thi”; **MSSV mẫu là mã giả, mỗi sinh viên một mã** (SE190601 cho Lê Gia Huy thay MSSV thật của thien) | Mã QR chiếu trên màn sáng, đèn chỉ gây lóa; một câu thay hai câu (T5); dữ liệu mẫu trùng mã (Lê Gia Huy, Đặng Minh Tú cùng một mã; Hoàng Minh Đức trùng Lê Thu Trang) làm người chấm nghi dữ liệu sai | Giữ nút đèn; giữ hai câu | SV-101, SV-001, GV-102, GV-103, 05 Components |
+| D-16 | **Đăng ký bằng email @fe.edu.vn và mật khẩu**, xác nhận bằng mã 6 số; có đăng nhập, đăng xuất | thien chọn 29/10: bản trước chỉ có màn tính năng, thiếu một vòng dùng app trọn vẹn; chỉ nhận email trường để biết đúng giảng viên | Chỉ nút tài khoản FPT, lần đầu tự tạo hồ sơ; cả hai cách | GV-A01, GV-A02, GV-A03, GV-004 |
+| D-17 | Web sinh viên có **SV-000 đăng nhập tài khoản FPT**, không đăng ký riêng | Web hiện tên, MSSV, buổi vắng nên phải biết ai đang xem | Không đăng nhập | SV-000, SV-001 |
+| D-18 | **Kỳ tự tạo theo ngày** (tháng 1–4 Spring, 5–8 Summer, 9–12 Fall + năm); kỳ chưa có lớp thì Tổng quan chỉ còn việc **Nhập lớp** (.E2 lần đầu, .N sang kỳ mới); kỳ cũ giữ ở tab Lớp, chỉ xem | Giảng viên không phải tự tạo kỳ; không vào nhầm lớp kỳ trước; vẫn tra lại được kỳ cũ | Giảng viên tự tạo kỳ; ẩn kỳ cũ | GV-001, GV-003, GV-100 |
+| D-19 | Vòng 4 nhóm E theo điểm thien chấm: logo dùng màu primary; bản laptop tiêu đề “Buổi vắng · Fall 2026”, MSSV dưới tên ở góc phải; bỏ tia quét cam; “Hãy quét lại” thay “Mã đổi sau mỗi 15 giây”; chip Vắng ở SV-102 bỏ dấu X; “Đã gửi” dùng xanh lá; SV-101 .S giữ như cũ | Logo cam FPT gốc nhạt hơn màu app; bớt chữ và chi tiết thừa; thành công là xanh lá như luật B3 | Giữ nguyên | SV-001, SV-101, SV-102, App icon |
 
 ## 2. Checklist accessibility
 

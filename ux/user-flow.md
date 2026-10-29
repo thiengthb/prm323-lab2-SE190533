@@ -1,14 +1,14 @@
 # Kiến trúc thông tin và user flow
 
-> **Trạng thái:** v0.2 (20/10/2026). “Setup” là bước nhập lớp và lịch từ FAP lúc dùng lần đầu (thien chốt 20/10, E-12). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
+> **Trạng thái:** v0.3 (29/10/2026): thêm vòng đời đầy đủ (đăng ký, đăng nhập, chưa có lớp, sang kỳ mới, đăng nhập web sinh viên), FL-0 và FL-0b (D-16..D-18). v0.2 (20/10/2026). “Setup” là bước nhập lớp và lịch từ FAP lúc dùng lần đầu (thien chốt 20/10, E-12). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
 
 ## 1. Hệ mã màn hình
 
 ```
 <Kênh>-<Cấp><Số> · <Tên> .<Trạng thái>
 Kênh:       GV = app giảng viên   SV = web sinh viên
-Cấp:        0 = tab gốc   1 = màn con   2 = màn cháu   OV = lớp phủ (dialog, sheet)
-Trạng thái: .D mặc định  .L đang tải  .E rỗng  .X lỗi  .S thành công
+Cấp:        A = trước khi vào app (đăng nhập, đăng ký)   0 = tab gốc   1 = màn con   2 = màn cháu   OV = lớp phủ (dialog, sheet)
+Trạng thái: .D mặc định  .L đang tải  .E rỗng  .X lỗi  .S thành công  .N kỳ mới
             Trạng thái nghiệp vụ đánh số: .D1, .D2, ...
 ```
 
@@ -32,10 +32,15 @@ flowchart TD
         S104 --> S201["GV-201 · Hồ sơ sinh viên"]
         S103 --> S201
         N(["Thông báo nhắc"]) -.-> S102
-        S100["GV-100 · Thiết lập lần đầu: nhập từ FAP"] -->|"lần đầu"| T1
+        A1["GV-A01 · Đăng nhập"] --> T1
+        A2["GV-A02 · Đăng ký"] --> A3["GV-A03 · Xác nhận email"] --> T1
+        A1 <--> A2
+        T1 -->|"kỳ chưa có lớp (.E2, .N)"| S100["GV-100 · Nhập lớp từ file"]
+        S100 --> T1
+        T4 -->|"Đăng xuất"| A1
     end
     subgraph SV["Web sinh viên · 360 dp"]
-        W1["SV-001 · Buổi vắng của tôi"]
+        W0["SV-000 · Đăng nhập tài khoản FPT"] --> W1["SV-001 · Buổi vắng của tôi"]
         W1 --> W2["SV-101 · Quét mã"]
         W1 --> W3["SV-102 · Gửi báo sai"]
     end
@@ -44,13 +49,16 @@ flowchart TD
 
 ## 3. Danh sách màn hình
 
-11 màn khác nhau cho app giảng viên (đề yêu cầu ≥ 8), 3 màn cho web sinh viên.
+14 màn khác nhau cho app giảng viên (đề yêu cầu ≥ 8), 4 màn cho web sinh viên.
 
 | Mã | Tên | Cấp | Persona | Flow | Trạng thái | Nguồn |
 |---|---|---|---|---|---|---|
-| GV-001 | Tổng quan | 0 | P-01, P-02 | FL-1, FL-3 | .D, .D1 (có slot chưa chốt), .L, .E (hôm nay không dạy), .X | E-01, E-03, E-05, E-09 |
+| GV-A01 | Đăng nhập | A | P-01, P-02 | FL-0 | .D, .X sai mật khẩu | D-16 |
+| GV-A02 | Đăng ký (email @fe.edu.vn, mật khẩu) | A | P-01, P-02 | FL-0 | .D, .X email không phải của trường | D-16 |
+| GV-A03 | Xác nhận email (mã 6 số) | A | P-01, P-02 | FL-0 | .D | D-16 |
+| GV-001 | Tổng quan | 0 | P-01, P-02 | FL-0, FL-0b, FL-1, FL-3 | .D, .D1 (có slot chưa chốt), .L, .E (hôm nay không dạy), .E2 (kỳ chưa có lớp), .N (kỳ mới), .X | E-01, E-03, E-05, E-09 |
 | GV-002 | Lịch | 0 | P-01, P-02 | FL-1, FL-2 | .D1 hôm nay, .D2 ngày mai, .D3 tuần, .E | E-03 |
-| GV-003 | Lớp | 0 | P-01 | FL-3 | .D, .E | E-03 |
+| GV-003 | Lớp | 0 | P-01 | FL-3, FL-0b | .D, .D2 (kỳ cũ, chỉ xem), .E | E-03 |
 | GV-004 | Tài khoản | 0 | P-02 | FL-2 | .D | E-01 (cài nhắc) |
 | GV-100 | Thiết lập lần đầu: nhập lớp, lịch từ FAP | 1 | P-02 | FL-2 | .D chọn lớp, .L đang nhập, .X nhập lỗi, .S xong | E-12 |
 | GV-101 | Chi tiết slot | 1 | P-01, P-02 | FL-1, FL-2 | .D1 sắp tới, .D2 đang diễn ra, .D3 đã chốt | E-03 |
@@ -63,6 +71,7 @@ flowchart TD
 | GV-OV2 | Hộp thoại lỗi mạng | OV | P-01 | FL-1 | Lỗi (biến thể destructive/error) | — |
 | GV-OV3 | Sheet nhắc sinh viên | OV | P-01 | FL-3 | .D | E-05 |
 | GV-OV4 | Thông báo nhắc chốt (màn khoá) | OV | P-02 | FL-2 | .D | E-01, E-09, E-10 |
+| SV-000 | Đăng nhập tài khoản FPT | A | P-03 | FL-4 | .D | D-17 |
 | SV-001 | Buổi vắng của tôi | 0 | P-03 | FL-4 | .D, .D1 sắp chạm ngưỡng, .D2 đã chạm ngưỡng | E-21, E-22 |
 | SV-101 | Quét mã | 1 | P-03 | FL-4 | .D camera, .S đã ghi nhận, .X mã hết hạn | E-20 |
 | SV-102 | Gửi báo sai | 1 | P-03 | FL-4 | .D, .S đã gửi | E-20 |
@@ -70,6 +79,32 @@ flowchart TD
 **Đã cắt so với v1:** đếm sĩ số, đối chiếu sĩ số, kiểm tra ngẫu nhiên (E-04).
 
 ## 4. Flow
+
+### FL-0 · Vòng đời: đăng ký, nhập lớp lần đầu, sang kỳ mới (P-01, P-02)
+
+Bắt đầu: tải app. Mục tiêu: có lớp của kỳ hiện tại để điểm danh. Kết thúc: GV-001 .D có slot. FL-0b là nhánh sang kỳ mới của cùng vòng đời.
+
+```mermaid
+flowchart TD
+    A(["Tải app"]) --> B["GV-A01 · Đăng nhập"]
+    B -->|"chưa có tài khoản"| C["GV-A02 · Đăng ký"]
+    C -->|"email không phải @fe.edu.vn"| CX["GV-A02 .X"] --> C
+    C --> D["GV-A03 · Xác nhận email"]
+    B -->|"sai mật khẩu"| BX["GV-A01 .X"] --> B
+    D --> E{"Kỳ hiện tại có lớp?"}
+    B --> E
+    E -->|"Chưa"| F["GV-001 .E2 · Fall 2026 chưa có lớp"]
+    F --> G["GV-100 · Nhập lớp từ file"]
+    G --> H(["GV-001 .D · Có slot hôm nay"])
+    E -->|"Có"| H
+    H -.->|"qua ngày đầu kỳ sau"| N["GV-001 .N · App tự tạo Spring 2027"]
+    N -->|"Nhập lớp"| G
+    N -->|"tab Lớp"| O["GV-003 .D2 · Fall 2026 chỉ xem"]
+    H -.->|"Tài khoản → Đăng xuất"| B
+```
+
+**Quy tắc kỳ (D-18):** app đặt tên kỳ theo ngày hiện tại: tháng 1–4 là Spring, 5–8 là Summer, 9–12 là Fall, kèm năm (Spring 2027). Ngày đầu kỳ mới, Tổng quan chuyển sang .N và chỉ còn một việc: Nhập lớp. Kỳ cũ giữ ở tab Lớp, chọn bằng chip kỳ, chỉ xem.
+
 
 ### FL-1 · Điểm danh một slot (P-01, K1)
 
@@ -134,7 +169,8 @@ Bắt đầu: SV-001. Mục tiêu: được ghi có mặt. Kết thúc: SV-101 .
 
 ```mermaid
 flowchart TD
-    A(["Bắt đầu: SV-001 · Buổi vắng của tôi"]) --> B["SV-101 · Quét mã"]
+    S(["Mở web"]) --> L["SV-000 · Đăng nhập tài khoản FPT"] --> A
+    A(["SV-001 · Buổi vắng của tôi"]) --> B["SV-101 · Quét mã"]
     B -->|"thành công"| C(["SV-101 .S · Đã ghi nhận"])
     B -->|"mã hết hạn"| X["SV-101 .X"] -->|"Quét lại"| B
     A -->|"bị ghi sai"| D["SV-102 · Gửi báo sai"] --> E["SV-102 .S"]
@@ -146,9 +182,10 @@ flowchart TD
 
 | Flow | Persona | Màn |
 |---|---|---|
+| FL-0, FL-0b | P-01, P-02 | GV-A01, GV-A02, GV-A03, GV-001 (.E2, .N), GV-100, GV-003 (.D2), GV-004 |
 | FL-1 | P-01 | GV-001, GV-002, GV-101, GV-102, GV-OV1, GV-OV2 |
 | FL-2 | P-02 | GV-100, GV-004, GV-002, GV-OV4, GV-001, GV-101, GV-102 |
 | FL-3 | P-01 | GV-001, GV-104, GV-003, GV-103, GV-201, GV-OV3 |
-| FL-4 | P-03, P-01 | SV-001, SV-101, SV-102, GV-105 |
+| FL-4 | P-03, P-01 | SV-000, SV-001, SV-101, SV-102, GV-105 |
 
 Mọi màn đều thuộc ít nhất một flow. FL-1, FL-2 và FL-4 có nhánh lỗi, phục hồi.
