@@ -26,7 +26,7 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-13; phản biện IT-0..IT-3; 4 vòng duyệt từng màn |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
 | Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.2 (29/10): bảng token theo DESIGN.md v3.0; 6 mục cho 14 màn và GV-OV4 |
-| Slide thuyết trình | PPTX theo thứ tự giảng viên yêu cầu, lời nói trong ghi chú người nói | v3.0 (22/10): 13 slide, mỗi slide một ý, bảng màu Xanh đại dương, bằng chứng chuyển vào ghi chú người nói |
+| Slide thuyết trình | Deck theo thứ tự thầy yêu cầu (mục tiêu → nghiên cứu → persona → giải pháp → cấu trúc → flow → style guide → AI → quyết định → màn hình → kiểm tra → bàn giao), lời nói trong ghi chú người nói | v4.0 (29/10): 13 slide, cùng bảng màu và font với app; tải về PPTX hoặc PDF từ deck |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
 
 ## Công cụ AI đã dùng
