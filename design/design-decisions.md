@@ -1,6 +1,6 @@
 # Quyết định thiết kế và checklist accessibility
 
-> v1.1 · 29/10/2026 (thêm D-13..D-19; checklist tương phản theo bảng màu v3.0 ở [DESIGN.md](DESIGN.md) mục 3). v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
+> v1.1 · 29/10/2026 (thêm D-13..D-23; checklist tương phản theo bảng màu v3.0 ở [DESIGN.md](DESIGN.md) mục 3). v1.0 · 20/10/2026. Mỗi quyết định có lý do truy về bằng chứng (E-xx trong [ma trận](../research/02-evidence-matrix.md)), phản biện AI (F-xx, A-xx trong [AI-04](../ai/critique/AI-04-critique-IT-0.md)) hoặc heuristic Nielsen (H1–H10). Tối đa 10 quyết định.
 
 ## 1. Quyết định
 
@@ -25,6 +25,10 @@
 | D-17 | Web sinh viên có **SV-000 đăng nhập tài khoản FPT**, không đăng ký riêng | Web hiện tên, MSSV, buổi vắng nên phải biết ai đang xem | Không đăng nhập | SV-000, SV-001 |
 | D-18 | **Kỳ tự tạo theo ngày** (tháng 1–4 Spring, 5–8 Summer, 9–12 Fall + năm); kỳ chưa có lớp thì Tổng quan chỉ còn việc **Nhập lớp** (.E2 lần đầu, .N sang kỳ mới); kỳ cũ giữ ở tab Lớp, chỉ xem | Giảng viên không phải tự tạo kỳ; không vào nhầm lớp kỳ trước; vẫn tra lại được kỳ cũ | Giảng viên tự tạo kỳ; ẩn kỳ cũ | GV-001, GV-003, GV-100 |
 | D-19 | Vòng 4 nhóm E theo điểm thien chấm: logo dùng màu primary; bản laptop tiêu đề “Buổi vắng · Fall 2026”, MSSV dưới tên ở góc phải; bỏ tia quét cam; “Hãy quét lại” thay “Mã đổi sau mỗi 15 giây”; chip Vắng ở SV-102 bỏ dấu X; “Đã gửi” dùng xanh lá; SV-101 .S giữ như cũ | Logo cam FPT gốc nhạt hơn màu app; bớt chữ và chi tiết thừa; thành công là xanh lá như luật B3 | Giữ nguyên | SV-001, SV-101, SV-102, App icon |
+| D-20 | **Đăng nhập, đăng ký bằng Google** (chỉ tài khoản @fe.edu.vn) bên cạnh email + mật khẩu | thien yêu cầu 29/10 tối; ít gõ hơn trên điện thoại | Chỉ email + mật khẩu | GV-A01, GV-A02 |
+| D-21 | **Bước đệm GV-A04 “Bắt đầu”** sau đăng ký: 3 bước Nhập danh sách lớp → Lịch dạy tự có → Điểm danh mỗi slot; Nhập lớp ngay / Để sau | thien: đăng ký xong giảng viên phải hiểu cần nhập danh sách lớp thì mới có lịch để điểm danh | Thả thẳng vào Tổng quan rỗng | GV-A04 |
+| D-22 | **Tổng quan kỳ chưa có lớp giữ đủ bố cục**: 4 ô số hiện “—”, phần Chú ý thay bằng thẻ “Chưa có lịch kỳ …” + Nhập lớp; GV-100 có app bar quay lại; Lịch .E2 và Lớp .E cũng dẫn về Nhập lớp (nút primary); dòng ngày luôn **kỳ trái, thứ ngày phải** | thien: màn nhập không được “tự dưng” hiện ra; giảng viên phải thấy Tổng quan quen thuộc rồi tự bấm Nhập lớp. Kỳ đứng đầu để biết đang xem kỳ nào | Màn trống chỉ có một nút (bản 29/10 chiều) | GV-001, GV-002, GV-003, GV-100, Date header |
+| D-23 | Rà UX rộng: thêm **Quên mật khẩu** (GV-A05); GV-100 .S bật nhắc ngay sau khi có lịch; **dựng lại toàn bộ prototype trang 06 từ Final UI** (bản cũ 22/10 lưu ở trang “zz”) | Link “Quên mật khẩu?” đang cụt; P-02 cần nhắc nhưng bật ở Tài khoản thì dễ bỏ qua; prototype cũ khác Final UI sau 4 vòng duyệt nên demo sẽ lệch | Giữ prototype cũ | GV-A05, GV-100, trang 06 |
 
 ## 2. Checklist accessibility
 

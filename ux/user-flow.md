@@ -1,6 +1,6 @@
 # Kiến trúc thông tin và user flow
 
-> **Trạng thái:** v0.3 (29/10/2026): thêm vòng đời đầy đủ (đăng ký, đăng nhập, chưa có lớp, sang kỳ mới, đăng nhập web sinh viên), FL-0 và FL-0b (D-16..D-18). v0.2 (20/10/2026). “Setup” là bước nhập lớp và lịch từ FAP lúc dùng lần đầu (thien chốt 20/10, E-12). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
+> **Trạng thái:** v0.4 (29/10 tối): đăng nhập Google, bước đệm GV-A04 sau đăng ký, quên mật khẩu GV-A05, Tổng quan kỳ chưa có lớp giữ 4 ô số trống + thẻ “Chưa có lịch kỳ …” (D-20..D-23). v0.3 (29/10/2026): thêm vòng đời đầy đủ (đăng ký, đăng nhập, chưa có lớp, sang kỳ mới, đăng nhập web sinh viên), FL-0 và FL-0b (D-16..D-18). v0.2 (20/10/2026). “Setup” là bước nhập lớp và lịch từ FAP lúc dùng lần đầu (thien chốt 20/10, E-12). Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
 
 ## 1. Hệ mã màn hình
 
@@ -33,7 +33,10 @@ flowchart TD
         S103 --> S201
         N(["Thông báo nhắc"]) -.-> S102
         A1["GV-A01 · Đăng nhập"] --> T1
-        A2["GV-A02 · Đăng ký"] --> A3["GV-A03 · Xác nhận email"] --> T1
+        A2["GV-A02 · Đăng ký"] --> A3["GV-A03 · Xác nhận email"] --> A4["GV-A04 · Bắt đầu: 3 bước"]
+        A4 -->|"Nhập lớp ngay"| S100
+        A4 -->|"Để sau"| T1
+        A1 -->|"Quên mật khẩu?"| A5["GV-A05 · Quên mật khẩu"] --> A1
         A1 <--> A2
         T1 -->|"kỳ chưa có lớp (.E2, .N)"| S100["GV-100 · Nhập lớp từ file"]
         S100 --> T1
@@ -56,6 +59,8 @@ flowchart TD
 | GV-A01 | Đăng nhập | A | P-01, P-02 | FL-0 | .D, .X sai mật khẩu | D-16 |
 | GV-A02 | Đăng ký (email @fe.edu.vn, mật khẩu) | A | P-01, P-02 | FL-0 | .D, .X email không phải của trường | D-16 |
 | GV-A03 | Xác nhận email (mã 6 số) | A | P-01, P-02 | FL-0 | .D | D-16 |
+| GV-A04 | Bắt đầu: 3 bước nhập lớp → lịch tự có → điểm danh | A | P-01, P-02 | FL-0 | .D | D-21 |
+| GV-A05 | Quên mật khẩu | A | P-01, P-02 | FL-0 | .D, .S đã gửi link | D-23 |
 | GV-001 | Tổng quan | 0 | P-01, P-02 | FL-0, FL-0b, FL-1, FL-3 | .D, .D1 (có slot chưa chốt), .L, .E (hôm nay không dạy), .E2 (kỳ chưa có lớp), .N (kỳ mới), .X | E-01, E-03, E-05, E-09 |
 | GV-002 | Lịch | 0 | P-01, P-02 | FL-1, FL-2 | .D1 hôm nay, .D2 ngày mai, .D3 tuần, .E | E-03 |
 | GV-003 | Lớp | 0 | P-01 | FL-3, FL-0b | .D, .D2 (kỳ cũ, chỉ xem), .E | E-03 |
@@ -90,10 +95,15 @@ flowchart TD
     B -->|"chưa có tài khoản"| C["GV-A02 · Đăng ký"]
     C -->|"email không phải @fe.edu.vn"| CX["GV-A02 .X"] --> C
     C --> D["GV-A03 · Xác nhận email"]
+    D --> D4["GV-A04 · Bắt đầu: 3 bước"]
+    D4 -->|"Nhập lớp ngay"| G
+    D4 -->|"Để sau"| F
+    B -->|"Tiếp tục với Google"| E
+    B -->|"Quên mật khẩu?"| R["GV-A05 · Gửi link"] --> B
     B -->|"sai mật khẩu"| BX["GV-A01 .X"] --> B
-    D --> E{"Kỳ hiện tại có lớp?"}
+    D4 -.-> E{"Kỳ hiện tại có lớp?"}
     B --> E
-    E -->|"Chưa"| F["GV-001 .E2 · Fall 2026 chưa có lớp"]
+    E -->|"Chưa"| F["GV-001 .E2 · 4 ô số trống, thẻ Chưa có lịch kỳ"]
     F --> G["GV-100 · Nhập lớp từ file"]
     G --> H(["GV-001 .D · Có slot hôm nay"])
     E -->|"Có"| H
@@ -103,7 +113,7 @@ flowchart TD
     H -.->|"Tài khoản → Đăng xuất"| B
 ```
 
-**Quy tắc kỳ (D-18):** app đặt tên kỳ theo ngày hiện tại: tháng 1–4 là Spring, 5–8 là Summer, 9–12 là Fall, kèm năm (Spring 2027). Ngày đầu kỳ mới, Tổng quan chuyển sang .N và chỉ còn một việc: Nhập lớp. Kỳ cũ giữ ở tab Lớp, chọn bằng chip kỳ, chỉ xem.
+**Quy tắc kỳ (D-18):** app đặt tên kỳ theo ngày hiện tại: tháng 1–4 là Spring, 5–8 là Summer, 9–12 là Fall, kèm năm (Spring 2027). Ngày đầu kỳ mới, Tổng quan chuyển sang .N: vẫn đủ bố cục (dòng kỳ ở trái, thứ ngày ở phải; 4 ô số để trống) nhưng phần Chú ý thay bằng thẻ “Chưa có lịch kỳ Spring 2027” và nút Nhập lớp; Lịch (GV-002 .E2) và Lớp cũng dẫn về Nhập lớp. Màn Nhập lớp (GV-100) có app bar và nút quay lại, nên luôn biết mình đến từ đâu. Kỳ cũ giữ ở tab Lớp, chọn bằng chip kỳ, chỉ xem.
 
 
 ### FL-1 · Điểm danh một slot (P-01, K1)

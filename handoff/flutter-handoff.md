@@ -93,17 +93,17 @@ Quy ước chung cho mọi màn:
 ### GV-A01 · Đăng nhập, GV-A02 · Đăng ký, GV-A03 · Xác nhận email
 | Mục | Nội dung |
 |---|---|
-| Bố cục | Không app bar, không NavigationBar · hàng tiêu đề: App icon 48 + “Đăng nhập” / “Đăng ký” / “Xác nhận email” · [dòng phụ “Dùng email @fe.edu.vn”] · các Text field · nút đáy primary + dòng “Chưa có tài khoản? **Đăng ký**” |
+| Bố cục | Không app bar, không NavigationBar · hàng tiêu đề: App icon 48 + “Đăng nhập” / “Đăng ký” / “Xác nhận email” / “Chào thầy Quân” (A04) / “Quên mật khẩu” (A05) · A01, A02: dải “hoặc” + nút outline “Tiếp tục với Google” (gói `google_sign_in`, chỉ nhận tài khoản @fe.edu.vn; dùng nút theo bộ nhận diện chính thức của Google) · A04: 3 hàng bước đánh số, bước 1 nền primary-soft · [dòng phụ “Dùng email @fe.edu.vn”] · các Text field · nút đáy primary + dòng “Chưa có tài khoản? **Đăng ký**” |
 | Component | App icon, Text field (Filled, Error), Button primary, `TextButton` cho link; A03: 6 ô `TextField` maxLength 1 hoặc gói `pinput` |
 | Trạng thái | A01 .D · A01 .X lỗi dưới ô mật khẩu “Sai email hoặc mật khẩu”, giữ email · A02 .D · A02 .X lỗi dưới ô email “Chỉ nhận email @fe.edu.vn” · A03 .D nút tắt tới khi đủ 6 số, “Gửi lại mã sau 28 giây” |
 | Tương tác | Bàn phím `TextInputType.emailAddress`; mật khẩu `obscureText`; kiểm đuôi email ngay khi rời ô; A03 tự chuyển ô khi gõ, dán được cả mã |
-| Điều hướng | A01 → GV-001 (`pushReplacement`); A02 → A03 → GV-001 .E2 nếu kỳ hiện tại chưa có lớp; GV-004 “Đăng xuất” → A01 (xóa stack) |
+| Điều hướng | A01 hoặc Google → GV-001 (`pushReplacement`); A02 → A03 → A04 → “Nhập lớp ngay” GV-100 hoặc “Để sau” GV-001 .E2; Google lần đầu → A04; A01 “Quên mật khẩu?” → A05 → .S → A01; GV-004 “Đăng xuất” → A01 (xóa stack) |
 | Ràng buộc | Chỉ email @fe.edu.vn (D-16); không lưu mật khẩu trên máy, lưu token bằng `flutter_secure_storage` |
 
 ### GV-100 · Thiết lập lần đầu
 | Mục | Nội dung |
 |---|---|
-| Bố cục | Icon tải về trong vòng tròn 48 · tiêu đề “Nhập từ FAP” · danh sách lớp kỳ này (ô chọn) · nút đáy “Nhập 4 lớp” |
+| Bố cục | App bar nested “Nhập lớp” có nút quay lại (về nơi đã mở: Tổng quan, Lịch, Lớp hoặc GV-A04) · .S thêm nhóm Nhắc nhở 2 công tắc để bật nhắc ngay sau khi có lịch · (bản cũ: icon tải về trong vòng tròn 48 · tiêu đề “Nhập từ FAP”) · danh sách lớp kỳ này (ô chọn) · nút đáy “Nhập 4 lớp” |
 | Component | Empty-style header, `CheckboxListTile` × 4, Button primary, Error state |
 | Trạng thái | .D chọn lớp · .L “Đã nhập 2/4 lớp”, nút loading “Đang xử lý” · .X giữ icon và tiêu đề “Nhập từ FAP”, Error state “FAP không phản hồi” + Thử lại ở giữa phần còn lại · .S “Đã nhập 4 lớp” + nút “Vào Tổng quan” |
 | Tương tác | Bỏ chọn lớp thì số trên nút đổi theo (“Nhập 3 lớp”); 0 lớp thì nút tắt |
@@ -113,9 +113,9 @@ Quy ước chung cho mọi màn:
 ### GV-001 · Tổng quan
 | Mục | Nội dung |
 |---|---|
-| Bố cục | App bar top-level “Tổng quan” + chuông · hàng ngày + “1/3 slot đã chốt” và thanh 3 đoạn cao 6 (`Row` các `Expanded(Container)` bo 3, khe 4; màu theo trạng thái slot: success / warning / primary / border) · [thẻ Chốt ngay nếu có] · thẻ slot đang diễn ra · nhóm “Cần chú ý” 2 hàng + “Xem tất cả” · nhóm “Còn lại hôm nay” · NavigationBar tab 1 |
+| Bố cục | App bar top-level “Tổng quan” · hàng Date header: **kỳ bên trái** (“Fall 2026”, type/section) và **thứ, ngày bên phải** (“Thứ Năm, 29/10”), luôn như vậy ở mọi trạng thái · hàng ngày + “1/3 slot đã chốt” và thanh 3 đoạn cao 6 (`Row` các `Expanded(Container)` bo 3, khe 4; màu theo trạng thái slot: success / warning / primary / border) · [thẻ Chốt ngay nếu có] · thẻ slot đang diễn ra · nhóm “Cần chú ý” 2 hàng + “Xem tất cả” · nhóm “Còn lại hôm nay” · NavigationBar tab 1 |
 | Component | App bar, Slot card (Unclosed, Live, Upcoming), Attention row, Bottom navigation, Skeleton, Empty state, Error state |
-| Trạng thái | .D · .D1 slot chưa chốt lên đầu, viền hổ phách 2 · .L 3 skeleton theo hình thẻ · .E “Hôm nay không có slot” + Xem lịch · .E2 kỳ hiện tại chưa có lớp: chỉ Empty state “Fall 2026 chưa có lớp” + nút primary “Nhập lớp” · .N kỳ mới: băng primary-soft “Kỳ mới Spring 2027” + Empty state “Spring 2027 chưa có lớp” + “Nhập lớp” · .X mất mạng + Thử lại |
+| Trạng thái | .D · .D1 slot chưa chốt lên đầu, viền hổ phách 2 · .L 3 skeleton theo hình thẻ · .E “Hôm nay không có slot” + Xem lịch · .E2 / .N kỳ hiện tại chưa có lớp: giữ nguyên bố cục, 4 Stat card hiện “—”, phần Chú ý thay bằng thẻ: icon lịch trong ô primary-soft, “Chưa có lịch kỳ Fall 2026” (.N: “Spring 2027”, dòng phụ “Kỳ mới · …”) + nút primary “Nhập lớp” → GV-100 · .X mất mạng + Thử lại |
 | Tương tác | Kéo xuống để tải lại; chạm thẻ → GV-101; nút trên thẻ đi thẳng vào GV-102 |
 | Điều hướng | Chuông → GV-105; “Xem tất cả” → GV-104; hàng sinh viên → GV-201 |
 | Ràng buộc | Một nút primary trên màn: nếu có thẻ Chốt ngay thì nút “Mở điểm danh” của thẻ live đổi sang outline. Kỳ hiện tại tính từ ngày máy: tháng 1–4 Spring, 5–8 Summer, 9–12 Fall + năm (D-18); kỳ chưa có lớp thì luôn hiện .E2 / .N |

@@ -1,6 +1,6 @@
 # Đặc tả màn hình (ý đồ thiết kế)
 
-> v1.3 · 29/10/2026: thêm GV-A01..A03, SV-000, GV-001 .E2/.N, GV-003 .D2 (vòng đời, D-16..D-18). v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm GV-OV4 thông báo nhắc chốt, tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
+> v1.4 · 29/10 tối: Google ở GV-A01/A02, GV-A04, GV-A05, GV-001 .E2/.N giữ 4 ô số trống + thẻ Chưa có lịch, GV-002 .E2, GV-100 có app bar. v1.3 · 29/10/2026: thêm GV-A01..A03, SV-000, GV-001 .E2/.N, GV-003 .D2 (vòng đời, D-16..D-18). v1.2 · 22/10/2026 (v1.1 thêm GV-001 .D1 theo A2; v1.2 thêm GV-OV4 thông báo nhắc chốt, tiến độ slot trong ngày ở GV-001, đồng hồ đổi mã ở GV-102 .D1, thanh địa chỉ ở web SV-*). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và trạng thái theo [user-flow.md](../ux/user-flow.md) mục 1. Cách dựng chi tiết ở [flutter-handoff.md](../handoff/flutter-handoff.md).
 
 ## App giảng viên
 
@@ -9,6 +9,8 @@
 | GV-A01 | Đăng nhập | Vào app trên máy mới | App icon + “Đăng nhập” · Email · Mật khẩu · Quên mật khẩu? | **Đăng nhập**; link Đăng ký | FL-0 | .D · .X sai mật khẩu |
 | GV-A02 | Đăng ký | Tạo tài khoản bằng email trường (D-16) | App icon + “Đăng ký” · “Dùng email @fe.edu.vn” · Họ tên · Email · Mật khẩu | **Tạo tài khoản**; link Đăng nhập | FL-0 | .D · .X email không phải @fe.edu.vn |
 | GV-A03 | Xác nhận email | Chắc email là của giảng viên | “Mã 6 số đã gửi tới …” · 6 ô · gửi lại sau 28 giây | **Xác nhận** | FL-0 | .D |
+| GV-A04 | Bắt đầu | Sau đăng ký, chỉ rõ việc phải làm trước khi điểm danh được (D-21) | “Chào thầy Quân” · 3 bước: Nhập danh sách lớp (đang chọn) · Lịch dạy tự có · Điểm danh mỗi slot | **Nhập lớp ngay**; Để sau → Tổng quan .E2 | FL-0 | .D |
+| GV-A05 | Quên mật khẩu | Lấy lại quyền vào app | Ô Email · nút gửi link | **Gửi link đặt lại**; Quay lại đăng nhập | FL-0 | .D · .S đã gửi link |
 | GV-100 | Thiết lập lần đầu | Lấy lớp và lịch từ FAP để không phải nhập tay (E-12) | Icon tải về · tiêu đề “Nhập từ FAP” · danh sách lớp kỳ này có ô chọn (.X giữ nguyên tiêu đề, lỗi nằm giữa phần còn lại) | **Nhập 4 lớp** | FL-2 | .D chọn lớp · .L đang nhập · .X nhập lỗi · .S xong |
 | GV-001 | Tổng quan | Trả lời “bây giờ tôi phải làm gì” trong 5 giây (E-01, E-05) | App bar top-level + chuông · ngày + **“1/3 slot đã chốt” và thanh 3 đoạn** (mỗi đoạn một slot: đã chốt xanh, chưa chốt hổ phách, đang diễn ra đen, sắp tới xám) · thẻ slot đang diễn ra · thẻ slot chưa chốt (nếu có) · “Cần chú ý” 2–3 hàng · các slot còn lại hôm nay | **Mở điểm danh** trên thẻ slot đang diễn ra | FL-1, FL-2, FL-3 | .D · .D1 có slot chưa chốt (thẻ **Chốt ngay** lên đầu) · .L skeleton · .E hôm nay không dạy · .X mất mạng |
 | GV-002 | Lịch | Xem hôm nay, ngày mai, tuần mà không mở FAP (E-03) | Segmented Hôm nay / Ngày mai / Tuần · nhóm theo ngày · thẻ slot | Chạm thẻ slot | FL-1, FL-2 | .D1 hôm nay · .D2 ngày mai · .D3 tuần · .E không có slot |
