@@ -130,11 +130,11 @@ flowchart TD
 
 ### FL-2 · Không để quên điểm danh (P-02, K2)
 
-Bắt đầu: dùng app lần đầu. Mục tiêu: chốt slot trong ngày dù quên lúc đầu. Kết thúc: GV-102 .S.
+Bắt đầu: sau FL-0, cần nhập lớp. Mục tiêu: chốt slot trong ngày dù quên lúc đầu. Kết thúc: GV-102 .S.
 
 ```mermaid
 flowchart TD
-    A(["Bắt đầu: lần đầu dùng app"]) --> A1["GV-100 .D · Nhập lớp và lịch từ FAP"]
+    A(["Bắt đầu: từ FL-0, kỳ chưa có lớp"]) --> A1["GV-100 .D · Nhập lớp và lịch từ FAP"]
     A1 --> A2["GV-100 .L · Đang nhập"]
     A2 -->|"lỗi"| A3["GV-100 .X · Thử lại"] --> A2
     A2 --> A4["GV-100 .S · Đã nhập 4 lớp"]
