@@ -1,6 +1,6 @@
 # DESIGN.md · Style guide (design brief cho Stitch)
 
-> **v3.0 · 29/10/2026.** v1.0 viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Figma phải theo file này. Token ở đây khớp 1–1 với biến `Color`, `Spacing`, `Radius`, `Size` và 9 kiểu chữ `type/*` trong file Figma.
+> **v3.1 · 30/10/2026:** mục 7 cập nhật theo luật chốt khi duyệt Final UI (chip bo 8 không viền, tab nền muted-surface, thông báo nền `color/fg`, icon đặc / nét, chiều cao nút 48 / 40 / 36). **v3.0 · 29/10/2026.** v1.0 viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Figma phải theo file này. Token ở đây khớp 1–1 với biến `Color`, `Spacing`, `Radius`, `Size` và 9 kiểu chữ `type/*` trong file Figma.
 >
 > **Thay đổi v2.0 → v3.0:** chọn hướng **C · Nổi khối, cam FPT** trong 3 hướng thử ngày 26/10 (trang Figma `00 Hướng`): viền 2 px, gờ đáy 2 px như nút bấm thật, font tròn **Nunito**, màu nhấn cam đất `#B9551F`; sau đó 4 vòng duyệt từng màn với thien (27–29/10) chốt luật chung: chữ chỉ dùng 9 kiểu, lề màn 12, icon 20/24 (quyết định [D-13](design-decisions.md), [D-14](design-decisions.md)). Lý do: bản Xanh đại dương đúng luật nhưng vẫn "nhạt", giống mọi app quản lý; cam là màu nhận diện FPT nên giảng viên thấy quen.
 >
@@ -79,10 +79,10 @@ Font **Nunito** (tròn, đủ dấu tiếng Việt). Chỉ dùng **9 kiểu** d�
 |---|---|
 | Khoảng cách (lưới 4) | `space/4` · `space/8` · `space/12` · `space/16` · `space/20` · `space/24` · `space/32` |
 | Lề màn | **12** hai bên (luật chung vòng 3); 16–24 giữa các nhóm; 8–12 giữa các thẻ |
-| Bo góc | `radius/sm` 6 (chip trạng thái) · `radius/md` = `radius/lg` 8 (nút, thẻ, ô nhập) · `radius/xl` 10 (dialog, sheet) · `radius/full` 999 (avatar, chip chọn) |
+| Bo góc | `radius/sm` 6 · `radius/md` = `radius/lg` 8 (nút, thẻ, ô nhập) · `radius/xl` 10 (dialog, sheet) · `radius/full` 999 (avatar, chip chọn) |
 | Viền và gờ | Thẻ: viền 2 px `color/edge` + gờ đáy 2 px cùng màu. Nút chính: gờ đáy 2 px `color/edge-primary`. Không đổ bóng mờ, trừ snackbar |
 | Vùng chạm | `size/touch` 48: nút đáy, hàng, tab, icon bấm được cao ít nhất 48 |
-| Icon | Lucide, nét 2, cỡ `size/icon-20` hoặc `size/icon-24`; avatar `size/avatar` 40 |
+| Icon | Lucide nét 2, cỡ 20/24, cho mũi tên, quay lại, tab chưa chọn, icon trong dòng chữ, mọi icon lịch. Icon đặc (bộ “Icon đặc/*”) cho tab đang chọn, icon tiêu đề màn, icon trong ô vuông, tam giác Chú ý. Ô chứa icon vuông bo 8. Avatar 40 không viền |
 
 ## 6. Bố cục mobile
 
@@ -97,22 +97,23 @@ Font **Nunito** (tròn, đủ dấu tiếng Việt). Chỉ dùng **9 kiểu** d�
 
 | Component | Biến thể và trạng thái bắt buộc | Ghi chú |
 |---|---|---|
-| Button | primary, outline, ghost, destructive × default, pressed, disabled, loading (16 biến thể) | Cao 48 trên màn (component gốc 40 + gờ, kéo giãn), bo 8, gờ đáy 2, chữ `type/label` |
+| Button | primary, outline, ghost, destructive × default, pressed, disabled, loading; thuộc tính Icon trái, Mũi tên phải | Cao 48 trên màn (không giãn, ngay dưới ô nhập; ghim đáy ở màn kết quả), 40 trong thẻ và ô trống, 36 trong hộp thoại; bo 8, gờ đáy 2; icon lấy màu chữ nút. Nhãn ngắn + icon: Điểm danh + QR, Chốt + tick nét, Sửa + bút, Nhắc nhở + chuông, Gửi + máy bay giấy, Báo sai + tin nhắn |
 | Text field | default, focused, filled, error, disabled | Cao 48, viền `border-control`; focus viền primary 2; lỗi viền danger + một dòng lỗi |
 | Card | default, pressed (khi bấm được) | Nền surface, viền 2 + gờ đáy 2 `color/edge`, bo 8, padding 12–16 |
-| Bottom navigation | 4 biến thể, mỗi tab được chọn | Icon 24 + nhãn 14; tab chọn: icon và chữ primary, nền chỉ báo primary-soft |
+| Bottom navigation | 4 biến thể, mỗi tab được chọn | Chỉ icon 24; tab chọn: icon đặc primary trong ô primary-soft không viền; tab chưa chọn: icon nét |
 | App bar | top-level, nested (nút Quay lại), with actions | Cao 64 (top-level), 56 (nested) |
-| Dialog | confirmation, destructive/error | Bo lg, `elevation/2`, tối đa 2 nút |
+| Dialog | confirmation, destructive/error | Bo 8, lề 14, nút cao 36, tối đa 2 nút (Hủy + hành động) |
 | Loading | skeleton theo hình thẻ; spinner trong nút | — |
-| Empty state | icon Lucide 24 trong vòng tròn muted-surface 48 + 1 câu ≤ 6 từ + 1 nút | — |
+| Empty state | icon trong ô vuông bo 8 (fg-muted) + “Trống” hoặc “Chưa có lịch / Chưa có lớp” + nút 40 tùy chọn | Không nút “Về Tổng quan” (đã có nút quay lại) |
 | Error state | icon + nguyên nhân bằng lời thường + nút “Thử lại” | — |
-| Status chip | present, absent, pending, warning (6 biến thể) | Icon 16 + chữ, viền 2 màu trạng thái, nền soft; badge tròn (Status badge) cho thẻ slot |
-| Chip | on, off | Chip chọn lý do (GV-OV5): bo tròn, viền 2; đang chọn: nền primary-soft, viền primary-soft-edge |
+| Status chip | Present, Absent | Chữ màu trạng thái trên nền soft, bo 8, đệm 4/8, **không icon, không viền** |
+| Status badge | Closed, Upcoming, Live, Unclosed, Error | Tròn đặc 20, ký hiệu trắng: tick xanh đã chốt, đồng hồ xám chỉ slot sắp tới gần nhất, tam giác hổ phách chưa chốt, x đỏ lỗi; thẻ đang diễn ra không icon |
+| Chip | on, off | Bo 8, không viền; off nền muted-surface; on nền primary-soft chữ on-primary-soft |
 | Student row | default, exception (chưa quét), marked | Avatar 40, tên, chip; mã SV chỉ ở hồ sơ (GV-201); cả hàng cao ≥ 56 |
 | Attention row | near, over | Avatar 40, tên, icon + số “3/4” màu trạng thái; không chip, không chữ “buổi vắng” (nhóm đã có tiêu đề) |
 | Slot card | upcoming, live, unclosed, closed | Giờ, môn, phòng, chip trạng thái; **live: nền primary, chữ trắng, nút trắng**; unclosed: viền hổ phách + nút “Chốt ngay” |
-| Segmented control | mỗi mục được chọn | Hôm nay / Ngày mai / Tuần |
-| Snackbar | with action | “Đã chốt” + Hoàn tác |
+| Segmented control | mỗi mục được chọn | Hôm nay / Tuần / Tháng; Sinh viên / Buổi học. Nền muted-surface bo 10 đệm 4; tab chọn ô trắng bo 8 bóng nhẹ, chữ cam đậm; không gạch chân |
+| Snackbar | with action | Nền `color/fg` bo 12, tick đặc, chữ trắng; “Hoàn tác” chữ và icon trắng |
 | Status bar, Browser bar | — | Chỉ để trình bày: giờ + sóng, wifi, pin; web SV-* thêm thanh địa chỉ để nhìn là biết web |
 
 ## 8. Không làm

@@ -6,7 +6,8 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 |---|---|
 | Nhóm | Group 3: Trần Ngọc Thiên · SE190533; Vũ Anh Khôi · SE194606; Vũ Huy Phương · SE190742; Lê Thành Lộc · SE182702 |
 | Persona một dòng | **P-01:** giảng viên dạy 3–4 slot mỗi ngày, quen mặt sinh viên, sợ quên điểm danh (bị trừ lương) và sợ phát hiện muộn em vắng nhiều ([ux/persona.md](ux/persona.md)) |
-| Figma | [PRM323 Lab 2 v2 · SE190533](https://www.figma.com/design/1qIZVpL0Q7bD9UzT5TVBRy) (6 trang đúng thứ tự đề) |
+| Figma | [PRM323 Lab 2 v2 · SE190533](https://www.figma.com/design/1qIZVpL0Q7bD9UzT5TVBRy) (6 trang đúng thứ tự đề: 01 User Flow, 02 Wireframe, 03 Final UI, 04 Design System, 05 Components, 06 Prototype) |
+| Prototype | [Bấm thử FL-1 Điểm danh một slot](https://www.figma.com/proto/1qIZVpL0Q7bD9UzT5TVBRy?node-id=185-4139&starting-point-node-id=185%3A4139); 8 luồng, điểm bắt đầu ở [ux/user-flow.md](ux/user-flow.md) mục 4 |
 | Hạn | Đã gia hạn với giảng viên (sau 20/10/2026) |
 | Bản trước (v1) | [prm323-lab2-SE190533-archieve](https://github.com/thiengthb/prm323-lab2-SE190533-archieve), trình bày 16/10/2026. Bài học: [process/retro-v1.md](process/retro-v1.md) |
 
@@ -18,14 +19,14 @@ Thiết kế UI/UX có AI hỗ trợ (Google Stitch → Figma): **app điện th
 | Phiếu phỏng vấn sinh viên | [research/01-phieu-phong-van-sv.md](research/01-phieu-phong-van-sv.md) | Sẵn sàng dùng |
 | Ma trận bằng chứng, ghi chép phỏng vấn | [research/02-evidence-matrix.md](research/02-evidence-matrix.md), [research/03-ghi-chep/](research/03-ghi-chep/) | 20 phát hiện, 2 phỏng vấn SV |
 | Persona, problem statement, tiêu chí thành công | [ux/persona.md](ux/persona.md) | v0.2 (P-01, P-02, P-03) |
-| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v0.4: FL-0 vòng đời (đăng ký, Google, bước đệm, nhập lớp, sang kỳ mới, quên mật khẩu) |
-| Design brief cho Stitch | [design/DESIGN.md](design/DESIGN.md) | v3.0 (29/10): hướng Nổi khối, cam đất #B9551F, Nunito 9 kiểu chữ |
-| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v1.4 (20 màn, 5 lớp phủ; vòng đời đăng ký → bước đệm → nhập lớp → sang kỳ mới) |
+| Kiến trúc thông tin, user flow | [ux/user-flow.md](ux/user-flow.md) | v1.0 (30/10): khớp Final UI và 8 luồng prototype (FL-0, 0b, 1, 2, 3, 4, 4b, 5) |
+| Design brief, style guide | [design/DESIGN.md](design/DESIGN.md) | v3.1 (30/10): hướng Nổi khối, cam đất #B9551F, Nunito 9 kiểu chữ; luật component chốt khi duyệt Final UI |
+| Đặc tả màn hình | [design/screen-spec.md](design/screen-spec.md) | v2.0 (30/10): 17 màn giảng viên, 6 màn web sinh viên, 4 lớp phủ, 61 khung |
 | Quyết định thiết kế, checklist accessibility | [design/design-decisions.md](design/design-decisions.md) | D-01..D-23, checklist 10 mục đạt |
 | UI Simplicity Checklist | [design/ui-simplicity-check.md](design/ui-simplicity-check.md) | Claude chấm 90/100 (26/10); U-01..U-06 đã sửa trên Figma (27–29/10); thien duyệt từng màn qua 4 vòng |
 | Nhật ký AI | [ai/ai-design-log.md](ai/ai-design-log.md), [ai/critique/](ai/critique/) | AI-01..AI-15; phản biện IT-0..IT-3; 4 vòng duyệt từng màn |
 | Ảnh Stitch, ảnh Figma | `assets/stitch/`, `assets/figma/` | Stitch IT-0..IT-3 có (phản biện AI-04, AI-09, AI-10); 53 ảnh Figma có |
-| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v1.3 (29/10): bảng token theo DESIGN.md v3.0; 6 mục cho 20 màn, có đăng nhập, Google, bước đệm, kỳ mới |
+| Flutter handoff | [handoff/flutter-handoff.md](handoff/flutter-handoff.md) | v2.0 (30/10): token → ThemeData, component → widget, đặc tả 6 mục cho mọi màn Final UI; nguồn dữ liệu Cloud Firestore |
 | Slide thuyết trình | Deck theo thứ tự thầy yêu cầu (mục tiêu → nghiên cứu → persona → giải pháp → cấu trúc → flow → style guide → AI → quyết định → màn hình → kiểm tra → bàn giao), lời nói trong ghi chú người nói | v4.0 (29/10): 13 slide, cùng bảng màu và font với app; tải về PPTX hoặc PDF từ deck |
 | Kế hoạch và quy trình | [process/plan.md](process/plan.md) | v0.2 |
 
