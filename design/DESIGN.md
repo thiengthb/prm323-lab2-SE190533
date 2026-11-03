@@ -1,6 +1,8 @@
 # DESIGN.md · Style guide (design brief cho Stitch)
 
-> **v3.1 · 30/10/2026:** mục 7 cập nhật theo luật chốt khi duyệt Final UI (chip bo 8 không viền, tab nền muted-surface, thông báo nền `color/fg`, icon đặc / nét, chiều cao nút 48 / 40 / 36). **v3.0 · 29/10/2026.** v1.0 viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Figma phải theo file này. Token ở đây khớp 1–1 với biến `Color`, `Spacing`, `Radius`, `Size` và 9 kiểu chữ `type/*` trong file Figma.
+> **03/11/2026: đã có Final UI v2 (Hereby).** Màu, thẻ, thanh tab, công tắc và các màn liệt kê trong [final-ui-v2.md](final-ui-v2.md) được bản v2 thay thế. Chỗ nào hai file khác nhau thì theo final-ui-v2.md. File này giữ nguyên nội dung v3.1 làm lịch sử.
+>
+> **v3.2 · 03/11/2026:** thêm ghi chú Final UI v2 ở đầu file. **v3.1 · 30/10/2026:** mục 7 cập nhật theo luật chốt khi duyệt Final UI (chip bo 8 không viền, tab nền muted-surface, thông báo nền `color/fg`, icon đặc / nét, chiều cao nút 48 / 40 / 36). **v3.0 · 29/10/2026.** v1.0 viết **trước** prompt Stitch đầu tiên (đề mục 4, bước 3; luật 4 trong [retro-v1](../process/retro-v1.md)). Mọi màn trong Figma phải theo file này. Token ở đây khớp 1–1 với biến `Color`, `Spacing`, `Radius`, `Size` và 9 kiểu chữ `type/*` trong file Figma.
 >
 > **Thay đổi v2.0 → v3.0:** chọn hướng **C · Nổi khối, cam FPT** trong 3 hướng thử ngày 26/10 (trang Figma `00 Hướng`): viền 2 px, gờ đáy 2 px như nút bấm thật, font tròn **Nunito**, màu nhấn cam đất `#B9551F`; sau đó 4 vòng duyệt từng màn với thien (27–29/10) chốt luật chung: chữ chỉ dùng 9 kiểu, lề màn 12, icon 20/24 (quyết định [D-13](design-decisions.md), [D-14](design-decisions.md)). Lý do: bản Xanh đại dương đúng luật nhưng vẫn "nhạt", giống mọi app quản lý; cam là màu nhận diện FPT nên giảng viên thấy quen.
 >

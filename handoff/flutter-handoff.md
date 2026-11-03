@@ -1,6 +1,8 @@
 # Flutter handoff
 
-> v2.0 · 30/10/2026, khớp Final UI sau lượt duyệt cuối. Hai bảng ánh xạ toàn cục (mục 1 token, mục 2 component) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn, ví dụ `GV-102 · Phiên điểm danh .D2`. Thay đổi so với v1.3: mã GV-090..094, SV-090/091, SV-002; nhập lớp bằng file; Lịch Hôm nay / Tuần / Tháng; chip bo 8 không viền; thông báo nền `color/fg`.
+> **03/11/2026: đã có Final UI v2 (Hereby).** Màu, thẻ, thanh tab, công tắc và các màn liệt kê trong [final-ui-v2.md](../design/final-ui-v2.md) được bản v2 thay thế. Chỗ nào hai file khác nhau thì theo final-ui-v2.md. File này giữ nguyên nội dung v2.0 làm lịch sử.
+>
+> v2.1 · 03/11/2026: thêm ghi chú Final UI v2 ở đầu file. v2.0 · 30/10/2026, khớp Final UI sau lượt duyệt cuối. Hai bảng ánh xạ toàn cục (mục 1 token, mục 2 component) và đặc tả 6 mục cho từng màn (mục 3): bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc. Tên khung Figma trang 03 trùng mã màn, ví dụ `GV-102 · Phiên điểm danh .D2`. Thay đổi so với v1.3: mã GV-090..094, SV-090/091, SV-002; nhập lớp bằng file; Lịch Hôm nay / Tuần / Tháng; chip bo 8 không viền; thông báo nền `color/fg`.
 >
 > **Nguồn dữ liệu:** Cloud Firestore (dữ liệu của chính giảng viên: lớp, lịch, sinh viên nhập từ file Excel/CSV; phiên điểm danh; yêu cầu sửa; lời nhắc). Không gọi FAP.
 

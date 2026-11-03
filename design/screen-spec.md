@@ -1,6 +1,8 @@
 # Đặc tả màn hình (ý đồ thiết kế)
 
-> v2.0 · 30/10/2026, khớp Final UI sau lượt duyệt cuối (luật chung ở [DESIGN.md](DESIGN.md) mục 7). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và flow theo [user-flow.md](../ux/user-flow.md). Cách dựng ở [flutter-handoff.md](../handoff/flutter-handoff.md).
+> **03/11/2026: đã có Final UI v2 (Hereby).** Màu, thẻ, thanh tab, công tắc và các màn liệt kê trong [final-ui-v2.md](final-ui-v2.md) được bản v2 thay thế. Chỗ nào hai file khác nhau thì theo final-ui-v2.md. File này giữ nguyên nội dung v2.0 làm lịch sử.
+>
+> v2.1 · 03/11/2026: thêm ghi chú Final UI v2 ở đầu file. v2.0 · 30/10/2026, khớp Final UI sau lượt duyệt cuối (luật chung ở [DESIGN.md](DESIGN.md) mục 7). Mỗi màn: để làm gì, hiện gì, hành động chính, thuộc flow nào. Mã màn và flow theo [user-flow.md](../ux/user-flow.md). Cách dựng ở [flutter-handoff.md](../handoff/flutter-handoff.md).
 >
 > **Dữ liệu:** lớp, lịch và danh sách sinh viên do giảng viên nhập từ file Excel/CSV phòng đào tạo gửi (GV-100); kết quả điểm danh, yêu cầu sửa và lời nhắc lưu trên Cloud Firestore. Dữ liệu mẫu trên Figma: giảng viên Nguyễn Minh Quân (quanm@fe.edu.vn), kỳ Fall 2026, 4 lớp PRM393 · SE1801 (35), PRM393 · SE1802 (34), MMA301 · SE1805 (30), PRN221 · SE1810 (32). Ngưỡng vắng: 20% số buổi (4/20).
 
