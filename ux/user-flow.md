@@ -1,6 +1,8 @@
 # Kiến trúc thông tin và user flow
 
-> **Trạng thái:** v1.0 · 30/10/2026, khớp Final UI (trang 03) và Prototype (trang 06) sau lượt duyệt cuối. So với v0.4: mã màn trước khi vào app đổi từ GV-A0x sang **GV-090..094**, đăng nhập web sinh viên thành **SV-090/091**, thêm **SV-002 Chi tiết môn**; nhập lớp bằng **file Excel/CSV** (không đọc FAP); Lịch chia **Hôm nay / Tuần / Tháng**; prototype có **8 luồng**. Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
+> **03/11/2026: đã có Final UI v2 (Hereby).** Màu, thẻ, thanh tab, công tắc và các màn liệt kê trong [final-ui-v2.md](../design/final-ui-v2.md) được bản v2 thay thế. Chỗ nào hai file khác nhau thì theo final-ui-v2.md. File này giữ nguyên nội dung v1.0 làm lịch sử.
+>
+> **Trạng thái:** v1.1 · 03/11/2026: thêm ghi chú Final UI v2 ở đầu file (FL-1, FL-2, FL-4 đổi, GV-101 bỏ, thêm TV-001). v1.0 · 30/10/2026, khớp Final UI (trang 03) và Prototype (trang 06) sau lượt duyệt cuối. So với v0.4: mã màn trước khi vào app đổi từ GV-A0x sang **GV-090..094**, đăng nhập web sinh viên thành **SV-090/091**, thêm **SV-002 Chi tiết môn**; nhập lớp bằng **file Excel/CSV** (không đọc FAP); Lịch chia **Hôm nay / Tuần / Tháng**; prototype có **8 luồng**. Mọi tính năng truy về E-xx trong [ma trận bằng chứng](../research/02-evidence-matrix.md).
 
 ## 1. Hệ mã màn hình
 
