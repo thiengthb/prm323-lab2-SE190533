@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRM323 Lab 2 v2 · Hereby · SE190533</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#0b1820;overflow:hidden}
+*{box-sizing:border-box} h1,h2,h3,p{margin:0}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;display:none!important;overflow:hidden}
+.slide.on{display:flex!important}
+.slide aside.notes{display:none}
+:root{--bg:#F6F8F9;--card:#FFFFFF;--ink:#1F1F1F;--fg:#3C3C3C;--muted:#5E6468;--line:#DDE3E6;--primary:#0B4F71;--primary-dark:#07354E;--psoft:#DCEDF5;--onpsoft:#0A4664;--ok:#15803D;--oksoft:#ECFDF3;--warn:#A15C00;--warnsoft:#FFF6DD;--bad:#B42318;--badsoft:#FEF0EF;}
+section{background:var(--bg);color:var(--fg);font-family:'Nunito',Arial,sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:36px}
+section.dark{background:var(--primary);color:#F3F8FB}
+.head{display:flex;flex-direction:column;gap:10px}
+.kicker{font-size:24px;font-weight:700;color:var(--primary);letter-spacing:1px}
+section.dark .kicker{color:#9CC9DF}
+h1{font-size:88px;font-weight:800;line-height:1.05;color:#FFFFFF}
+h2{font-size:52px;font-weight:800;line-height:1.15;color:var(--ink)}
+h3{font-size:30px;font-weight:800;line-height:1.2;color:var(--ink)}
+p{font-size:26px;line-height:1.4}
+.small{font-size:24px;color:var(--muted)}
+.foot{position:absolute;left:128px;bottom:64px;width:1664px;display:flex;justify-content:space-between}
+.foot p{font-size:24px;color:var(--muted)}
+section.dark .foot p{color:#9CC9DF}
+.row{display:flex;gap:32px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:28px 32px;display:flex;flex-direction:column;gap:14px}
+.card.sunk{background:#EDF1F3;border-color:#EDF1F3}
+.card.accent{border-top:8px solid var(--primary)}
+.tag{font-size:24px;font-weight:700;border-radius:999px;padding:4px 16px;white-space:nowrap;align-self:flex-start}
+.tag.p{background:var(--psoft);color:var(--onpsoft)}
+.tag.ok{background:var(--oksoft);color:var(--ok)}
+.tag.warn{background:var(--warnsoft);color:var(--warn)}
+.tag.bad{background:var(--badsoft);color:var(--bad)}
+.big{font-size:48px;font-weight:800;color:var(--primary);line-height:1.1}
+.quote{font-size:28px;line-height:1.4;color:var(--ink);border-left:6px solid var(--primary);padding:2px 0 2px 24px}
+.phone{border-radius:20px;border:2px solid var(--line);background:#FFFFFF;object-fit:contain}
+.shot{display:flex;flex-direction:column;gap:10px;align-items:center}
+.shot p{font-size:24px;color:var(--muted);text-align:center}
+table{border-collapse:collapse;width:100%}
+th{font-size:24px;font-weight:800;color:var(--ink);text-align:left;padding:12px 16px;border-bottom:3px solid var(--primary)}
+td{font-size:24px;line-height:1.35;padding:12px 16px;border-bottom:2px solid var(--line);vertical-align:top}
+.mono{font-family:'Courier New',monospace;font-size:24px;line-height:1.4;background:#10222D;color:#E6EEF2;border-radius:16px;padding:24px 28px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.num{font-size:24px;font-weight:800;color:#FFFFFF;background:var(--primary);border-radius:999px;width:44px;height:44px;line-height:44px;text-align:center;flex-shrink:0}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.card,.shot{animation:rise .45s ease-out both}
+.grid3 > :nth-child(2),.row > :nth-child(2){animation-delay:.08s}
+.grid3 > :nth-child(3),.row > :nth-child(3){animation-delay:.16s}
+.row > :nth-child(4){animation-delay:.24s}
+.row > :nth-child(5){animation-delay:.32s}
+
+.slide.on .card,.slide.on .shot{animation:rise .45s ease-out both}
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:rgba(10,20,26,.94);color:#E8F0F4;font:18px/1.5 Nunito,Arial,sans-serif;padding:16px 24px;white-space:pre-wrap;display:none}
+#hint{position:fixed;right:12px;bottom:8px;color:#6f8a99;font:13px Nunito,Arial,sans-serif}
+@media print{@page{size:1920px 1080px;margin:0} html,body{overflow:visible;background:none} .stage{position:static;transform:none!important} .slide{display:flex!important;position:relative;page-break-after:always} #notes,#hint{display:none} .card,.shot{animation:none!important}}
+</style></head><body>
+<div class="stage" id="stage">
+<section id="cover" class="slide dark" data-transition="fade" style="justify-content:space-between">
+<div class="head" style="gap:24px">
+<p class="kicker">PRM323 · LAB 2 · THIẾT KẾ UI/UX CÓ AI HỖ TRỢ</p>
+<h1>Hereby</h1>
+<p style="font-size:40px;line-height:1.35;color:#F3F8FB;width:1400px">Giúp giảng viên FPTU không bao giờ quên điểm danh và biết sớm sinh viên nào cần được quan tâm, trên một app điện thoại thay cho việc mở FAP.</p>
+</div>
+<div class="row" style="gap:48px;align-items:flex-end">
+<div style="display:flex;flex-direction:column;gap:8px;flex:1">
+<p style="font-size:26px;font-weight:700;color:#FFFFFF">Group 3 · Trần Ngọc Thiên SE190533 · Vũ Anh Khôi SE194606 · Vũ Huy Phương SE190742 · Lê Thành Lộc SE182702</p>
+<p style="font-size:24px;color:#9CC9DF">Figma: figma.com/design/1qIZVpL0Q7bD9UzT5TVBRy · GitHub: github.com/thiengthb/prm323-lab2-se190533</p>
+</div>
+</div>
+<aside class="notes">Mở đầu (khoảng 30 giây). Giới thiệu nhóm và một câu mục tiêu: app điện thoại cho giảng viên để không quên điểm danh và nhận ra sớm em nào vắng nhiều, kèm web tối giản cho sinh viên. Nói rõ đây là bản v2: bản v1 trình bày ngày 16/10 bị thầy góp ý, nhóm làm lại từ nghiên cứu. Thứ tự trình bày đi theo đúng thứ tự tư duy thầy yêu cầu: mục tiêu, nghiên cứu, persona, giải pháp, màn hình và flow, style guide, AI, Final UI, prototype, bàn giao.</aside>
+</section>
+
+<section class="slide" id="research" data-transition="fade">
+<div class="head">
+<p class="kicker">1 · NGHIÊN CỨU</p>
+<h2>Hỏi người thật trước, rồi mới vẽ</h2>
+</div>
+<div class="grid2" style="grid-template-columns:560px 1fr">
+<div class="card sunk">
+<h3>Câu hỏi nghiên cứu</h3>
+<p>Giảng viên sợ điều gì nhất khi điểm danh? Sinh viên có tự theo dõi số buổi vắng không?</p>
+<h3 style="padding-top:8px">Nguồn</h3>
+<p>Góp ý trực tiếp của giảng viên hướng dẫn, buổi review 16/10</p>
+<p>2 cuộc phỏng vấn sinh viên thật (SV-01, SV-02)</p>
+<p>Quy chế FPTU: vắng quá 20% không được thi</p>
+<p class="small">Không dùng AI giả lập người dùng (bài học từ v1)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card accent"><span class="tag bad">E-01 · E-09 · E-10</span><p style="color:var(--ink);font-weight:700">Quên điểm danh là bị trừ lương, và giảng viên quên thật: 2 sinh viên kể 2 lần ở 2 lớp, giảng viên chỉ biết sau 1–2 ngày.</p></div>
+<div class="card accent"><span class="tag p">E-04</span><p style="color:var(--ink);font-weight:700">Đếm sĩ số là thừa: giảng viên lâu năm nhớ khoảng 35 gương mặt qua 10 tuần.</p></div>
+<div class="card accent"><span class="tag warn">E-25 · E-26</span><p style="color:var(--ink);font-weight:700">Sinh viên hiếm khi xem số buổi vắng (“lâu rồi không xem”) và không nhớ chắc mình được vắng mấy buổi.</p></div>
+</div>
+</div>
+<div class="foot"><p>Bằng chứng: research/02-evidence-matrix.md (E-01..E-27)</p><p>2</p></div>
+<aside class="notes">Nghiên cứu (khoảng 1 phút). Nêu câu hỏi trước, rồi nguồn. Nói thẳng: phía giảng viên dựa vào góp ý trực tiếp của thầy trong buổi review 16/10, vì không gặp lại được giảng viên khác trước hạn; phía sinh viên có 2 phỏng vấn thật, ít hơn mục tiêu 3–5 người. v2 không dùng AI giả lập người dùng nữa.
+Ba phát hiện chính: (1) quên điểm danh bị trừ lương, và hai sinh viên kể giảng viên quên thật, chỉ biết sau 1–2 ngày: đây là bằng chứng mạnh nhất, nên nhắc chốt là tính năng chính. (2) Đếm sĩ số là thừa vì thầy nhớ mặt: v2 bỏ hẳn bước đếm. (3) Sinh viên hiếm khi tự xem số buổi vắng, nên cảnh báo phải chủ động, hiện ngay lúc quét mã.
+Nếu hỏi về mâu thuẫn: thầy nói nhiều sinh viên rớt vì vắng, nhưng 2/2 sinh viên được hỏi chưa gặp ai bị (E-27). Nhóm không nói “nhiều sinh viên bị cấm thi”, chỉ nói “sinh viên không theo dõi được”.</aside>
+</section>
+
+<section class="slide" id="persona" data-transition="fade">
+<div class="head">
+<p class="kicker">2 · PERSONA</p>
+<h2>Một người dùng chính, hai người dùng phụ</h2>
+</div>
+<div class="grid3">
+<div class="card accent">
+<span class="tag p">P-01 · Chính</span>
+<h3>Thầy Minh Quân</h3>
+<p class="small">Dạy 3–4 slot mỗi ngày, lớp khoảng 35 em</p>
+<p class="quote">“Nhớ mặt cả lớp, chỉ sợ quên bấm.”</p>
+<p>Đau: quên là trừ lương; phải mở FAP riêng; báo cáo chỉ có số.</p>
+<p class="big" style="padding-top:6px">≤ 20 giây</p>
+<p class="small">TC-1 · từ lúc mở app tới chốt một slot</p>
+</div>
+<div class="card accent" style="border-top-color:var(--warn)">
+<span class="tag warn">P-02 · Phụ</span>
+<h3>Cô Thu Hà</h3>
+<p class="small">Thỉnh giảng, vài slot rải rác mỗi tuần</p>
+<p class="quote" style="border-left-color:var(--warn)">“Hôm nay có dạy không nhỉ?”</p>
+<p>Đau: không có thói quen nên quên; biết mình quên khi đã muộn.</p>
+<p class="big" style="padding-top:6px;color:var(--warn)">≤ 3 chạm</p>
+<p class="small">TC-4 · từ lời nhắc tới chốt xong</p>
+</div>
+<div class="card accent" style="border-top-color:var(--ok)">
+<span class="tag ok">P-03 · Phụ, web</span>
+<h3>Bạn Gia Huy</h3>
+<p class="small">Sinh viên, chỉ dùng trình duyệt điện thoại</p>
+<p class="quote" style="border-left-color:var(--ok)">“Lâu rồi không xem.”</p>
+<p>Đau: không biết còn được vắng mấy buổi; không gì nhắc trước.</p>
+<p class="big" style="padding-top:6px;color:var(--ok)">0 chạm thêm</p>
+<p class="small">TC-5 · đọc số buổi còn được vắng sau khi quét</p>
+</div>
+</div>
+<div class="foot"><p>ux/persona.md v0.2 · tên là tên giả · ngưỡng TC là giả định, chưa đo với người thật</p><p>3</p></div>
+<aside class="notes">Persona (khoảng 1 phút 15). P-01 là persona chính: thầy dạy dày, nhớ mặt sinh viên, sợ quên bấm. Problem statement: giảng viên dạy 3–4 slot mỗi ngày cần chốt điểm danh mọi slot và nhận ra sớm sinh viên vắng nhiều, vì quên là trừ lương và sinh viên vắng quá 20% bị cấm thi, trong khi hôm nay phải mở FAP riêng và báo cáo chỉ đưa con số.
+P-02 thêm theo yêu cầu của thầy (persona hay quên): cùng việc với P-01 nhưng rủi ro chính là quên, nên cần nhắc chủ động.
+P-03 là sinh viên, không cài app, chỉ chạm web để quét mã và xem số buổi vắng.
+Nói rõ: nỗi đau và mục tiêu là Reported từ thầy và 2 sinh viên; số slot mỗi ngày, kịch bản chi tiết và các ngưỡng TC là giả định, đo bằng thử prototype, chưa đo với giảng viên thật.</aside>
+</section>
+
+<section class="slide" id="solution" data-transition="fade">
+<div class="head">
+<p class="kicker">3 · GIẢI PHÁP CHO TỪNG PERSONA</p>
+<h2>Mỗi tính năng trả lời một nỗi đau có nguồn</h2>
+</div>
+<table>
+<tr><th style="width:150px">Persona</th><th style="width:420px">Nhu cầu</th><th>Tính năng</th><th style="width:160px">Đo bằng</th></tr>
+<tr><td><span class="tag p">P-01</span></td><td>Chốt nhanh, không đếm</td><td>Lớp tự quét QR, bộ đếm tự chạy; thầy chỉ xử lý người chưa quét rồi bấm Chốt, có Hoàn tác</td><td>TC-1</td></tr>
+<tr><td><span class="tag p">P-01</span></td><td>Biết em nào cần giúp</td><td>Nhóm Vắng nhiều ở Tổng quan, xếp theo số buổi vắng; mở hồ sơ để Nhắc nhở</td><td>TC-3</td></tr>
+<tr><td><span class="tag warn">P-02</span></td><td>Không quên chốt</td><td>Dải quên chốt đầu Tổng quan và nhắc trên màn khoá, mở thẳng phiên điểm danh</td><td>TC-2, TC-4</td></tr>
+<tr><td><span class="tag ok">P-03</span></td><td>Biết còn được vắng mấy buổi</td><td>Màn quét xong báo luôn số buổi còn được vắng; báo sai ngay trên web</td><td>TC-5</td></tr>
+</table>
+<div class="card sunk" style="flex-direction:row;align-items:center;gap:24px">
+<span class="tag bad">Đã cắt</span>
+<p style="color:var(--ink)">Bước đếm sĩ số và kiểm tra ngẫu nhiên của v1 (E-04); xuất báo cáo % chuyên cần (E-05); tự tạo lớp và lịch, vì lớp nhập từ dữ liệu FAP (E-12)</p>
+</div>
+<div class="foot"><p>ux/persona.md mục Persona → Nhu cầu → Ý tưởng → Kiểm chứng</p><p>4</p></div>
+<aside class="notes">Giải pháp cho từng persona (khoảng 1 phút). Đọc theo hàng: persona, nhu cầu, tính năng, tiêu chí đo. Nhấn mạnh tính năng nào cũng truy về một phát hiện có mã E.
+P-01: không đếm người. Lớp tự quét, bộ đếm tự chạy, thầy chỉ nhìn những em chưa quét (thầy nhớ mặt), bấm Chốt, có Hoàn tác nếu bấm nhầm. Nhóm Vắng nhiều dẫn tới hành động Nhắc nhở, không phải xuất báo cáo, vì thầy muốn chăm sóc sinh viên chứ không chỉ xem số.
+P-02: nhắc chủ động, slot nào hết giờ mà chưa chốt thì hiện dải nhắc đầu Tổng quan và nhắc trên màn khoá, chạm là vào thẳng phiên điểm danh.
+P-03: không cài app; quét xong là thấy còn được vắng mấy buổi.
+Phần đã cắt: bước đếm sĩ số của v1 (thầy nói là thừa), xuất báo cáo, tự tạo lớp.</aside>
+</section>
+
+<section class="slide" id="ia" data-transition="fade">
+<div class="head">
+<p class="kicker">4 · CẤU TRÚC VÀ MÀN HÌNH</p>
+<h2>Bốn tab cho giảng viên, ba việc cho sinh viên</h2>
+</div>
+<div class="grid2" style="grid-template-columns:1.25fr 1fr">
+<div class="card">
+<h3>App giảng viên · 15 màn</h3>
+<table>
+<tr><th>Tab</th><th>Màn con</th></tr>
+<tr><td><b>Tổng quan</b> GV-001</td><td>Phiên điểm danh GV-102 · Vắng nhiều GV-104 · Hồ sơ SV GV-201 · Yêu cầu sửa GV-105</td></tr>
+<tr><td><b>Điểm danh</b> GV-002</td><td>Lịch tuần, chạm slot mở GV-102</td></tr>
+<tr><td><b>Lớp</b> GV-003</td><td>Chi tiết lớp GV-103 · Nhập lớp GV-100</td></tr>
+<tr><td><b>Tài khoản</b> GV-004</td><td>Chọn màu · Đăng xuất</td></tr>
+<tr><td><b>Vào app</b></td><td>Đăng nhập, Đăng ký, Xác nhận email, Bắt đầu, Quên mật khẩu (GV-090..094)</td></tr>
+</table>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="card">
+<h3>Web sinh viên · 6 màn</h3>
+<p>Đăng nhập, Đăng ký · Buổi vắng của tôi SV-001 · Chi tiết môn SV-002 · Quét mã SV-101 · Gửi báo sai SV-102</p>
+</div>
+<div class="card">
+<h3>Màn chiếu TV-001</h3>
+<p>Mở bằng link trên máy chiếu, hiện mã QR và mã 6 số</p>
+</div>
+<div class="card sunk">
+<h3>Mã màn kèm trạng thái</h3>
+<p><b>.D</b> có dữ liệu · <b>.E</b> trống · <b>.L</b> đang tải · <b>.X</b> lỗi · <b>.S</b> xong</p>
+<p class="small">Ví dụ GV-102 .D2 = phiên đã đóng mã, chờ chốt</p>
+</div>
+</div>
+</div>
+<div class="foot"><p>ux/user-flow.md mục 2 · design/final-ui-v2.md mục 4 · Figma 01 User Flow · v2</p><p>5</p></div>
+<aside class="notes">Cấu trúc và màn hình (khoảng 1 phút). App giảng viên có 4 tab: Tổng quan, Điểm danh, Lớp, Tài khoản. Màn cấp con mở từ tab. Tổng cộng 22 màn khác nhau: 15 màn app giảng viên, 1 màn chiếu, 6 màn web sinh viên; chưa tính lớp phủ và biến thể trạng thái.
+Thầy chê mã màn v1 không phân biệt trạng thái, nên v2 đặt mã kèm hậu tố: .D có dữ liệu, .E trống, .L đang tải, .X lỗi, .S xong. Tên khung Figma, tên ảnh và dòng đặc tả dùng cùng một mã.
+Tab 2 trước là Lịch, bản v2 đổi thành Điểm danh vì việc chính trong tab là chạm slot để điểm danh.</aside>
+</section>
+
+<section class="slide" id="flows" data-transition="fade">
+<div class="head">
+<p class="kicker">5 · BA FLOW CHÍNH</p>
+<h2>Trước, trong và sau giờ học</h2>
+</div>
+<div class="row" style="gap:28px;align-items:stretch">
+<div class="card" style="width:1040px;padding:20px 24px">
+<div class="row" style="gap:16px;align-items:center"><span class="tag p">FL-1 · P-01 · TC-1</span><h3>Điểm danh một slot</h3></div>
+<img src="img/FL-1.png" alt="Sơ đồ FL-1 trên Figma" style="width:990px;height:460px;object-fit:contain;background:#FFFFFF">
+<p class="small">Tổng quan → mở mã → Đóng mã → Chốt → Đã chốt, có Hoàn tác · <span style="color:var(--bad)">lỗi: mất mạng khi chốt → dải vàng, Thử lại</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px;flex:1">
+<div class="card" style="padding:18px 22px;gap:10px">
+<div class="row" style="gap:12px;align-items:center"><span class="tag warn">FL-2 · P-02</span><h3>Không quên chốt</h3></div>
+<img src="img/FL-2.png" alt="Sơ đồ FL-2 trên Figma" style="width:100%;height:220px;object-fit:contain;background:#FFFFFF">
+</div>
+<div class="card" style="padding:18px 22px;gap:10px">
+<div class="row" style="gap:12px;align-items:center"><span class="tag ok">FL-4 · P-03</span><h3>Sinh viên quét mã</h3></div>
+<img src="img/FL-4.png" alt="Sơ đồ FL-4 trên Figma" style="width:100%;height:220px;object-fit:contain;background:#FFFFFF">
+</div>
+</div>
+</div>
+<div class="foot"><p>Figma 01 User Flow · v2 (8 flow: FL-0, 0b, 1, 2, 3, 4, 4b, 5) · ux/user-flow.md mục 4–5</p><p>6</p></div>
+<aside class="notes">Ba flow chính (khoảng 1 phút 15). Theo hành trình trước, trong và sau giờ học, như thầy góp ý.
+FL-1 điểm danh một slot (P-01): từ Tổng quan chạm thẻ slot đang diễn ra, mã QR mở ngay, lớp quét, thầy bấm Đóng mã rồi Chốt. Có Hoàn tác. Nhánh lỗi: mất mạng khi chốt thì kết quả giữ trên máy, hiện dải vàng có Thử lại.
+FL-2 không quên chốt (P-02): slot hết giờ mà chưa chốt thì Tổng quan hiện dải quên chốt; một slot thì mở thẳng phiên, nhiều slot thì mở danh sách slot chưa chốt.
+FL-4 sinh viên (P-03): quét QR, hoặc nhập mã 6 số đang hiện trên TV nếu camera bị chặn. Quét xong thấy luôn còn được vắng mấy buổi. Nhánh lỗi: mã hết hạn thì Quét lại.
+Trên Figma có tổng 8 flow, gồm cả đăng nhập lần đầu, sang kỳ mới, chăm sóc sinh viên và duyệt báo sai.</aside>
+</section>
+
+<section class="slide" id="style" data-transition="fade">
+<div class="head">
+<p class="kicker">6 · STYLE GUIDE · VIẾT TRƯỚC KHI GỌI AI</p>
+<h2>Luật chữ, màu và khoảng cách chốt trước</h2>
+</div>
+<div class="grid3" style="grid-template-columns:1.1fr 1fr 1fr">
+<div class="card">
+<h3>Luật chữ trên màn</h3>
+<div class="step"><span class="num">1</span><p>Không câu giải thích tính năng</p></div>
+<div class="step"><span class="num">2</span><p>Tiêu đề và nút ≤ 3 từ, nút bắt đầu bằng động từ</p></div>
+<div class="step"><span class="num">3</span><p>Trạng thái = icon + màu + 1–2 từ</p></div>
+<div class="step"><span class="num">4</span><p>Số là chữ chính: “3/4” to hơn nhãn</p></div>
+<div class="step"><span class="num">5</span><p>Tối đa khoảng 25 từ mỗi màn</p></div>
+</div>
+<div class="card">
+<h3>Màu · một màu chính</h3>
+<div class="row" style="gap:12px"><div style="width:72px;height:72px;border-radius:12px;background:#0B4F71"></div><div><p style="font-weight:800;color:var(--ink)">primary #0B4F71</p><p class="small">Biển sâu, chữ trắng 8,86:1</p></div></div>
+<div class="row" style="gap:12px"><div style="width:72px;height:72px;border-radius:12px;background:#15803D"></div><div><p style="font-weight:800;color:var(--ink)">success #15803D</p><p class="small">Có mặt, đã chốt</p></div></div>
+<div class="row" style="gap:12px"><div style="width:72px;height:72px;border-radius:12px;background:#A15C00"></div><div><p style="font-weight:800;color:var(--ink)">warning #A15C00</p><p class="small">Chưa chốt, vắng 3/4–4/4</p></div></div>
+<div class="row" style="gap:12px"><div style="width:72px;height:72px;border-radius:12px;background:#B42318"></div><div><p style="font-weight:800;color:var(--ink)">danger #B42318</p><p class="small">Lỗi, vắng từ 5/4</p></div></div>
+</div>
+<div class="card">
+<h3>Chữ, khoảng cách</h3>
+<p><b>Nunito</b>, 9 kiểu chữ từ 28 xuống 12; nội dung ≥ 14</p>
+<p>Lưới 4: 4 · 8 · 12 · 16 · 24 · 32</p>
+<p>Bo góc 8; viền 2; thẻ bấm được có gờ đáy 2, thẻ chỉ xem thì chìm</p>
+<p>Nút chính cao 48; vùng chạm ≥ 48</p>
+<p class="small">Biến Figma: Color (8 mẫu màu), type/*, space/*, radius/*</p>
+</div>
+</div>
+<div class="foot"><p>design/DESIGN.md · design/final-ui-v2.md mục 2–3 · Figma 04 Design System</p><p>7</p></div>
+<aside class="notes">Style guide (khoảng 1 phút). Thầy góp ý v1: style guide phải có trước khi đưa cho AI. v2 viết DESIGN.md trước, rồi mới soạn prompt Stitch từ đó.
+Luật chữ quan trọng nhất là không có câu giải thích trên màn, vì thầy chê v1 nhiều chữ.
+Màu: chỉ một màu chính, ba màu trạng thái, còn lại là xám. Bảng màu đã đổi qua mấy vòng: Đen trắng, Xanh đại dương, Cam đất, rồi Biển sâu ở bản cuối; nhờ dùng biến Figma nên đổi một chỗ là mọi màn đổi theo. Màu trạng thái giữ nguyên ở mọi mẫu.
+Chữ Nunito 9 kiểu, nhỏ nhất cho nội dung là 14.</aside>
+</section>
+
+<section class="slide" id="ai-gen" data-transition="fade">
+<div class="head">
+<p class="kicker">7 · AI SINH GIAO DIỆN ĐẦU TIÊN</p>
+<h2>Prompt viết từ style guide, Stitch sinh 4 màn</h2>
+</div>
+<div class="row" style="gap:40px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:16px;width:980px">
+<div class="mono">USER: A lecturer who teaches 3 to 4 class slots a day, about 35 students per class… Their two fears: forgetting to take attendance (they lose salary if they forget) and noticing too late that a student is absent too often…<br><br>CONSTRAINTS<br>- No explanatory sentences or helper paragraphs on screen.<br>- At most about 25 words per screen besides data.<br>- No headcount, no "count students" step, no random check step.</div>
+<p class="small">Đủ 5 phần: người dùng, việc cần làm (4 màn), nền tảng 360 × 800 dp, ràng buộc, phong cách. Prompt nguyên văn: ai/prompts/AI-03-stitch-IT-0.md</p>
+</div>
+<div class="shot"><img class="phone" src="img/it0-tongquan.png" alt="Stitch IT-0 Tổng quan" style="width:300px;height:600px;object-fit:cover;object-position:top"><p>IT-0 · Tổng quan</p></div>
+<div class="shot"><img class="phone" src="img/it0-phien.png" alt="Stitch IT-0 Phiên điểm danh" style="width:300px;height:600px;object-fit:cover;object-position:top"><p>IT-0 · Phiên điểm danh</p></div>
+</div>
+<div class="foot"><p>ai/ai-design-log.md AI-03 · assets/stitch/IT-0/</p><p>8</p></div>
+<aside class="notes">AI sinh giao diện (khoảng 1 phút). Claude soạn prompt từ DESIGN.md; thien dán nguyên văn vào Google Stitch, chế độ App mobile. Prompt có đủ người dùng, 4 màn cần sinh, nền tảng, ràng buộc và phong cách; ràng buộc ghi rõ không có câu giải thích, không bước đếm sĩ số.
+Kết quả IT-0: Stitch giữ được ý chính (thẻ QR to có bộ đếm, danh sách chỉ người chưa quét, ảnh đại diện) nhưng tự đổi sang bảng màu Material 3 tím, mất dấu tiếng Việt ở tiêu đề, chip đè lên nhau, chữ 11–12 px. Slide sau là phản biện và ba vòng sửa.</aside>
+</section>
+
+<section class="slide" id="iterations" data-transition="fade">
+<div class="head">
+<p class="kicker">8 · PHẢN BIỆN VÀ BA VÒNG SỬA</p>
+<h2>Mỗi vòng sửa một vấn đề khác nhau</h2>
+</div>
+<div class="row" style="gap:28px;align-items:stretch">
+<div class="card" style="flex:1;align-items:center;padding:20px">
+<span class="tag p">IT-1 · bớt màu, bớt chữ</span>
+<img class="phone" src="img/it1-tongquan.png" alt="Stitch IT-1 Tổng quan" style="width:250px;height:440px;object-fit:cover;object-position:top">
+<p class="small">Hết tím, hết chữ dưới 14, hết đoạn hướng dẫn</p>
+</div>
+<div class="card" style="flex:1;align-items:center;padding:20px">
+<span class="tag warn">IT-2 · đúng trạng thái</span>
+<img class="phone" src="img/it2-gv104.png" alt="Stitch IT-2 Vắng nhiều" style="width:250px;height:440px;object-fit:cover;object-position:top">
+<p class="small">Slot chưa mở, đang mở, đã chốt; màn Vắng nhiều</p>
+</div>
+<div class="card" style="flex:1;align-items:center;padding:20px">
+<span class="tag bad">IT-3 · lỗi, trống, web SV</span>
+<img class="phone" src="img/it3-sv101.png" alt="Stitch IT-3 Quét mã" style="width:250px;height:440px;object-fit:cover;object-position:top">
+<p class="small">Mất mạng, chưa có slot, quét mã trên web</p>
+</div>
+<div class="card sunk" style="width:560px">
+<h3>22 phát hiện có màn cụ thể</h3>
+<p><b>F2</b> GV-001: chip “Chưa bắt đầu” đè chip phòng</p>
+<p><b>F5</b> GV-102: chữ 11–12 px ở 18 chỗ</p>
+<p><b>F9</b> Cần chú ý: nút “Xuất báo cáo”, băng giải thích luật 20%</p>
+<p><b>F12</b> GV-201: nút “Nhắc sinh viên” mất chữ</p>
+<p><b>F16</b> SV-101: trạng thái thành tab bấm được</p>
+<p class="small">Theo Nielsen, accessibility, persona</p>
+</div>
+</div>
+<div class="foot"><p>ai/critique/AI-04, AI-09, AI-10 · assets/stitch/IT-1..IT-3</p><p>9</p></div>
+<aside class="notes">Phản biện và ba vòng sửa (khoảng 1 phút 15). Sau IT-0, Claude phản biện theo heuristic Nielsen, accessibility và persona: 9 phát hiện ở AI-04, 6 phát hiện mới ở AI-09, 7 ở AI-10, tổng 22 phát hiện, mỗi cái gắn với một màn cụ thể.
+Ba vòng có ba mục tiêu khác nhau: IT-1 bỏ bảng màu tím và bỏ chữ giải thích; IT-2 làm đúng các trạng thái của slot và thêm màn Vắng nhiều, hồ sơ sinh viên; IT-3 thêm trạng thái lỗi, trống và web sinh viên.
+Ví dụ phát hiện: chip đè nhau ở Tổng quan; chữ 11–12 px ở phiên điểm danh; nút Xuất báo cáo trái với ý thầy là chăm sóc sinh viên; nút Nhắc sinh viên mất chữ do Stitch dùng class không tồn tại.
+Lỗi bố cục cứ lặp lại qua các vòng, nên nhóm dừng Stitch và dựng màn cuối trên Figma.</aside>
+</section>
+
+<section class="slide" id="decisions" data-transition="fade">
+<div class="head">
+<p class="kicker">9 · QUYẾT ĐỊNH</p>
+<h2>AI đề xuất, nhóm quyết</h2>
+</div>
+<table>
+<tr><th style="width:170px">Quyết định</th><th style="width:560px">Gợi ý của AI</th><th>Nhóm làm gì, vì sao</th></tr>
+<tr><td><span class="tag ok">Accept</span></td><td>Ảnh đại diện trên mọi hàng sinh viên (Stitch IT-0)</td><td>Giữ: thầy nhận mặt nhanh hơn đọc MSSV (E-04) · D-06</td></tr>
+<tr><td><span class="tag ok">Accept</span></td><td>Thẻ “Chốt ngay” đầu Tổng quan khi còn slot chưa chốt</td><td>Giữ, thành dải quên chốt: đúng nỗi sợ bị trừ lương (E-01, E-09) · D-03</td></tr>
+<tr><td><span class="tag warn">Modify</span></td><td>Bảng màu Material 3 tím, 5 họ màu</td><td>Đổi về một màu chính, ba màu trạng thái (F3) · D-01, D-11, D-13</td></tr>
+<tr><td><span class="tag warn">Modify</span></td><td>Hộp xác nhận trước khi chốt (Claude đề xuất)</td><td>Bỏ hộp ở bản cuối, giữ Hoàn tác: chốt một chạm, sai thì hoàn tác (H3, H9) · D-04</td></tr>
+<tr><td><span class="tag bad">Reject</span></td><td>Nút “Xuất báo cáo”, băng giải thích luật 20%</td><td>Thay bằng Nhắc nhở: thầy muốn chăm sóc sinh viên, không chỉ xem số (E-05, F9) · D-05</td></tr>
+<tr><td><span class="tag bad">Reject</span></td><td>Thanh tiến độ và % lặp lại bộ đếm 32/35</td><td>Bỏ: không lặp một thông tin hai chỗ (F6) · D-12</td></tr>
+</table>
+<div class="foot"><p>design/design-decisions.md (D-01..D-23) · ai/ai-design-log.md</p><p>10</p></div>
+<aside class="notes">Quyết định (khoảng 1 phút). Đọc theo ba nhóm: giữ, sửa, bỏ. Mỗi dòng có lý do truy về bằng chứng E, phát hiện F hoặc heuristic.
+Giữ: ảnh đại diện, vì thầy nhận mặt; thẻ chốt ngay, vì quên là trừ lương.
+Sửa: bảng màu tím của Stitch đổi về một màu chính. Hộp xác nhận chốt là đề xuất của chính Claude; ở bản cuối nhóm bỏ hộp, chỉ giữ Hoàn tác, vì chốt là việc làm mỗi slot, hỏi lại mỗi lần là thừa.
+Bỏ: nút Xuất báo cáo, thay bằng Nhắc nhở; thanh % lặp lại bộ đếm.
+Có tổng 23 quyết định trong repo; trên slide chọn 6 cái tiêu biểu.</aside>
+</section>
+
+<section class="slide" id="wireframe-final" data-transition="fade">
+<div class="head">
+<p class="kicker">10 · WIREFRAME → TRẠNG THÁI → FINAL UI</p>
+<h2>Bố cục chốt ở wireframe, màu và chữ đến sau</h2>
+</div>
+<div class="row" style="gap:24px;align-items:flex-start">
+<div class="shot"><img class="phone" src="img/wf-GV-001.png" alt="Wireframe GV-001" style="width:270px;height:600px;object-fit:cover;object-position:top"><p>Wireframe GV-001</p></div>
+<div style="width:48px;height:40px;background:#0B4F71;align-self:center;clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%)"></div>
+<div class="shot"><img class="phone" src="img/GV-001.D.png" alt="Final GV-001 .D" style="width:270px;height:600px;object-fit:cover;object-position:top"><p>Final GV-001 .D</p></div>
+<div style="width:2px;height:600px;background:#DDE3E6"></div>
+<div class="shot"><img class="phone" src="img/GV-001.L.png" alt="GV-001 .L đang tải" style="width:270px;height:600px;object-fit:cover;object-position:top"><p>GV-001 .L đang tải</p></div>
+<div class="shot"><img class="phone" src="img/GV-001.E.png" alt="GV-001 .E hôm nay không dạy" style="width:270px;height:600px;object-fit:cover;object-position:top"><p>GV-001 .E hôm nay không dạy</p></div>
+<div class="shot"><img class="phone" src="img/GV-102.X.png" alt="GV-102 .X mất mạng" style="width:270px;height:600px;object-fit:cover;object-position:top"><p>GV-102 .X mất mạng</p></div>
+</div>
+<div class="foot"><p>Figma 02 Wireframe · 03 Final UI · v2 · trạng thái trống, tải, lỗi dùng chung một kiểu</p><p>11</p></div>
+<aside class="notes">Wireframe sang Final UI (khoảng 1 phút). Bên trái: wireframe Tổng quan và bản cuối. Bố cục giữ nguyên từ wireframe: ngày và kỳ ở đầu, thẻ slot đang diễn ra nổi nhất, ô số, nhóm Vắng nhiều. Final UI thêm màu, chữ, icon theo style guide.
+Bên phải là trạng thái, theo đúng thứ tự thầy yêu cầu (wireframe, trạng thái, final UI): đang tải dùng khung xám, hôm nay không dạy thì icon lịch gạch nằm cạnh ngày chứ không để khối trống lớn, mất mạng thì giữ dữ liệu cũ kèm dải vàng có Thử lại. Mọi trạng thái trống, xong, lỗi dùng chung một bố cục icon trên chữ dưới.</aside>
+</section>
+
+<section class="slide" id="final-ui" data-transition="fade">
+<div class="head">
+<p class="kicker">11 · FINAL UI</p>
+<h2>Điểm danh một slot, rồi chăm sóc sinh viên</h2>
+</div>
+<div class="row" style="gap:28px;align-items:flex-start;justify-content:space-between">
+<div class="shot"><img class="phone" src="img/GV-102.D1.png" alt="GV-102 .D1 mã đang mở" style="width:290px;height:640px;object-fit:cover;object-position:top"><p>GV-102 .D1 mã đang mở</p></div>
+<div class="shot"><img class="phone" src="img/GV-102.D2.png" alt="GV-102 .D2 đóng mã, chờ chốt" style="width:290px;height:640px;object-fit:cover;object-position:top"><p>GV-102 .D2 đóng mã, chờ chốt</p></div>
+<div class="shot"><img class="phone" src="img/GV-102.S.png" alt="GV-102 .S đã chốt" style="width:290px;height:640px;object-fit:cover;object-position:top"><p>GV-102 .S đã chốt</p></div>
+<div class="shot"><img class="phone" src="img/GV-104.D.png" alt="GV-104 Vắng nhiều" style="width:290px;height:640px;object-fit:cover;object-position:top"><p>GV-104 Vắng nhiều</p></div>
+<div class="shot"><img class="phone" src="img/SV-101.S.png" alt="SV-101 .S quét xong" style="width:290px;height:640px;object-fit:cover;object-position:top"><p>SV-101 .S quét xong</p></div>
+</div>
+<div class="foot"><p>Figma 03 Final UI · v2: 22 màn khác nhau, mỗi màn đủ trạng thái .D .E .L .X .S</p><p>12</p></div>
+<aside class="notes">Final UI (khoảng 1 phút). Đi theo FL-1 từ trái sang phải. Mã đang mở: QR to, mã số 6 chữ cho ai camera hỏng, bộ đếm tự chạy, nút Chiếu lên TV. Bấm Đóng mã: danh sách đưa người chưa quét lên đầu, thầy gạt công tắc có mặt cho em quên điện thoại, rồi bấm Chốt. Đã chốt: có Hoàn tác.
+Màn Vắng nhiều: số buổi vắng màu vàng ở 3/4 và 4/4, đỏ từ 5/4; em đã fail không còn nút Nhắc nhở.
+Web sinh viên: quét xong là thấy còn được vắng mấy buổi, đúng TC-5.
+Trên Figma còn màn chiếu TV-001 cho máy chiếu và 8 mẫu màu ở Tài khoản.</aside>
+</section>
+
+<section class="slide" id="a11y-proto" data-transition="fade">
+<div class="head">
+<p class="kicker">12 · ACCESSIBILITY VÀ PROTOTYPE</p>
+<h2>Kiểm bằng số, rồi bấm thử trên Figma</h2>
+</div>
+<div class="grid2" style="grid-template-columns:1.3fr 1fr">
+<table>
+<tr><th>Tiêu chí</th><th style="width:200px">Ngưỡng</th><th style="width:340px">Kết quả</th></tr>
+<tr><td>Chữ trắng trên primary</td><td>≥ 4,5:1</td><td><span class="tag ok">8,86:1</span></td></tr>
+<tr><td>Chữ trạng thái trên nền nhạt</td><td>≥ 4,5:1</td><td><span class="tag ok">4,76 đến 5,92</span></td></tr>
+<tr><td>Cỡ chữ nội dung</td><td>≥ 14</td><td><span class="tag ok">nhỏ nhất 14</span></td></tr>
+<tr><td>Vùng chạm</td><td>≥ 48 × 48 dp</td><td><span class="tag ok">nút 48, tab 72</span></td></tr>
+<tr><td>Không chỉ dùng màu</td><td>icon + chữ</td><td><span class="tag ok">dải vàng luôn có chữ</span></td></tr>
+<tr><td>Bề rộng 360 và 412 dp</td><td>không vỡ</td><td><span class="tag ok">khung clone 412</span></td></tr>
+</table>
+<div class="card accent">
+<h3>Demo trên Figma 06 Prototype · v2</h3>
+<div class="step"><span class="num">1</span><p>FL-1 điểm danh một slot, có Hoàn tác</p></div>
+<div class="step"><span class="num">2</span><p>FL-2 dải quên chốt mở thẳng phiên</p></div>
+<div class="step"><span class="num">3</span><p>FL-4 sinh viên quét mã, nhánh mã hết hạn</p></div>
+<p class="small">Có Back đúng, sheet dạng lớp phủ, đang tải → kết quả, không ngõ cụt</p>
+</div>
+</div>
+<div class="foot"><p>design/design-decisions.md mục 2 · design/final-ui-v2.md mục 2 · Figma 06 Prototype · v2</p><p>13</p></div>
+<aside class="notes">Accessibility và prototype (khoảng 45 giây, rồi chuyển sang demo). Tương phản tính bằng công thức WCAG trên biến màu Figma: chữ trắng trên Biển sâu 8,86; chữ trạng thái trên nền nhạt từ 4,76 đến 5,92. Viền vàng của dải cảnh báo chỉ đạt 1,47 nên dải vàng luôn phải có chữ, không chỉ dựa vào màu.
+Cỡ chữ nhỏ nhất 14, nút 48, thanh tab 72. Kiểm bề rộng 412 dp bằng khung clone trên Figma.
+Nói thật: phần đo cỡ chữ, vùng chạm và 412 dp chạy bằng script trên bản 22/10, bản v2 dùng cùng component nên giữ được, nhưng chưa đo lại từng khung v2.
+Sau đó mở Figma trang 06 Prototype · v2, chạy FL-1, FL-2, FL-4 từ điểm bắt đầu.</aside>
+</section>
+
+<section id="handoff" class="slide dark" data-transition="fade">
+<div class="head">
+<p class="kicker">13 · BÀN GIAO VÀ BÀI HỌC</p>
+<h2 style="color:#FFFFFF">Từ Figma sang Flutter, và những gì chưa đo</h2>
+</div>
+<div class="grid3">
+<div class="card" style="background:#0E5F87;border-color:#0E5F87">
+<h3 style="color:#FFFFFF">Bàn giao</h3>
+<p style="color:#F3F8FB">Token → ThemeData, component → widget: hai bảng ánh xạ</p>
+<p style="color:#F3F8FB">Mỗi màn 6 mục: bố cục, component, trạng thái, tương tác, điều hướng, ràng buộc</p>
+<p style="color:#9CC9DF">handoff/flutter-handoff.md · Lab 3 dựng lại bằng Flutter</p>
+</div>
+<div class="card" style="background:#0E5F87;border-color:#0E5F87">
+<h3 style="color:#FFFFFF">Giới hạn</h3>
+<p style="color:#F3F8FB">Phía giảng viên chỉ có góp ý của thầy; mới 2 phỏng vấn sinh viên</p>
+<p style="color:#F3F8FB">Ngưỡng TC chưa đo với giảng viên thật trên prototype</p>
+<p style="color:#F3F8FB">UI Simplicity 18/20 do Claude chấm, chưa có người chấm lại</p>
+</div>
+<div class="card" style="background:#0E5F87;border-color:#0E5F87">
+<h3 style="color:#FFFFFF">Bài học từ v1</h3>
+<p style="color:#F3F8FB">Hỏi người thật, không để AI đóng vai người dùng</p>
+<p style="color:#F3F8FB">Style guide trước, AI sau</p>
+<p style="color:#F3F8FB">Bớt chữ trên màn; kể theo thứ tự tư duy</p>
+</div>
+</div>
+<div class="foot"><p>github.com/thiengthb/prm323-lab2-se190533 · Figma 1qIZVpL0Q7bD9UzT5TVBRy</p><p>14</p></div>
+<aside class="notes">Bàn giao và bài học (khoảng 45 giây). Handoff có hai bảng ánh xạ token sang ThemeData và component sang widget, và mỗi màn có đủ 6 mục. Bản dựng Flutter thật nằm ở Lab 3.
+Nói thẳng giới hạn: phía giảng viên chỉ dựa vào góp ý của thầy; mới 2 sinh viên được phỏng vấn; các ngưỡng TC chưa đo với giảng viên thật; điểm UI Simplicity 18/20 là Claude chấm, chưa có người chấm lại.
+Ba bài học từ v1: không dùng AI giả lập người dùng; style guide phải có trước khi gọi AI; bớt chữ và kể theo thứ tự tư duy. Cảm ơn thầy, mời thầy hỏi.</aside>
+</section>
+
+</div>
+<div id="notes"></div><div id="hint">← → chuyển slide · N ghi chú · F toàn màn hình</div>
+<script>
+(()=>{const S=[...document.querySelectorAll('.slide')],st=document.getElementById('stage'),nt=document.getElementById('notes');
+let i=Math.max(0,Math.min(S.length-1,(parseInt(location.hash.slice(1))||1)-1));
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(${-960*k}px,${-540*k}px) scale(${k})`;}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));const a=S[i].querySelector('aside');nt.textContent=a?a.textContent:'';history.replaceState(null,'','#'+(i+1));}
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){show(i+1);e.preventDefault()}else if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);else if(e.key==='n'||e.key==='N')nt.style.display=nt.style.display==='block'?'none':'block';else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+addEventListener('click',e=>{if(e.target.closest('#notes'))return;show(e.clientX>innerWidth/3?i+1:i-1)});
+addEventListener('resize',fit);addEventListener('hashchange',()=>show((parseInt(location.hash.slice(1))||1)-1));fit();show(i);})();
+</script></body></html>
